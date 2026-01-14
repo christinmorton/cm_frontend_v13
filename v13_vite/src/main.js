@@ -4,6 +4,10 @@ import { ThreeBackground } from './js/components/ThreeBackground.js'
 // Initialize 3D Background
 new ThreeBackground();
 
+// Initialize Guest Tracking
+import { initTracking } from './js/tracking/index.js';
+initTracking();
+
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">

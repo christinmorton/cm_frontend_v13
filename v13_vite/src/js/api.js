@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 // Base API configuration
-// NOTE: In production, this should come from import.meta.env.VITE_API_URL
-// For now, defaulting to local WP instance per guide
-const API_BASE_URL = 'http://general-wp.local/wp-json/wpbe/v1';
-const JWT_AUTH_URL = 'http://general-wp.local/wp-json/jwt-auth/v1';
+// Get from environment variables, with fallback to local development URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://general-wp.local/wp-json/wpbe/v1';
+const JWT_AUTH_URL = import.meta.env.VITE_JWT_AUTH_URL || 'http://general-wp.local/wp-json/jwt-auth/v1';
 
 const api = axios.create({
     baseURL: API_BASE_URL,

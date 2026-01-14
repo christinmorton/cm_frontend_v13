@@ -3,7 +3,11 @@
  * Handles global UI interactions like specific navigation toggles.
  */
 
+import { initTracking } from './tracking/index.js';
+
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded');
+    initTracking();
     initMobileMenu();
 });
 

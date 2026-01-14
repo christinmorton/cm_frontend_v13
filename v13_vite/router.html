@@ -354,7 +354,7 @@
         </section>
     </main>
 
-    <!-- <script type="module" src="/src/js/core.js"></script> -->
+    <script type="module" src="/src/js/core.js"></script>
     <script>
         // Funnel State
         let answers = {
@@ -392,6 +392,21 @@
         window.finishFunnel = function (readinessValue) {
             answers.readiness = readinessValue;
             calculateResult();
+
+            // Track Router Flow as Lead Intent
+            // Format answers into a message string for easy reading
+            const message = `Intent: ${answers.intent}, Clarity: ${answers.clarity}, Timing: ${answers.timing}, Readiness: ${answers.readiness}`;
+
+            // Check if tracking is available (loaded via core.js -> initTracking)
+            if (window.__analytics) {
+                window.__analytics.track('form_submit', {
+                    form_id: 'router_flow',
+                    form_data: answers,
+                    message: message,
+                    sender_type: 'guest'
+                });
+                window.__analytics.flush();
+            }
         }
 
         function updateProgress(step) {
