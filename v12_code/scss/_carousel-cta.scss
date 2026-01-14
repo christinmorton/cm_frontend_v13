@@ -1,0 +1,179 @@
+/* CTA Carousel Specific Styles (About Page) */
+
+.cta-section-wrapper {
+  @include base-carousel-container;
+  margin: 3rem 0;
+  padding: 0 50px; /* Space for navigation buttons */
+}
+
+.cta-carousel {
+  @include base-carousel-wrapper;
+  @include base-carousel-navigation;
+  @include base-carousel-pagination;
+  
+  .swiper-slide {
+    min-height: 250px;
+    
+    .cta-card {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-2px);
+      }
+      
+      h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      
+      p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+      
+      .cta-button {
+        display: inline-block;
+        padding: 12px 24px;
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: #027a24;
+          transform: translateY(-1px);
+        }
+        
+        &.secondary {
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          
+          &:hover {
+            background: rgba(255, 255, 255, 0.2);
+          }
+        }
+        
+        &.tertiary {
+          background: transparent;
+          border: 2px solid var(--primary-color);
+          color: var(--primary-color);
+          
+          &:hover {
+            background: var(--primary-color);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  
+  /* CTA-specific navigation sizing */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    
+    &:after {
+      font-size: 16px;
+    }
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05);
+    }
+  }
+  
+  .swiper-button-next {
+    right: 15px;
+  }
+  
+  .swiper-button-prev {
+    left: 15px;
+  }
+  
+  /* CTA-specific pagination */
+  .swiper-pagination {
+    margin-top: 1.5rem;
+    
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      margin: 0 3px;
+      
+      &.swiper-pagination-bullet-active {
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+/* CTA carousel mobile responsiveness */
+@media (max-width: 768px) {
+  .cta-section-wrapper {
+    margin: 2rem 0;
+    padding: 0 45px;
+  }
+  
+  .cta-carousel {
+    .swiper-slide {
+      min-height: 220px;
+      padding: 0 1rem;
+      
+      .cta-card {
+        max-width: 100%;
+        padding: 1.5rem;
+        
+        h3 {
+          font-size: 1.3rem;
+        }
+        
+        p {
+          font-size: 0.9rem;
+          margin-bottom: 1.25rem;
+        }
+        
+        .cta-button {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 35px;
+      height: 35px;
+      margin-top: -17.5px;
+      
+      &:after {
+        font-size: 14px;
+      }
+    }
+    
+    .swiper-button-next {
+      right: 10px;
+    }
+    
+    .swiper-button-prev {
+      left: 10px;
+    }
+  }
+}

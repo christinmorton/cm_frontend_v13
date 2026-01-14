@@ -1,0 +1,24 @@
+[Message Created]
+   |
+   v
+[Source?]
+  |-- Form Submission
+  |-- Ticket Update
+  |-- Admin Reply
+  |-- Client Portal Message
+   |
+   v
+[Is there an existing conversation thread?]
+  |-- Yes -> [Append Message to Conversation]
+  |-- No  -> [Create Conversation] -> [Attach Message]
+   |
+   v
+[Who is the participant?]
+  |-- Guest -> Track as Guest/Lead Conversation
+  |-- Lead  -> Track as Lead Conversation
+  |-- Client -> Track as Client Conversation
+   |
+   v
+[Does message require action?]
+  |-- Yes -> [Create Task / Flag / Notify Admin]
+  |-- No  -> [Store + Continue Thread]

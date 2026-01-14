@@ -1,0 +1,73 @@
+/* Action Button with Ripple Effect */
+.action-button {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--primary-color);
+  border: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 2rem;
+  padding-right: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.5s;
+
+  &:hover {
+    color: white;
+    background: var(--primary-color);
+  }
+
+  span {
+    position: relative;
+    pointer-events: none;
+  }
+
+  .button-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .arrow-right {
+    transition: transform 0.5s;
+  }
+
+  &:hover .arrow-right {
+    transform: translateY(-50%) rotate(360deg);
+  }
+
+  &::before {
+    --size: 0;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #007bff, transparent);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: width .2s ease, height .2s ease;
+  }
+
+  &:hover::before {
+    --size: 400px;
+  }
+}
+
+/* Responsive action button styles */
+@media (max-width: 767px) {
+  .action-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

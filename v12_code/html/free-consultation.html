@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Consultation - Christin Morton</title>
+
+    <!-- Icomoon fonts -->
+    <link rel="stylesheet" type="text/css" href="css/icofont.min.css" />
+
+    <!--Styles css ================================================== -->
+    <link rel="stylesheet" href="/scss/main.scss" />
+
+    <!--Google Font css ================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* Page-specific styles */
+        .consultation-hero {
+            padding: 6rem 0 4rem;
+            background: transparent;
+            color: var(--white-color);
+        }
+
+        .consultation-hero .value-proposition__headline,
+        .consultation-hero .value-proposition__subheadline {
+            color: var(--white-color);
+        }
+
+        .consultation-hero .benefit__title,
+        .consultation-hero .benefit__description {
+            color: var(--white-color);
+        }
+
+        .consultation-hero .value-proposition__benefits {
+            padding-top: 2rem;
+        }
+
+        .consultation-form-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .consultation-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .consultation-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-section {
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .discussion-topics {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .topic {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .topic-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .topic-content h4 {
+            margin: 0 0 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .topic-content p {
+            margin: 0;
+            color: var(--grey-color);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card {
+            text-align: center;
+            font-style: italic;
+        }
+
+        .testimonial-card blockquote {
+            margin: 0 0 1rem;
+            color: var(--grey-color);
+        }
+
+        .testimonial-card cite {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-disclaimer {
+            font-size: 0.9rem;
+            color: var(--grey-color);
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* Button success state */
+        .funnel-submit.success {
+            background-color: #28a745 !important;
+            border-color: #28a745 !important;
+            color: white !important;
+        }
+
+        /* Rich text editor styles */
+        #project-details {
+            color: var(--dark-color) !important;
+            background-color: white !important;
+        }
+
+        #project-details.empty::before {
+            content: attr(data-placeholder);
+            color: #999;
+            font-style: italic;
+        }
+
+        #project-details:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(2, 154, 45, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .consultation-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .consultation-hero {
+                padding: 4rem 0 2rem;
+            }
+
+            .sidebar-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WQ2PVPGW');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body data-template="background" class="preloader-active">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2PVPGW" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="arrow-right" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </symbol>
+        <symbol id="close" viewBox="0 0 16 16">
+            <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+        </symbol>
+        <symbol id="home" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M4 19v-9q0-.475.213-.9t.587-.7l6-4.5q.525-.4 1.2-.4t1.2.4l6 4.5q.375.275.588.7T20 10v9q0 .825-.588 1.413T18 21h-3q-.425 0-.712-.288T14 20v-5q0-.425-.288-.712T13 14h-2q-.425 0-.712.288T10 15v5q0 .425-.288.713T9 21H6q-.825 0-1.412-.587T4 19" />
+        </symbol>
+    </svg>
+
+    <!-- Background host -->
+    <div id="bgHost" class="bg-canvas-host"></div>
+
+    <!-- Content -->
+    <header id="hybridHost" class="hybrid-banner" hidden></header>
+
+    <main>
+        <header id="header-nav" class="header-nav">
+            <div class="site-container">
+                <!-- Logo - Left -->
+                <div class="header-left">
+                    <a class="logo" href="index.html">
+                        <img src="/images/logo_2.png" alt="Christin Morton Logo" id="logo-img">
+                    </a>
+                </div>
+
+                <!-- Navigation - Right (Desktop only) -->
+                <div class="header-right desktop-only">
+                    <nav class="main-nav">
+                        <ul class="nav-menu">
+                            <li><a href="index.html" class="nav-link active">Home</a></li>
+                            <li><a href="about.html" class="nav-link">About</a></li>
+                            <li><a href="service.html" class="nav-link">Services</a></li>
+                            <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle mobile-only" type="button" aria-label="Toggle navigation"
+                    aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="menu-icon"></span>
+                </button>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" id="mobile-menu">
+                    <div class="mobile-menu-header">
+                        <button type="button" class="mobile-menu-close" aria-label="Close menu">
+                            <svg width="16" height="16">
+                                <use xlink:href="#close"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="mobile-menu-content">
+                        <!-- Mobile Navigation -->
+                        <nav class="mobile-nav">
+                            <ul class="mobile-nav-menu">
+                                <li><a href="index.html" class="nav-link active">Home</a></li>
+                                <li><a href="about.html" class="nav-link">About</a></li>
+                                <li><a href="service.html" class="nav-link">Services</a></li>
+                                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                            </ul>
+                        </nav>
+
+                        <div class="mobile-only">
+                            <div class="cta-section">
+                                <a href="project-quote.html" class="action-button">
+                                    <span>Get Quote</span>
+                                    <div class="button-icon">
+                                        <svg class="arrow-right" width="28" height="28">
+                                            <use xlink:href="#arrow-right"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Social Links -->
+                        <ul class="social-links mobile-social">
+                            <li>
+                                <a href="https://www.facebook.com/morton41Christin" aria-label="Facebook">
+                                    <svg class="social-icon" width="24" height="24">
+                                        <use xlink:href="#facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/christinmorton41" aria-label="Instagram">
+                                    <svg class="social-icon" width="24" height="24">
+                                        <use xlink:href="#instagram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/christin-morton-b24512209" aria-label="LinkedIn">
+                                    <svg class="social-icon" width="24" height="24">
+                                        <use xlink:href="#linkedin"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/christinmorton" aria-label="GitHub">
+                                    <i class="icofont-github"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://dribbble.com/ChristinMorton" aria-label="Dribbble">
+                                    <svg class="social-icon" width="24" height="24">
+                                        <use xlink:href="#dribbble"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.behance.net/chrismorton11" aria-label="Behance">
+                                    <i class="icofont-behance"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="consultation-hero">
+            <div class="site-container">
+                <div class="centered-content">
+                    <nav class="breadcrumb-nav">
+                        <a class="breadcrumb-link" href="index.html">Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <a class="breadcrumb-link" href="service.html">Services</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">Free Consultation</span>
+                    </nav>
+
+                    <div class="value-proposition">
+                        <h1 class="value-proposition__headline">
+                            Get Your <span class="highlight">Free</span> Web Development Consultation
+                        </h1>
+                        <p class="value-proposition__subheadline">
+                            30-minute strategy session to discuss your project, get expert advice, and receive a custom
+                            proposal
+                        </p>
+
+                        <div class="value-proposition__benefits">
+                            <div class="benefit">
+                                <div class="benefit__icon">🎯</div>
+                                <h3 class="benefit__title">Project Strategy</h3>
+                                <p class="benefit__description">Discuss your goals and requirements</p>
+                            </div>
+                            <div class="benefit">
+                                <div class="benefit__icon">💡</div>
+                                <h3 class="benefit__title">Expert Advice</h3>
+                                <p class="benefit__description">Technology recommendations</p>
+                            </div>
+                            <div class="benefit">
+                                <div class="benefit__icon">📋</div>
+                                <h3 class="benefit__title">Custom Proposal</h3>
+                                <p class="benefit__description">Detailed plan with timeline & pricing</p>
+                            </div>
+                            <div class="benefit">
+                                <div class="benefit__icon">🚀</div>
+                                <h3 class="benefit__title">No Obligation</h3>
+                                <p class="benefit__description">Completely free with no pressure</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation Form Section -->
+        <section class="consultation-form-section">
+            <div class="site-container">
+                <div class="consultation-content">
+
+                    <!-- Main Consultation Form -->
+                    <form class="funnel-form consultation-form" id="consultationForm" method="post"
+                        action="javascript:void(0)">
+                        <div class="funnel-form__header">
+                            <h2>Request Your Free Consultation</h2>
+                            <p>Tell us about your project and we'll schedule a personalized consultation session.</p>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="funnel-form__section">
+                            <div class="funnel-form__section-title">Contact Information</div>
+
+                            <div class="form-group">
+                                <label for="consultation-name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="consultation-name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="consultation-email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="consultation-email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="consultation-phone">Phone Number</label>
+                                <input type="tel" id="consultation-phone" name="phone"
+                                    placeholder="Optional but helpful">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company-name">Company/Business Name</label>
+                                <input type="text" id="company-name" name="company" placeholder="Optional">
+                            </div>
+                        </div>
+
+                        <!-- Project Information -->
+                        <div class="funnel-form__section">
+                            <div class="funnel-form__section-title">Project Details</div>
+
+                            <div class="form-group">
+                                <label for="current-website">Current Website URL</label>
+                                <input type="url" id="current-website" name="currentWebsite"
+                                    placeholder="https://yoursite.com (if applicable)">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-type">Project Type <span class="required">*</span></label>
+                                <div class="form-check-group">
+                                    <div class="form-check">
+                                        <input type="radio" id="new-website" name="projectType" value="New Website"
+                                            required>
+                                        <label for="new-website">New Website</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="website-redesign" name="projectType"
+                                            value="Website Redesign" required>
+                                        <label for="website-redesign">Website Redesign</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="web-application" name="projectType"
+                                            value="Web Application" required>
+                                        <label for="web-application">Web Application</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="technical-consulting" name="projectType"
+                                            value="Technical Consulting" required>
+                                        <label for="technical-consulting">Technical Consulting</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="not-sure" name="projectType" value="Not Sure" required>
+                                        <label for="not-sure">Not Sure</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget-range">Budget Range</label>
+                                <select id="budget-range" name="budgetRange">
+                                    <option value="">Select your budget range...</option>
+                                    <option value="Under $2k">Under $2,000</option>
+                                    <option value="$2k-$5k">$2,000 - $5,000</option>
+                                    <option value="$5k-$10k">$5,000 - $10,000</option>
+                                    <option value="$10k-$20k">$10,000 - $20,000</option>
+                                    <option value="$20k+">$20,000+</option>
+                                    <option value="Prefer to discuss">Prefer to discuss</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Project Requirements -->
+                        <div class="funnel-form__section">
+                            <div class="funnel-form__section-title">Project Requirements</div>
+
+                            <div class="form-group">
+                                <label for="project-details">Project Description</label>
+                                <div id="project-details" class="rich-text-editor"></div>
+                                <textarea id="project-details-fallback" name="projectDetails" style="display: none;"
+                                    placeholder="Describe your project goals, target audience, key features, and any specific requirements..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Contact Preferences -->
+                        <div class="funnel-form__section">
+                            <div class="funnel-form__section-title">Consultation Preferences</div>
+
+                            <div class="form-group">
+                                <label for="preferred-contact">Preferred Contact Method</label>
+                                <div class="form-check-group">
+                                    <div class="form-check">
+                                        <input type="radio" id="contact-email" name="preferredContact" value="Email"
+                                            checked>
+                                        <label for="contact-email">Email</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="contact-phone" name="preferredContact" value="Phone">
+                                        <label for="contact-phone">Phone Call</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="contact-video" name="preferredContact"
+                                            value="Video Call">
+                                        <label for="contact-video">Video Call</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="best-time">Best Time to Contact</label>
+                                <select id="best-time" name="bestTime">
+                                    <option value="">Select preferred time...</option>
+                                    <option value="Morning (9am-12pm)">Morning (9am-12pm)</option>
+                                    <option value="Afternoon (12pm-5pm)">Afternoon (12pm-5pm)</option>
+                                    <option value="Evening (5pm-8pm)">Evening (5pm-8pm)</option>
+                                    <option value="Flexible">I'm flexible</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="funnel-submit" id="consultationSubmitBtn">
+                            Request Free Consultation
+                        </button>
+
+                        <p class="form-disclaimer">
+                            * We'll contact you within 24 hours to schedule your consultation. No spam, no pressure.
+                        </p>
+                    </form>
+
+                    <!-- Why Choose Us Sidebar -->
+                    <div class="consultation-sidebar">
+                        <div class="sidebar-section">
+                            <h3>Why Choose Our Consultation?</h3>
+                            <ul class="benefits-list">
+                                <li>✅ <strong>100% Free</strong> - No hidden costs</li>
+                                <li>✅ <strong>Expert Analysis</strong> - 10+ years experience</li>
+                                <li>✅ <strong>Custom Solutions</strong> - Tailored to your needs</li>
+                                <li>✅ <strong>Clear Roadmap</strong> - Step-by-step project plan</li>
+                                <li>✅ <strong>Technology Advice</strong> - Best tools for your goals</li>
+                                <li>✅ <strong>Honest Pricing</strong> - Transparent cost breakdown</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>What We'll Discuss</h3>
+                            <div class="discussion-topics">
+                                <div class="topic">
+                                    <div class="topic-icon">🎯</div>
+                                    <div class="topic-content">
+                                        <h4>Your Goals</h4>
+                                        <p>Understanding your business objectives and success metrics</p>
+                                    </div>
+                                </div>
+                                <div class="topic">
+                                    <div class="topic-icon">🛠️</div>
+                                    <div class="topic-content">
+                                        <h4>Technical Strategy</h4>
+                                        <p>Choosing the right technologies and architecture</p>
+                                    </div>
+                                </div>
+                                <div class="topic">
+                                    <div class="topic-icon">📅</div>
+                                    <div class="topic-content">
+                                        <h4>Project Timeline</h4>
+                                        <p>Realistic milestones and delivery schedule</p>
+                                    </div>
+                                </div>
+                                <div class="topic">
+                                    <div class="topic-icon">💰</div>
+                                    <div class="topic-content">
+                                        <h4>Investment</h4>
+                                        <p>Transparent pricing and payment options</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <div class="testimonial-card">
+                                <blockquote>
+                                    "Christin's consultation was incredibly valuable. She understood our needs
+                                    immediately and provided clear, actionable recommendations."
+                                </blockquote>
+                                <cite>— Previous Client</cite>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Custom Scripts -->
+    <script type="module" src="js/main.js"></script>
+
+    <!-- Scripts -->
+    <!-- Core functionality (needed on all pages) -->
+    <!-- <script type="module" src="js/core.js"></script> -->
+    <!-- Free consultation page specific functionality -->
+    <script type="module" src="js/pages/free-consultation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content | Christin Morton</title>
+    <link rel="stylesheet" type="text/css" href="css/icofont.min.css" />
+    <link rel="stylesheet" href="scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .page-header {
+            padding: 150px 0 60px;
+        }
+
+        /* Content/Blog Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            padding-bottom: 100px;
+        }
+
+        .content-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            text-decoration: none;
+            /* group: 'card'; // Removed invalid property */
+        }
+
+        .content-image {
+            height: 200px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: border-color 0.3s ease;
+        }
+
+        .content-card:hover .content-image {
+            border-color: var(--primary-color);
+        }
+
+        .content-meta {
+            font-family: var(--heading-font);
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .content-title {
+            color: var(--white-color);
+            font-size: 1.4rem;
+            line-height: 1.3;
+            margin: 0 0 15px 0;
+            transition: color 0.3s ease;
+        }
+
+        .content-card:hover .content-title {
+            color: var(--primary-color);
+        }
+
+        .content-excerpt {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            font-family: var(--heading-font);
+            color: var(--white-color);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .read-more i {
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover .read-more i {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-nav" class="header-nav">
+        <div class="site-container">
+            <div class="header-left">
+                <a class="logo" href="index.html">
+                    <img src="logo_2.png" alt="Christin Morton Logo">
+                </a>
+            </div>
+            <div class="header-right desktop-only">
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="work.html" class="nav-link">Work</a></li>
+                        <li><a href="service.html" class="nav-link">Services</a></li>
+                        <li><a href="content.html" class="nav-link active">Content</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Mobile Toggle -->
+            <button id="mobileBtn" class="mobile-menu-toggle mobile-only" type="button"><span
+                    class="menu-icon"></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="site-container">
+                <h1 class="hero-title">Content Hub.</h1>
+                <p class="hero-description">Thoughts on design, code, and business.</p>
+            </div>
+        </section>
+
+        <section class="site-container">
+            <div class="content-grid">
+                <!-- Article 1 -->
+                <a href="content-single.html" class="content-card">
+                    <div class="content-image"></div>
+                    <div class="content-meta">Jan 12, 2025 • Design</div>
+                    <h2 class="content-title">Why Minimal Design Converts Better</h2>
+                    <p class="content-excerpt">Less is more. How removing distractions can actually increase your user
+                        engagement and sales.</p>
+                    <div class="read-more">Read Article <i class="icofont-arrow-right"></i></div>
+                </a>
+
+                <!-- Article 2 -->
+                <a href="#" class="content-card">
+                    <div class="content-image"></div>
+                    <div class="content-meta">Jan 05, 2025 • Technology</div>
+                    <h2 class="content-title">The Future of Headless Commerce</h2>
+                    <p class="content-excerpt">Why decoupling your frontend from your backend is the smart move for
+                        scaling businesses.</p>
+                    <div class="read-more">Read Article <i class="icofont-arrow-right"></i></div>
+                </a>
+
+                <!-- Article 3 -->
+                <a href="#" class="content-card">
+                    <div class="content-image"></div>
+                    <div class="content-meta">Dec 28, 2024 • Business</div>
+                    <h2 class="content-title">Building Digital Legacies</h2>
+                    <p class="content-excerpt">It's not just about code. It's about building assets that last and grow
+                        over time.</p>
+                    <div class="read-more">Read Article <i class="icofont-arrow-right"></i></div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- <script type="module" src="js/core.js"></script> -->
+</body>
+
+</html>

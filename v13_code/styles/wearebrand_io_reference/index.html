@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christin Morton | Minimal Portfolio</title>
+    <!-- Google Fonts: Prompts & Inter for that "Tech/Minimal" feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Manrope:wght@400;600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Main SCSS (Compiled) -->
+    <link rel="stylesheet" href="scss/main-2.css">
+
+    <style>
+        /* Critical CSS to prevent FOUC */
+        body {
+            background-color: #111111;
+            color: #ffffff;
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Nav -->
+    <header class="site-header">
+        <div class="container-fluid">
+            <div class="header-inner">
+                <a href="index2.html" class="logo">CHRISTIN MORTON<span class="dot">.</span></a>
+
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span>Menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-v2">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-headline">
+                        WE BUILD<br>
+                        DIGITAL<br>
+                        LEGACIES<span class="accent">.</span>
+                    </h1>
+
+                    <div class="hero-meta">
+                        <p class="hero-sub">
+                            Modern Web Development &<br>
+                            Strategic Digital Design
+                        </p>
+                        <a href="#contact" class="btn-minimal">
+                            Start a Project <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abstract background element -->
+            <div class="hero-bg-overlay"></div>
+        </section>
+
+        <!-- Selected Work Section -->
+        <section id="work" class="section-work">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">01 / Work</span>
+                    <h2>Selected <span class="accent">Projects</span></h2>
+                </div>
+
+                <div class="work-grid">
+                    <!-- Project 1 -->
+                    <article class="work-item">
+                        <div class="work-image">
+                            <!-- Placeholder for project image -->
+                            <div class="placeholder-img"></div>
+                        </div>
+                        <div class="work-info">
+                            <h3>E-Commerce Scale</h3>
+                            <p>Full Stack Development</p>
+                        </div>
+                        <a href="#" class="work-link" aria-label="View Project"></a>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="work-item">
+                        <div class="work-image">
+                            <div class="placeholder-img"></div>
+                        </div>
+                        <div class="work-info">
+                            <h3>FinTech Dashboard</h3>
+                            <p>UI Engineering & Design</p>
+                        </div>
+                        <a href="#" class="work-link" aria-label="View Project"></a>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="work-item">
+                        <div class="work-image">
+                            <div class="placeholder-img"></div>
+                        </div>
+                        <div class="work-info">
+                            <h3>HealthTech App</h3>
+                            <p>Mobile-First Web App</p>
+                        </div>
+                        <a href="#" class="work-link" aria-label="View Project"></a>
+                    </article>
+                </div>
+
+                <div class="section-footer">
+                    <a href="#" class="btn-text">View All Work <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section-services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">02 / Expertise</span>
+                    <h2>Technical <span class="accent">Services</span></h2>
+                </div>
+
+                <div class="services-list">
+                    <div class="service-item">
+                        <span class="service-num">01</span>
+                        <h3>Web Development</h3>
+                        <p>High-performance websites built with modern technologies.</p>
+                        <ul class="service-tags">
+                            <li>React/Vue</li>
+                            <li>Node.js</li>
+                            <li>WebGL</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-item">
+                        <span class="service-num">02</span>
+                        <h3>E-Commerce</h3>
+                        <p>Scalable online stores that convert visitors into customers.</p>
+                        <ul class="service-tags">
+                            <li>Shopify</li>
+                            <li>WooCommerce</li>
+                            <li>Custom Payment Flows</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-item">
+                        <span class="service-num">03</span>
+                        <h3>Product Design</h3>
+                        <p>User-centric interfaces designed for clarity and impact.</p>
+                        <ul class="service-tags">
+                            <li>UI/UX</li>
+                            <li>Prototyping</li>
+                            <li>Design Systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy / About Section -->
+        <section id="about" class="section-about">
+            <div class="container">
+                <div class="about-content">
+                    <p class="big-statement">
+                        We don't just write code. We build <span class="text-white">digital systems</span> that automate
+                        growth and elevate brands.
+                    </p>
+                    <div class="about-grid">
+                        <div class="about-col">
+                            <h4>The Philosophy</h4>
+                            <p>Minimalism isn't just an aesthetic. It's about removing the noise to focus on what truly
+                                drives results: clarity, speed, and user experience.</p>
+                        </div>
+                        <div class="about-col">
+                            <h4>The Process</h4>
+                            <p>From discovery to deployment, every step is strategic. We leverage data and design
+                                thinking to solve complex problems with simple, elegant solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer-v2">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Column 1: Brand -->
+                    <div class="footer-col brand-col">
+                        <h4>Christin Morton</h4>
+                        <p>Based in California,<br>Working Global.</p>
+                    </div>
+
+                    <!-- Column 2: Social -->
+                    <div class="footer-col social-col">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Behance</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Newsletter / Contact -->
+                    <div class="footer-col contact-col">
+                        <h4>Let's Talk</h4>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit">Subscribe</button>
+                        </div>
+                        <a href="mailto:hello@christinmorton.com" class="email-link">hello@christinmorton.com</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Christin Morton. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+[Guest/Visitor Fills Form]
+        |
+        v
+[Form Type?]
+  |-- Quick Message
+  |-- Consultation Request
+  |-- Quote Request
+  |-- Discovery Intake
+        |
+        v
+[Create/Update Lead Record]
+        |
+        v
+[Does form imply urgency or high intent?]
+  |-- Yes -> [Priority Lead] -> Notify Admin Faster
+  |-- No  -> [Standard Lead]
+        |
+        v
+[Does the lead want to schedule now?]
+  |-- Yes -> [Create Appointment] -> [Appointment Confirmed]
+  |-- No  -> [Create Conversation Thread]
+        |
+        v
+[Do they purchase a service product?]
+  |-- Yes -> [Convert Lead -> Client] -> [Start Project Lifecycle]
+  |-- No  -> [Nurture + Follow-up] -> (Return to Router / Book Call / Request Quote)

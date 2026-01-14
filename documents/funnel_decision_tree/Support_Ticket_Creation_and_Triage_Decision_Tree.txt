@@ -1,0 +1,34 @@
+[User Needs Help]
+    |
+    v
+[Is the user authenticated?]
+  |-- No  -> [Guest Support Request] -> (May become Lead)
+  |-- Yes -> Continue
+    |
+    v
+[Create Ticket]
+    |
+    v
+[Ticket Type?]
+  |-- Bug / Broken Feature
+  |-- Billing / Purchase
+  |-- Change Request
+  |-- General Question
+    |
+    v
+[Auto Actions]
+  -> Notify Admin
+  -> Create/Attach Conversation Thread
+    |
+    v
+[Admin Claims Ticket]
+    |
+    v
+[Ticket Resolution Path]
+  |-- Needs more info -> Ask user -> Wait -> Continue
+  |-- Simple fix -> Resolve -> Notify user
+  |-- Requires project work -> Convert to Change Request -> Add to Project
+    |
+    v
+[Close Ticket]
+  -> Optionally request feedback/review

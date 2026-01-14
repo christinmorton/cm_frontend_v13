@@ -1,0 +1,25 @@
+[Media Uploaded]
+     |
+     v
+[Uploader Type?]
+  |-- Guest
+  |-- Lead
+  |-- Client
+  |-- Admin
+     |
+     v
+[What is this media for?]
+  |-- Form Submission (quote/discovery)
+  |-- Project Asset
+  |-- Ticket Attachment
+  |-- Profile / Portfolio / Case Study
+     |
+     v
+[Create Media Record]
+  -> Store media metadata
+  -> Store association link (polymorphic)
+     |
+     v
+[Does it require review?]
+  |-- Yes -> Admin Review Queue
+  |-- No  -> Available in thread/project/ticket context

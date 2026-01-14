@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Details | Client Portal</title>
+    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
+    <link rel="stylesheet" href="/src/scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        .details-header {
+            padding: 120px 0 30px;
+            background: #111;
+            border-bottom: 1px solid #222;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #999;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        .project-title-large {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-paid {
+            background: rgba(0, 255, 0, 0.2);
+            color: #00ff00;
+        }
+
+        .status-unpaid {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff4444;
+        }
+
+        .status-pending {
+            background: rgba(255, 255, 0, 0.2);
+            color: #ffff00;
+        }
+
+        .invoice-meta {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .invoice-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        .invoice-table th {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            color: #999;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .invoice-table td {
+            padding: 20px 15px;
+            border-bottom: 1px solid #2a2a2a;
+            color: #ccc;
+        }
+
+        .invoice-total-row td {
+            border-bottom: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            padding-top: 30px;
+        }
+
+        .action-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-nav" class="header-nav">
+        <div class="site-container">
+            <div class="header-left">
+                <a class="logo" href="index.html">
+                    <img src="/logo_2.png" alt="Christin Morton Logo">
+                </a>
+            </div>
+            <div class="header-right desktop-only">
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                        <li><a href="#" id="logout-btn" class="nav-link">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="invoice-app" style="display: none;">
+
+        <section class="details-header">
+            <div class="site-container">
+                <a href="dashboard.html" class="back-link"><i class="icofont-arrow-left"></i> Back to Dashboard</a>
+                <div class="project-title-large">
+                    <span id="invoice-id">Invoice #---</span>
+                    <span id="invoice-status" class="status-badge">---</span>
+                </div>
+                <div class="invoice-meta">
+                    Issued: <span id="invoice-date">---</span> &nbsp;|&nbsp;
+                    Due: <span id="invoice-due">---</span> &nbsp;|&nbsp;
+                    Project: <span id="project-ref">---</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="site-container" style="padding-bottom: 80px;">
+            <div class="invoice-card">
+                <h2 style="margin: 0 0 20px 0; font-size: 1.5rem;">Bill To</h2>
+                <div id="client-info" style="color: #ccc; line-height: 1.6;">
+                    Loading client info...
+                </div>
+
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th style="text-align: right;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoice-items">
+                        <!-- Items injected here -->
+                    </tbody>
+                    <tfoot>
+                        <tr class="invoice-total-row">
+                            <td style="text-align: right;">Total</td>
+                            <td style="text-align: right;" id="invoice-total">$0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="action-row">
+                    <button id="download-btn" class="action-button secondary"
+                        style="background: transparent; border: 1px solid #333;">
+                        <i class="icofont-download"></i> Download PDF
+                    </button>
+                    <button id="pay-btn" class="action-button">
+                        <i class="icofont-credit-card"></i> Pay Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="/src/js/invoice-details.js"></script>
+</body>
+
+</html>

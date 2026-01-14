@@ -1,0 +1,100 @@
+/* Base Carousel Mixins and Shared Styles */
+
+@mixin base-carousel-container {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  min-height: 200px; /* Prevent collapse during transitions */
+  
+  /* Ensure proper layout after page transitions */
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin base-carousel-wrapper {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  
+  .swiper-wrapper {
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+  }
+  
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    position: relative;
+    transition-property: transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    .slide-content {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@mixin base-carousel-navigation {
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+    
+    &:after {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+  }
+}
+
+@mixin base-carousel-pagination {
+  .swiper-pagination {
+    position: relative;
+    text-align: center;
+    
+    .swiper-pagination-bullet {
+      background: rgba(255, 255, 255, 0.3);
+      opacity: 1;
+      transition: all 0.3s ease;
+      
+      &.swiper-pagination-bullet-active {
+        background: var(--primary-color);
+      }
+    }
+  }
+}
+
+/* Page Transition Support */
+.page-transitioning {
+  .hero-carousel-container,
+  .cta-section-wrapper {
+    min-height: 400px; /* Maintain height during transitions */
+    visibility: hidden; /* Hide until carousel is reinitialized */
+  }
+}
+
+/* Carousel ready state */
+.carousel-initialized {
+  visibility: visible !important;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}

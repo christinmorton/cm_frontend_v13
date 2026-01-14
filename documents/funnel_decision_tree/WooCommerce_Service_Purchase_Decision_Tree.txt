@@ -1,0 +1,25 @@
+[Service Product Purchased]
+        |
+        v
+[Payment Status]
+  |-- Completed -> Continue
+  |-- Pending/Failed -> Notify + Retry path
+        |
+        v
+[Does buyer have an account?]
+  |-- Yes -> Link purchase to wp_user
+  |-- No  -> Create account OR invite registration
+        |
+        v
+[Is buyer already a Lead?]
+  |-- Yes -> Convert Lead -> Client
+  |-- No  -> Create Client
+        |
+        v
+[Trigger Next Step]
+  |-- Auto-create Project
+  |-- OR prompt Discovery/Onboarding
+        |
+        v
+[Open Conversation Thread]
+  -> Welcome + next steps + intake link

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Christin Morton</title>
+    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
+    <link rel="stylesheet" href="/src/scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .page-header {
+            padding: 150px 0 60px;
+        }
+
+        /* Portfolio Grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .work-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .work-image-placeholder {
+            height: 250px;
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            font-size: 3rem;
+        }
+
+        .work-content {
+            padding: 25px;
+        }
+
+        .work-category {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .work-title {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+        }
+
+        .work-excerpt {
+            color: #999;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-nav" class="header-nav">
+        <div class="site-container">
+            <div class="header-left">
+                <a class="logo" href="index.html">
+                    <img src="logo_2.png" alt="Christin Morton Logo">
+                </a>
+            </div>
+            <div class="header-right desktop-only">
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="work.html" class="nav-link active">Work</a></li>
+                        <li><a href="service.html" class="nav-link">Services</a></li>
+                        <li><a href="content.html" class="nav-link">Content</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Mobile Toggle -->
+            <button id="mobileBtn" class="mobile-menu-toggle mobile-only" type="button" aria-label="Toggle navigation"
+                aria-controls="mobile-menu" aria-expanded="false"><span class="menu-icon"></span></button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <button type="button" class="mobile-menu-close" aria-label="Close menu"><svg width="16" height="16">
+                    <use xlink:href="#close"></use>
+                </svg></button>
+        </div>
+        <div class="mobile-menu-content">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-menu">
+                    <li><a href="work.html" class="nav-link active">Work</a></li>
+                    <li><a href="service.html" class="nav-link">Services</a></li>
+                    <li><a href="content.html" class="nav-link">Content</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <div class="site-container">
+                <h1 class="hero-title">Selected Work.</h1>
+                <p class="hero-description">A collection of projects that deliver results.</p>
+            </div>
+        </section>
+
+        <section class="site-container">
+            <div class="work-grid">
+                <!-- Project 1 -->
+                <a href="work-single.html" class="work-card">
+                    <div class="work-image-placeholder"><i class="icofont-web"></i></div>
+                    <div class="work-content">
+                        <span class="work-category">E-Commerce</span>
+                        <h3 class="work-title">Modern Shop</h3>
+                        <p class="work-excerpt">A headless Shopify implementation focused on speed and conversion.</p>
+                    </div>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="#" class="work-card">
+                    <div class="work-image-placeholder"><i class="icofont-ui-browser"></i></div>
+                    <div class="work-content">
+                        <span class="work-category">Web App</span>
+                        <h3 class="work-title">Dashboard PRO</h3>
+                        <p class="work-excerpt">React-based analytics dashboard for SaaS metrics.</p>
+                    </div>
+                </a>
+
+                <!-- Project 3 -->
+                <a href="#" class="work-card">
+                    <div class="work-image-placeholder"><i class="icofont-brand-design"></i></div>
+                    <div class="work-content">
+                        <span class="work-category">Branding</span>
+                        <h3 class="work-title">Tech Identity</h3>
+                        <p class="work-excerpt">Complete visual identity design for a fintech startup.</p>
+                    </div>
+                </a>
+
+                <!-- Project 4 -->
+                <a href="#" class="work-card">
+                    <div class="work-image-placeholder"><i class="icofont-smart-phone"></i></div>
+                    <div class="work-content">
+                        <span class="work-category">Mobile App</span>
+                        <h3 class="work-title">Fitness Tracker</h3>
+                        <p class="work-excerpt">Cross-platform mobile application for personal health tracking.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="site-container" style="text-align: center; padding-bottom: 80px;">
+            <p style="margin-bottom: 20px; color: #999;">Want to know more about the person behind the code?</p>
+            <a href="about.html" class="action-button" style="display: inline-flex;">
+                <span>About Me</span>
+                <div class="button-icon"><svg width="24" height="24">
+                        <use xlink:href="#arrow-right"></use>
+                    </svg></div>
+            </a>
+        </section>
+    </main>
+
+    <!-- <script type="module" src="/src/js/core.js"></script> -->
+</body>
+
+</html>

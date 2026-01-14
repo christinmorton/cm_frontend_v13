@@ -1,0 +1,88 @@
+/* Stats Components - General stat item styling used across different sections */
+
+/* Base stat components */
+.stat-item {
+  text-align: center;
+  color: #ffffff;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #00d4ff;
+  line-height: 1;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Alternative stat variant (used in proof section) */
+.proof-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 0 0 3rem 0;
+  flex-wrap: wrap;
+}
+
+.proof-stats .stat-item {
+  text-align: center;
+}
+
+.proof-stats .stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #00d4ff;
+  line-height: 1;
+}
+
+.proof-stats .stat-label {
+  display: block;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.5rem;
+}
+
+/* Story stats variant */
+.story-stats {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.story-stats .stat-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.story-stats .stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments for stats */
+@media (max-width: 768px) {
+  .proof-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .story-stats {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

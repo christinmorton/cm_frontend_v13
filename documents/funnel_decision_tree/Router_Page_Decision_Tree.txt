@@ -1,0 +1,39 @@
+[Entry CTA: "Find the best next step"]
+            |
+            v
+Q1: What are you trying to do?
+  |-- Build new
+  |-- Improve/redesign
+  |-- Fix broken
+  |-- Not sure
+            |
+            v
+Q2: How clear is your scope?
+  |-- Very clear
+  |-- Somewhat clear
+  |-- Not clear
+            |
+            v
+Q3: When do you want to start?
+  |-- ASAP
+  |-- 2–4 weeks
+  |-- 1–3 months
+  |-- Just researching
+            |
+            v
+Q4: What are you ready to do today?
+  |-- Quick message
+  |-- Book a call
+  |-- Request quote
+  |-- Full discovery intake
+            |
+            v
+[Routing Outcome]
+  |-- If (Q3 = researching OR Q4 = quick message) -> Quick Message
+  |-- If (Q1 = not sure OR Q2 = not clear OR Q4 = book call) -> Consultation
+  |-- If (Q2 = very clear AND Q4 = request quote) -> Quote Form
+  |-- If (Build new AND somewhat clear AND discovery) -> Discovery Intake
+            |
+            v
+[Result Screen]
+  -> Show Recommended Path + 1–2 Alternatives (to prevent bounce)

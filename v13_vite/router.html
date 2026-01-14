@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Step | Christin Morton</title>
+    <!-- Icomoon fonts -->
+    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
+    <!--Styles css-->
+    <link rel="stylesheet" href="/src/scss/main.css" />
+    <!--Google Font css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .router-section {
+            padding: 100px 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--primary-color);
+            width: 25%;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Question Cards */
+        .question-step {
+            display: none;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .question-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .option-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .option-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .option-btn:hover .option-icon {
+            opacity: 1;
+        }
+
+        /* Navigation Buttons */
+        .nav-actions {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #888;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            color: #fff;
+            border-color: #666;
+        }
+
+        /* Result Card */
+        .result-card {
+            background: #111;
+            border: 1px solid var(--primary-color);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .result-card.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result-heading {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .result-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .result-desc {
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .alternatives {
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        .alt-link {
+            color: #888;
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+
+        .alt-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header-nav" class="header-nav">
+        <div class="site-container">
+            <div class="header-left">
+                <a class="logo" href="index.html"><img src="logo_2.png" alt="Christin Morton Logo"></a>
+            </div>
+            <div class="header-right desktop-only">
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="work.html" class="nav-link">Work</a></li>
+                        <li><a href="service.html" class="nav-link">Services</a></li>
+                        <li><a href="content.html" class="nav-link">Content</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="router-section">
+            <div class="site-container">
+
+                <!-- Progress Bar -->
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progressBar"></div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Intent -->
+                <div class="question-step active" id="step1" data-step="1">
+                    <h1 class="question-title">What are you looking to achieve?</h1>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="nextStep(1, 'build_new')">
+                            <span class="option-text">Build something new</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="nextStep(1, 'improve')">
+                            <span class="option-text">Improve an existing site</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="nextStep(1, 'fix')">
+                            <span class="option-text">Fix something broken</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="nextStep(1, 'unsure')">
+                            <span class="option-text">I'm not sure — need guidance</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Clarity -->
+                <div class="question-step" id="step2" data-step="2">
+                    <h1 class="question-title">How clear is your scope right now?</h1>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="nextStep(2, 'very_clear')">
+                            <span class="option-text">Very clear — I know what I want</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="nextStep(2, 'somewhat_clear')">
+                            <span class="option-text">Somewhat clear — I need help refining</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="nextStep(2, 'not_clear')">
+                            <span class="option-text">Not clear — Help me figure it out</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                    </div>
+                    <div class="nav-actions">
+                        <button class="back-btn" onclick="prevStep(2)">Back</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Timing -->
+                <div class="question-step" id="step3" data-step="3">
+                    <h1 class="question-title">How soon do you want to start?</h1>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="nextStep(3, 'asap')">
+                            <span class="option-text">ASAP</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="nextStep(3, 'weeks')">
+                            <span class="option-text">Within 2–4 weeks</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="nextStep(3, 'months')">
+                            <span class="option-text">1–3 months</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="nextStep(3, 'researching')">
+                            <span class="option-text">Just researching</span>
+                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
+                        </button>
+                    </div>
+                    <div class="nav-actions">
+                        <button class="back-btn" onclick="prevStep(3)">Back</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Commitment -->
+                <div class="question-step" id="step4" data-step="4">
+                    <h1 class="question-title">What are you ready to do today?</h1>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="finishFunnel('quick_message')">
+                            <span class="option-text">Send a quick message</span>
+                            <span class="option-icon"><i class="icofont-paper-plane"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="finishFunnel('book_call')">
+                            <span class="option-text">Book a call</span>
+                            <span class="option-icon"><i class="icofont-calendar"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="finishFunnel('request_quote')">
+                            <span class="option-text">Request a quote or proposal</span>
+                            <span class="option-icon"><i class="icofont-file-text"></i></span>
+                        </button>
+                        <button class="option-btn" onclick="finishFunnel('discovery')">
+                            <span class="option-text">Do a full discovery intake</span>
+                            <span class="option-icon"><i class="icofont-chart-flow"></i></span>
+                        </button>
+                    </div>
+                    <div class="nav-actions">
+                        <button class="back-btn" onclick="prevStep(4)">Back</button>
+                    </div>
+                </div>
+
+                <!-- Result Card -->
+                <div class="result-card" id="resultCard">
+                    <div class="result-heading">Recommendation</div>
+                    <h2 class="result-title" id="resultTitle">Book a Consultation</h2>
+                    <p class="result-desc" id="resultDesc">Based on your answers, talking through your project is the
+                        best way to get clarity.</p>
+
+                    <a href="#" class="action-button" id="resultBtn" style="width: 100%; justify-content: center;">
+                        <span id="resultBtnText">Book Free Call</span>
+                        <div class="button-icon"><i class="icofont-arrow-right"></i></div>
+                    </a>
+
+                    <div class="alternatives">
+                        <p style="margin-bottom: 10px; color: #666; font-size: 0.9rem;">Other Options:</p>
+                        <div id="altLinks"></div>
+                    </div>
+                    <br>
+                    <button class="back-btn" onclick="location.reload()">Start Over</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- <script type="module" src="/src/js/core.js"></script> -->
+    <script>
+        // Funnel State
+        let answers = {
+            intent: '',
+            clarity: '',
+            timing: '',
+            readiness: ''
+        };
+
+        // Make functions globally available for onclick
+        window.nextStep = function (currentStep, value) {
+            // Save answer
+            if (currentStep === 1) answers.intent = value;
+            if (currentStep === 2) answers.clarity = value;
+            if (currentStep === 3) answers.timing = value;
+
+            // Hide Current
+            document.getElementById('step' + currentStep).classList.remove('active');
+
+            // Show Next
+            const next = currentStep + 1;
+            document.getElementById('step' + next).classList.add('active');
+
+            // Update Progress
+            updateProgress(next);
+        }
+
+        window.prevStep = function (currentStep) {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            const prev = currentStep - 1;
+            document.getElementById('step' + prev).classList.add('active');
+            updateProgress(prev);
+        }
+
+        window.finishFunnel = function (readinessValue) {
+            answers.readiness = readinessValue;
+            calculateResult();
+        }
+
+        function updateProgress(step) {
+            const percent = (step / 5) * 100; // 5 total states including result
+            document.getElementById('progressBar').style.width = percent + '%';
+        }
+
+        function calculateResult() {
+            // Hide last step
+            document.getElementById('step4').classList.remove('active');
+            document.getElementById('progressContainer').style.display = 'none';
+
+            let result = {
+                title: '',
+                desc: '',
+                btnText: '',
+                url: '',
+                alts: []
+            };
+
+            // LOGIC CONSTANTS
+            const intent = answers.intent;
+            const clarity = answers.clarity;
+            const timing = answers.timing;
+            const readiness = answers.readiness;
+
+            // --- ROUTING LOGIC (Matching funnel_decision_tree.md) ---
+
+            // Path 1: Quick Message (Low Commitment)
+            if (timing === 'researching' || readiness === 'quick_message') {
+                result = {
+                    title: "Send a Quick Message",
+                    desc: "Since you're just researching or have a quick question, dropping a line is the best way to start.",
+                    btnText: "Send Message",
+                    url: "flows/quick-message.html",
+                    alts: [
+                        { text: "Book a call instead", url: "flows/consultation.html" }
+                    ]
+                };
+            }
+            // Path 3: Quote (Prepared Buyer)
+            else if (clarity === 'very_clear' && readiness === 'request_quote') {
+                result = {
+                    title: "Request a Quote",
+                    desc: "You know exactly what you need. Let's get you a price estimate quickly.",
+                    btnText: "Start Quote",
+                    url: "flows/quote-request.html",
+                    alts: [
+                        { text: "Discuss it first", url: "flows/consultation.html" }
+                    ]
+                };
+            }
+            // Path 4: Discovery (Complex)
+            else if (intent === 'build_new' && clarity === 'somewhat_clear' && readiness === 'discovery') {
+                result = {
+                    title: "Start Project Discovery",
+                    desc: "For complex new builds, a deep-dive intake helps us map out the perfect solution.",
+                    btnText: "Start Analysis",
+                    url: "flows/discovery.html",
+                    alts: [
+                        { text: "Just book a call", url: "flows/consultation.html" }
+                    ]
+                };
+            }
+            // Path 2: Consultation (Default/Guidance)
+            else {
+                result = {
+                    title: "Book a Free Consultation",
+                    desc: "Since you're looking for guidance, a quick 15-minute chat is the best way to clarify your next steps.",
+                    btnText: "Schedule Call",
+                    url: "flows/consultation.html",
+                    alts: [
+                        { text: "Just send a message", url: "flows/quick-message.html" },
+                        { text: "Request a quote", url: "flows/quote-request.html" }
+                    ]
+                };
+            }
+
+            // RENDER RESULT
+            document.getElementById('resultTitle').innerText = result.title;
+            document.getElementById('resultDesc').innerText = result.desc;
+            document.getElementById('resultBtnText').innerText = result.btnText;
+            document.getElementById('resultBtn').href = result.url;
+
+            const altContainer = document.getElementById('altLinks');
+            altContainer.innerHTML = '';
+            result.alts.forEach(alt => {
+                const a = document.createElement('a');
+                a.href = alt.url;
+                a.className = 'alt-link';
+                a.innerText = alt.text;
+                altContainer.appendChild(a);
+            });
+
+            // Show Card
+            document.getElementById('resultCard').classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

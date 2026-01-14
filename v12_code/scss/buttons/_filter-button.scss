@@ -1,0 +1,18 @@
+/* Filter Button Components */
+button.filter-button {
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--white-color);
+  border-radius: 30px;
+  transition: all 0.5s;
+
+  &.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+  }
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+  }
+}

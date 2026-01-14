@@ -1,0 +1,35 @@
+[Admin Wants to Update a Page]
+        |
+        v
+[Choose Page]
+        |
+        v
+[Choose Section Type]
+  |-- Hero
+  |-- Features
+  |-- Testimonials
+  |-- Pricing
+  |-- CTA
+  |-- FAQ
+  |-- Product Grid
+  |-- Case Studies
+        |
+        v
+[Attach Cards to Section?]
+  |-- Yes -> Choose Card Type(s)
+  |         |-- Testimonial Card
+  |         |-- Feature Card
+  |         |-- Pricing Card
+  |         |-- Team Card
+  |         |-- General Card
+  |
+  |-- No  -> Section stands alone (text/media/config)
+        |
+        v
+[Section Ordering + Visibility]
+  -> Publish / Draft / Scheduled
+        |
+        v
+[Frontend Renders Page]
+  -> Sections in order
+  -> Cards inside sections

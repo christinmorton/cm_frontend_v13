@@ -1,0 +1,33 @@
+[Visitor Arrives]
+     |
+     v
+[Do they have an account?]
+   | Yes -------------------------------> [Authenticated User]
+   |                                        |
+   |                                        v
+   |                              [User Type?]
+   |                              |-- Admin/Staff -> Admin Workflows
+   |                              |-- Client       -> Client Portal + Projects
+   |                              |-- Other        -> Role-based routes
+   |
+   | No
+   v
+[Guest User]
+   |
+   v
+[Do they submit a form / message?]
+   | No  -> [Anonymous Visitor] -> (Content + CTAs) -> Exit/Return
+   |
+   | Yes
+   v
+[Lead Created]
+   |
+   v
+[Do they book an appointment OR start a conversation?]
+   | Yes -> [Engaged Lead]
+   | No  -> [Passive Lead] -> (Follow-up sequence / nudges)
+   |
+   v
+[Do they purchase a service?]
+   | Yes -> [Client Created] -> [Client Portal Access]
+   | No  -> [Remain Lead] -> (Continue nurture + offers)

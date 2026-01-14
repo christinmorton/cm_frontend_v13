@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Christin Morton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Manrope:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="scss/main-2.css">
+    <style>
+        body {
+            background-color: #111111;
+            color: #ffffff;
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container-fluid">
+            <div class="header-inner">
+                <a href="index2.html" class="logo">CHRISTIN MORTON<span class="dot">.</span></a>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" aria-label="Toggle Menu"><span>Menu</span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-v2" style="height: 60vh; min-height: 400px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-headline" style="font-size: clamp(2.5rem, 6vw, 6rem);">
+                        OUR<br>
+                        EXPERTISE<span class="accent">.</span>
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-services" style="padding-top: 0;">
+            <div class="container">
+                <div class="services-list">
+                    <div class="service-item">
+                        <span class="service-num">01</span>
+                        <h3>Web Development</h3>
+                        <p>High-performance websites built with modern technologies. We focus on speed, accessibility,
+                            and long-term maintainability.</p>
+                        <ul class="service-tags">
+                            <li>React/Vue</li>
+                            <li>Node.js</li>
+                            <li>WebGL</li>
+                            <li>Headless CMS</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-item">
+                        <span class="service-num">02</span>
+                        <h3>E-Commerce Architecture</h3>
+                        <p>Scalable online stores that convert visitors into customers. From Shopify custom themes to
+                            complex headless Magento/WooCommerce builds.</p>
+                        <ul class="service-tags">
+                            <li>Shopify Plus</li>
+                            <li>WooCommerce</li>
+                            <li>Stripe Integration</li>
+                            <li>Inventory Systems</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-item">
+                        <span class="service-num">03</span>
+                        <h3>Product Design & UI/UX</h3>
+                        <p>User-centric interfaces designed for clarity and impact. We prototype, test, and refine to
+                            ensure the best possible experience.</p>
+                        <ul class="service-tags">
+                            <li>Figma</li>
+                            <li>Prototyping</li>
+                            <li>Design Systems</li>
+                            <li>User Testing</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-item">
+                        <span class="service-num">04</span>
+                        <h3>Technical Strategy</h3>
+                        <p>Consulting for startups and established brands on their digital roadmap. We help you choose
+                            the right stack for growth.</p>
+                        <ul class="service-tags">
+                            <li>Architecture</li>
+                            <li>Code Audits</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-v2">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col brand-col">
+                        <h4>Christin Morton</h4>
+                        <p>Based in California,<br>Working Global.</p>
+                    </div>
+                    <div class="footer-col social-col">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Behance</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col contact-col">
+                        <h4>Let's Talk</h4>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit">Subscribe</button>
+                        </div>
+                        <a href="mailto:hello@christinmorton.com" class="email-link">hello@christinmorton.com</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Christin Morton. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>

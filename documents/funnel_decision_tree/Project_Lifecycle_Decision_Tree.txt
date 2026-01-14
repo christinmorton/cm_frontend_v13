@@ -1,0 +1,32 @@
+[Lead Becomes Client]
+      |
+      v
+[Is there a paid commitment?]
+  |-- Yes -> Start Project
+  |-- No  -> Hold -> Request Deposit/Agreement
+      |
+      v
+[Project Setup]
+  -> Define scope
+  -> Timeline/milestones
+  -> Responsibilities
+      |
+      v
+[Work in Progress]
+      |
+      v
+[Milestone Reached?]
+  |-- Yes -> Review/Approval Step
+  |         |-- Approved -> Continue
+  |         |-- Not approved -> Revise -> Review again
+  |
+  |-- No -> Continue Work
+      |
+      v
+[Final Delivery]
+      |
+      v
+[Post-Delivery]
+  |-- Support Needed? -> Create Ticket -> Support Flow
+  |-- Upsell/Retainer? -> Offer Maintenance -> Continuity
+  |-- Testimonial? -> Request Review -> Social Proof assets

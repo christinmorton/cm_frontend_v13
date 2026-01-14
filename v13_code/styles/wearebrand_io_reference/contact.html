@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Christin Morton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Manrope:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="scss/main-2.css">
+    <style>
+        body {
+            background-color: #111111;
+            color: #ffffff;
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container-fluid">
+            <div class="header-inner">
+                <a href="index2.html" class="logo">CHRISTIN MORTON<span class="dot">.</span></a>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" aria-label="Toggle Menu"><span>Menu</span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-v2" style="height: 60vh; min-height: 400px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-headline" style="font-size: clamp(2.5rem, 6vw, 6rem);">
+                        LET'S<br>
+                        TALK<span class="accent">.</span>
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-contact" style="padding-top: 0;">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-col">
+                        <p class="big-statement" style="font-size: 2rem; margin-bottom: 40px;">
+                            Have a project in mind? Let's build something digital and durable.
+                        </p>
+                        <div class="contact-details">
+                            <p style="margin-bottom: 20px;">
+                                <span
+                                    style="display: block; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px;">EMAIL</span>
+                                <a href="mailto:hello@christinmorton.com"
+                                    style="font-size: 1.5rem;">hello@christinmorton.com</a>
+                            </p>
+                            <p>
+                                <span
+                                    style="display: block; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px;">SOCIAL</span>
+                                <a href="#" style="margin-right: 20px;">LinkedIn</a>
+                                <a href="#">Twitter/X</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-col">
+                        <!-- Simple Entry Form -->
+                        <form class="newsletter-form"
+                            style="flex-direction: column; border: none; align-items: flex-start; gap: 20px;">
+                            <div style="width: 100%; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                                <label
+                                    style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">NAME</label>
+                                <input type="text" placeholder="John Doe" style="width: 100%; font-size: 1.2rem;">
+                            </div>
+
+                            <div style="width: 100%; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                                <label
+                                    style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">EMAIL</label>
+                                <input type="email" placeholder="john@example.com"
+                                    style="width: 100%; font-size: 1.2rem;">
+                            </div>
+
+                            <div style="width: 100%; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                                <label
+                                    style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">PROJECT
+                                    TYPE</label>
+                                <input type="text" placeholder="Web Development, Design, etc."
+                                    style="width: 100%; font-size: 1.2rem;">
+                            </div>
+
+                            <button type="submit" class="btn-minimal" style="margin-top: 20px; color: white;">Send
+                                Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-v2">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col brand-col">
+                        <h4>Christin Morton</h4>
+                        <p>Based in California,<br>Working Global.</p>
+                    </div>
+                    <div class="footer-col social-col">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Behance</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col contact-col">
+                        <h4>Let's Talk</h4>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit">Subscribe</button>
+                        </div>
+                        <a href="mailto:hello@christinmorton.com" class="email-link">hello@christinmorton.com</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Christin Morton. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>

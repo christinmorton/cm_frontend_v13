@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Minimal Design Converts Better | Christin Morton</title>
+    <link rel="stylesheet" type="text/css" href="css/icofont.min.css" />
+    <link rel="stylesheet" href="scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        /* Article Styles */
+        .article-header {
+            padding: 150px 0 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-meta {
+            color: var(--primary-color);
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 500px;
+            background: #1a1a1a;
+            margin-bottom: 80px;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .article-content {
+            max-width: 740px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            padding-bottom: 100px;
+        }
+
+        .article-content p {
+            margin-bottom: 2rem;
+        }
+
+        .article-content h2 {
+            color: white;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .article-content h3 {
+            color: white;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 20px;
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+        }
+
+        .article-footer {
+            border-top: 1px solid #333;
+            padding: 60px 0;
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        @media(max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .featured-image {
+                height: 300px;
+            }
+
+            .article-content {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-nav" class="header-nav">
+        <div class="site-container">
+            <div class="header-left">
+                <a class="logo" href="index.html">
+                    <img src="logo_2.png" alt="Christin Morton Logo">
+                </a>
+            </div>
+            <div class="header-right desktop-only">
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="work.html" class="nav-link">Work</a></li>
+                        <li><a href="service.html" class="nav-link">Services</a></li>
+                        <li><a href="content.html" class="nav-link active">Content</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <button id="mobileBtn" class="mobile-menu-toggle mobile-only" type="button"><span
+                    class="menu-icon"></span></button>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <div class="site-container">
+                <header class="article-header">
+                    <div class="article-meta">Jan 12, 2025 • Design Strategy</div>
+                    <h1 class="article-title">Why Minimal Design Converts Better (and how to implement it)</h1>
+                </header>
+
+                <div class="featured-image">
+                    <i class="icofont-image" style="font-size: 5rem;"></i>
+                </div>
+
+                <div class="article-content">
+                    <p class="lead">In a digital world screaming for attention, silence is a superpower. Minimalism
+                        isn't just an aesthetic choice—it's a strategic weapon for higher conversion rates.</p>
+
+                    <h2>The Cognitive Load Problem</h2>
+                    <p>Every element on your page demands processing power from your user's brain. A cluttered
+                        navigation, five different calls-to-action, and a carousel of moving images create "cognitive
+                        friction."</p>
+                    <p>When users are overwhelmed, they don't buy. They bounce.</p>
+
+                    <h2>Less Choice, More Action</h2>
+                    <p>Hick's Law states that the time it takes to make a decision increases with the number and
+                        complexity of choices. By reducing the number of options, you actually increase the likelihood
+                        of a user taking action.</p>
+
+                    <h3>Key Principles of High-Conversion Minimalism:</h3>
+                    <ul>
+                        <li><strong>Single Primary Goal:</strong> Each page should have one main job.</li>
+                        <li><strong>Negative Space:</strong> White space (or black space) isn't empty; it's active. It
+                            directs the eye.</li>
+                        <li><strong>Visual Hierarchy:</strong> Use size and contrast to tell the user what matters most.
+                        </li>
+                    </ul>
+
+                    <blockquote>
+                        "Perfection is achieved, not when there is nothing more to add, but when there is nothing left
+                        to take away."
+                    </blockquote>
+
+                    <h2>Implementing This in Your Project</h2>
+                    <p>Start by auditing your homepage. Remove anything that doesn't directly support your primary value
+                        proposition. If it's a "nice to have," it's probably a "need to go."</p>
+                    <p>Focus on legibility, speed, and a clear path to value.</p>
+                </div>
+
+                <div class="site-container">
+                    <div class="article-footer">
+                        <a href="content.html" class="back-link">
+                            <i class="icofont-arrow-left"></i> Back to Content Hub
+                        </a>
+                        <div class="share-links">
+                            <!-- Share placeholder -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- <script type="module" src="js/core.js"></script> -->
+</body>
+
+</html>
