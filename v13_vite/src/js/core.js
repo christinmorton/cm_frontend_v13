@@ -4,11 +4,13 @@
  */
 
 import { initTracking } from './tracking/index.js';
+import { autoInitForms } from './utils/index.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOMContentLoaded');
     initTracking();
     initMobileMenu();
+    autoInitForms(); // Auto-initialize forms with data-wpbe-form attribute
 });
 
 function initMobileMenu() {

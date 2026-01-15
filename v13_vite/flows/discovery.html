@@ -112,10 +112,14 @@
 
         <section class="site-container" style="padding-bottom: 100px;">
             <div class="form-card">
-                <form action="thank-you.html?type=discovery" method="GET">
+                <form data-wpbe-form="discovery_intake">
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label>Business Goals</label>
@@ -135,6 +139,7 @@
                         <span>Submit Analysis</span>
                         <div class="button-icon"><i class="icofont-chart-flow"></i></div>
                     </button>
+                    <div class="form-status" aria-live="polite" style="margin-top: 1rem; padding: 1rem; border-radius: 4px;"></div>
                 </form>
             </div>
         </section>

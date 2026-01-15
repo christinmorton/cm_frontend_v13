@@ -389,21 +389,26 @@
             updateProgress(prev);
         }
 
-        window.finishFunnel = function (readinessValue) {
+        window.finishFunnel = async function (readinessValue) {
             answers.readiness = readinessValue;
             calculateResult();
 
-            // Track Router Flow as Lead Intent
-            // Format answers into a message string for easy reading
-            const message = `Intent: ${answers.intent}, Clarity: ${answers.clarity}, Timing: ${answers.timing}, Readiness: ${answers.readiness}`;
+            // Format answers into a readable message
+            const message = `Router Funnel Results:\nIntent: ${answers.intent}\nClarity: ${answers.clarity}\nTiming: ${answers.timing}\nReadiness: ${answers.readiness}`;
 
-            // Check if tracking is available (loaded via core.js -> initTracking)
+            // Track router funnel data as analytics event
+            // This saves the data to the backend via the analytics API
+            // Note: Router doesn't collect email, so we track it as analytics rather than form submission
             if (window.__analytics) {
-                window.__analytics.track('form_submit', {
+                window.__analytics.track('router_funnel_complete', {
                     form_id: 'router_flow',
                     form_data: answers,
+                    router_intent: answers.intent,
+                    router_clarity: answers.clarity,
+                    router_timing: answers.timing,
+                    router_readiness: answers.readiness,
                     message: message,
-                    sender_type: 'guest'
+                    source: 'router_funnel'
                 });
                 window.__analytics.flush();
             }

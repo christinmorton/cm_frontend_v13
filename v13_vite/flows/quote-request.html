@@ -126,7 +126,7 @@
 
         <section class="site-container" style="padding-bottom: 100px;">
             <div class="form-card">
-                <form action="thank-you.html?type=quote" method="GET" data-track="quote-request" data-convert="true">
+                <form data-wpbe-form="quote_request">
                     <div class="col-2">
                         <div class="form-group">
                             <label>Name</label>
@@ -154,12 +154,13 @@
                     </div>
                     <div class="form-group">
                         <label>Project Details</label>
-                        <textarea name="details" rows="6" required placeholder="Describe what you need..."></textarea>
+                        <textarea name="message" rows="6" required placeholder="Describe what you need..."></textarea>
                     </div>
                     <button type="submit" class="action-button" style="width: 100%;">
                         <span>Submit Request</span>
                         <div class="button-icon"><i class="icofont-paper-plane"></i></div>
                     </button>
+                    <div class="form-status" aria-live="polite" style="margin-top: 1rem; padding: 1rem; border-radius: 4px;"></div>
                 </form>
             </div>
         </section>
