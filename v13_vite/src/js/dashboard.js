@@ -36,22 +36,108 @@ async function loadDashboardData() {
         document.getElementById('client-view').style.display = 'block';
         document.getElementById('member-view').style.display = 'none';
 
-        try {
-            // NOTE: Using mocked endpoint /projects/my for now based on guide
-            const projectsResponse = await api.get('/projects/my');
-            const projects = projectsResponse.data;
-            renderProjects(projects);
-            updateStats(projects);
-        } catch (error) {
-            console.error('Failed to load dashboard data:', error);
-            renderMockProjects();
-        }
+        // Load all data in parallel
+        await Promise.all([
+            loadProjects(),
+            loadUserStats(),
+            loadUnreadMessages(),
+            loadUpcomingAppointments()
+        ]);
     } else {
         // MEMBERS / CUSTOMERS VIEW
         document.getElementById('client-view').style.display = 'none';
         document.getElementById('member-view').style.display = 'block';
         document.getElementById('member-display-name').textContent = user.user_display_name || user.user_nicename;
     }
+}
+
+async function loadProjects() {
+    try {
+        const response = await api.get('/projects/my');
+        const projects = response.data?.data || response.data || [];
+        renderProjects(projects);
+        updateProjectStats(projects);
+    } catch (error) {
+        console.error('Failed to load projects:', error);
+        renderMockProjects();
+    }
+}
+
+async function loadUserStats() {
+    try {
+        const response = await api.get('/auth/me');
+        const data = response.data?.data || response.data;
+        if (data?.counts) {
+            const invoicesDue = data.counts.invoices_unpaid || data.counts.invoices_due || 0;
+            const ticketsOpen = data.counts.tickets_open || data.counts.tickets || 0;
+            document.getElementById('stats-invoices-due').textContent = invoicesDue;
+            document.getElementById('stats-tickets-open').textContent = ticketsOpen;
+        }
+    } catch (error) {
+        console.error('Failed to load user stats:', error);
+    }
+}
+
+async function loadUnreadMessages() {
+    const badge = document.getElementById('unread-messages-badge');
+    if (!badge) return;
+
+    try {
+        const response = await api.get('/messages/unread/count');
+        const count = response.data?.data?.count || response.data?.count || 0;
+        if (count > 0) {
+            badge.textContent = count;
+            badge.style.display = 'inline-block';
+        } else {
+            badge.style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Failed to load unread messages:', error);
+        badge.style.display = 'none';
+    }
+}
+
+async function loadUpcomingAppointments() {
+    const container = document.getElementById('appointments-container');
+    if (!container) return;
+
+    try {
+        const response = await api.get('/appointments/upcoming');
+        const appointments = response.data?.data || response.data || [];
+        renderAppointments(appointments.slice(0, 3)); // Show max 3
+    } catch (error) {
+        console.error('Failed to load appointments:', error);
+        container.innerHTML = '<p class="empty-text">No upcoming appointments.</p>';
+    }
+}
+
+function renderAppointments(appointments) {
+    const container = document.getElementById('appointments-container');
+    if (!container) return;
+
+    if (!appointments || appointments.length === 0) {
+        container.innerHTML = '<p class="empty-text">No upcoming appointments.</p>';
+        return;
+    }
+
+    container.innerHTML = appointments.map(apt => `
+        <div class="appointment-item">
+            <div class="appointment-date">
+                <span class="apt-day">${new Date(apt.appointment_date).getDate()}</span>
+                <span class="apt-month">${new Date(apt.appointment_date).toLocaleString('default', { month: 'short' })}</span>
+            </div>
+            <div class="appointment-info">
+                <div class="apt-type">${apt.appointment_type || 'Appointment'}</div>
+                <div class="apt-time">${apt.start_time || ''}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function updateProjectStats(projects) {
+    if (!projects) return;
+    const activeCount = projects.filter(p => p.status !== 'completed' && p.status !== 'archived').length;
+    document.getElementById('stats-projects-count').textContent = activeCount;
 }
 
 function renderProjects(projects) {

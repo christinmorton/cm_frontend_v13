@@ -226,5 +226,41 @@ export const formSubmissionService = {
         }
 
         return payload;
+    },
+
+    /**
+     * Submit a lead capture form (alternative to form submissions)
+     * @param {Object} leadData - Lead data
+     * @param {string} leadData.email - Required: Email address
+     * @param {string} [leadData.first_name] - First name
+     * @param {string} [leadData.last_name] - Last name
+     * @param {string} [leadData.phone] - Phone number
+     * @param {string} [leadData.company] - Company name
+     * @param {string} [leadData.source] - Lead source (e.g., 'website_contact')
+     * @param {string} [leadData.message] - Additional message
+     * @returns {Promise<Object>} API response
+     */
+    async submitLead(leadData) {
+        if (!leadData.email) {
+            throw new Error('Email is required');
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(leadData.email.trim())) {
+            throw new Error('Please provide a valid email address.');
+        }
+
+        const response = await fetch(`${API_BASE}/leads`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(leadData)
+        });
+
+        if (!response.ok) {
+            const error = await response.json().catch(() => ({ message: 'Failed to submit lead' }));
+            throw new Error(error.message || 'Failed to submit lead');
+        }
+
+        return response.json();
     }
 };

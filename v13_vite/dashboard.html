@@ -124,11 +124,146 @@
             color: #fff;
         }
 
+        .status-in-progress {
+            background: rgba(0, 150, 255, 0.15);
+            color: #0096ff;
+        }
+
+        .status-planning {
+            background: rgba(255, 200, 0, 0.15);
+            color: #ffc800;
+        }
+
         /* Loader */
         .loader-container {
             display: flex;
             justify-content: center;
             padding: 40px;
+        }
+
+        /* Appointments */
+        .appointments-widget {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .appointment-item {
+            display: flex;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .appointment-item:last-child {
+            border-bottom: none;
+        }
+
+        .appointment-date {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 8px 12px;
+            text-align: center;
+            min-width: 50px;
+        }
+
+        .apt-day {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .apt-month {
+            display: block;
+            font-size: 0.7rem;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        .appointment-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .apt-type {
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .apt-time {
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        .empty-text {
+            color: #666;
+            font-size: 0.9rem;
+            padding: 10px 0;
+        }
+
+        /* Messages badge */
+        .nav-link-with-badge {
+            position: relative;
+        }
+
+        .unread-badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: var(--primary-color);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .quick-link {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .quick-link:hover {
+            border-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .quick-link i {
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -146,6 +281,14 @@
                 <nav class="main-nav">
                     <ul class="nav-menu">
                         <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                        <li><a href="projects.html" class="nav-link">Projects</a></li>
+                        <li><a href="invoices.html" class="nav-link">Invoices</a></li>
+                        <li>
+                            <a href="conversations.html" class="nav-link nav-link-with-badge">
+                                Messages
+                                <span id="unread-messages-badge" class="unread-badge">0</span>
+                            </a>
+                        </li>
                         <li><a href="#" id="logout-btn" class="nav-link">Logout</a></li>
                     </ul>
                 </nav>
@@ -192,6 +335,24 @@
 
                     <div id="projects-container" class="project-list">
                         <div class="loader-container">Loading projects...</div>
+                    </div>
+
+                    <!-- Upcoming Appointments -->
+                    <div class="appointments-widget">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Upcoming Appointments</h3>
+                            <a href="appointments.html" class="action-button small">View All</a>
+                        </div>
+                        <div id="appointments-container">
+                            <p class="empty-text">Loading appointments...</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="quick-links">
+                        <a href="tickets.html" class="quick-link"><i class="icofont-support"></i> Support Tickets</a>
+                        <a href="client-profile.html" class="quick-link"><i class="icofont-user"></i> My Profile</a>
+                        <a href="book-appointment.html" class="quick-link"><i class="icofont-calendar"></i> Book Appointment</a>
                     </div>
 
                 </section>
