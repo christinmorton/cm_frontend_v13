@@ -5,9 +5,12 @@
 
 import { auth } from './auth.js';
 import api from './api.js';
+import { testMode } from './utils/testMode.js';
 
-// Guard: Require authentication
-auth.requireAuth();
+// Guard: Require authentication (skip in test mode)
+if (!testMode.isEnabled()) {
+    auth.requireAuth();
+}
 
 // Reveal app after auth check
 document.getElementById('projects-app').style.display = 'block';
@@ -40,6 +43,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function loadProjects() {
     const container = document.getElementById('projects-container');
     container.innerHTML = '<div class="loader-container">Loading projects...</div>';
+
+    // Test mode: use mock data
+    if (testMode.isEnabled()) {
+        console.log('[TestMode] Loading test projects');
+        allProjects = await testMode.getProjects(20);
+        renderProjects();
+        return;
+    }
 
     try {
         const response = await api.get('/projects/my');

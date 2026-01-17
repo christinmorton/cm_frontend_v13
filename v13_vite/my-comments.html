@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Comments | Client Portal</title>
+    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
+    <link rel="stylesheet" href="/src/scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        .page-header {
+            padding: 120px 0 40px;
+            background: #111;
+            border-bottom: 1px solid #222;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+        }
+
+        .page-subtitle {
+            color: #999;
+            margin: 0;
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .comment-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            transition: border-color 0.2s ease;
+        }
+
+        .comment-card:hover {
+            border-color: #444;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .comment-post-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .comment-post-link:hover {
+            text-decoration: underline;
+        }
+
+        .comment-date {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .comment-content {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .comment-content p {
+            margin: 0;
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .comment-action {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s ease;
+        }
+
+        .comment-action:hover {
+            color: #fff;
+        }
+
+        .comment-action.delete:hover {
+            color: #ff5050;
+        }
+
+        .comment-status {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .status-approved,
+        .status-approve {
+            background: rgba(0, 255, 100, 0.1);
+            color: #00ff64;
+        }
+
+        .status-pending,
+        .status-hold {
+            background: rgba(255, 200, 0, 0.1);
+            color: #ffc800;
+        }
+
+        .status-trash {
+            background: rgba(255, 80, 80, 0.1);
+            color: #ff5050;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .empty-state h3 {
+            margin: 0 0 10px 0;
+            color: #fff;
+        }
+
+        .empty-state p {
+            margin: 0 0 25px 0;
+        }
+
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            padding: 60px;
+            color: #666;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .pagination-btn {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #999;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            border-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-info {
+            display: flex;
+            align-items: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Edit Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        .modal textarea {
+            width: 100%;
+            min-height: 150px;
+            background: #111;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .modal textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #333;
+            color: #999;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-nav" class="header-nav">
+        <div class="site-container">
+            <div class="header-left">
+                <a class="logo" href="index.html">
+                    <img src="/logo_2.png" alt="Christin Morton Logo">
+                </a>
+            </div>
+            <div class="header-right desktop-only">
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                        <li><a href="conversations.html" class="nav-link">Messages</a></li>
+                        <li><a href="tickets.html" class="nav-link">Support</a></li>
+                        <li><a href="my-comments.html" class="nav-link active">Comments</a></li>
+                        <li><a href="#" id="logout-btn" class="nav-link">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="comments-app" style="display: none;">
+
+        <section class="page-header">
+            <div class="site-container">
+                <h1 class="page-title">My Comments</h1>
+                <p class="page-subtitle">View and manage your comments on content pages.</p>
+            </div>
+        </section>
+
+        <section class="site-container" style="padding: 40px 0 80px;">
+
+            <div id="comments-container" class="comments-list">
+                <div class="loader-container">Loading comments...</div>
+            </div>
+
+            <div id="pagination" class="pagination" style="display: none;">
+                <button id="prev-btn" class="pagination-btn" disabled>Previous</button>
+                <span id="page-info" class="pagination-info">Page 1 of 1</span>
+                <button id="next-btn" class="pagination-btn" disabled>Next</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Edit Comment Modal -->
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Edit Comment</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <textarea id="edit-content" placeholder="Your comment..."></textarea>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="edit-cancel">Cancel</button>
+                <button class="btn btn-primary" id="edit-save">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/js/my-comments.js"></script>
+</body>
+
+</html>

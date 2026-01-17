@@ -5,9 +5,12 @@
 
 import { auth } from './auth.js';
 import { clientService } from './services/ClientService.js';
+import { testMode } from './utils/testMode.js';
 
-// Guard: Require authentication
-auth.requireAuth();
+// Guard: Require authentication (skip in test mode)
+if (!testMode.isEnabled()) {
+    auth.requireAuth();
+}
 
 // Reveal app after auth check
 document.getElementById('profile-app').style.display = 'block';
@@ -38,6 +41,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function loadProfile() {
     const form = document.getElementById('profile-form');
     form.classList.add('loading');
+
+    // Test mode: use mock data
+    if (testMode.isEnabled()) {
+        console.log('[TestMode] Loading test profile');
+        clientData = testMode.getMockClientProfile();
+        populateForm(clientData);
+        form.classList.remove('loading');
+        return;
+    }
 
     try {
         const response = await clientService.getProfile();

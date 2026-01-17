@@ -5,9 +5,12 @@
 
 import { auth } from './auth.js';
 import { appointmentService } from './services/AppointmentService.js';
+import { testMode } from './utils/testMode.js';
 
-// Guard: Require authentication
-auth.requireAuth();
+// Guard: Require authentication (skip in test mode)
+if (!testMode.isEnabled()) {
+    auth.requireAuth();
+}
 
 // Reveal app after auth check
 document.getElementById('appointments-app').style.display = 'block';
@@ -25,6 +28,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function loadAppointments() {
     const container = document.getElementById('appointments-container');
     container.innerHTML = '<div class="loader-container">Loading appointments...</div>';
+
+    // Test mode: use mock data
+    if (testMode.isEnabled()) {
+        console.log('[TestMode] Loading test appointments');
+        const appointments = await testMode.getAppointments(20);
+        renderAppointments(appointments);
+        return;
+    }
 
     try {
         const response = await appointmentService.getMyAppointments();

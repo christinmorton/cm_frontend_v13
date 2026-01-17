@@ -5,9 +5,12 @@
 
 import { auth } from './auth.js';
 import api from './api.js';
+import { testMode } from './utils/testMode.js';
 
-// Guard: Require authentication
-auth.requireAuth();
+// Guard: Require authentication (skip in test mode)
+if (!testMode.isEnabled()) {
+    auth.requireAuth();
+}
 
 // Reveal app after auth check
 document.getElementById('invoices-app').style.display = 'block';
@@ -40,6 +43,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function loadInvoices() {
     const container = document.getElementById('invoices-container');
     container.innerHTML = '<div class="loader-container">Loading invoices...</div>';
+
+    // Test mode: use mock data
+    if (testMode.isEnabled()) {
+        console.log('[TestMode] Loading test invoices');
+        allInvoices = await testMode.getInvoices(20);
+        renderInvoices();
+        updateTotals();
+        return;
+    }
 
     try {
         const response = await api.get('/invoices/my');

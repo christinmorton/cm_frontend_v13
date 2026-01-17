@@ -5,14 +5,22 @@
  * User Types:
  * - Client: Has client_id or role='client' - Full access (projects, invoices, appointments, messages, tickets)
  * - Member: Basic WP account - Limited access (messages, tickets, appointments, can become a client)
+ *
+ * Test Mode:
+ * - Enable via console: testMode.enable() or press Ctrl+Shift+T
+ * - Shows all seeded test data regardless of user ownership
  */
 
 import { auth } from './auth.js';
 import api from './api.js';
 import { messageService } from './services/MessageService.js';
+import { commentService } from './services/CommentService.js';
+import { testMode } from './utils/testMode.js';
 
-// 1. Guard: Check Auth immediately
-auth.requireAuth();
+// 1. Guard: Check Auth immediately (skip in test mode)
+if (!testMode.isEnabled()) {
+    auth.requireAuth();
+}
 
 // 2. Reveal App after check
 document.getElementById('dashboard-app').style.display = 'block';
@@ -26,8 +34,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         auth.logout();
     });
 
+    // Setup Test Mode Toggle (Ctrl+Shift+T)
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key === 'T') {
+            e.preventDefault();
+            testMode.toggle();
+            window.location.reload();
+        }
+    });
+
     // Load User Info
-    const user = auth.getUser();
+    const user = testMode.isEnabled() ? testMode.getMockUser() : auth.getUser();
     if (user) {
         document.getElementById('user-display-name').textContent = user.user_display_name || user.user_nicename;
     }
@@ -40,7 +57,33 @@ document.addEventListener('DOMContentLoaded', async () => {
  * Determine user type and load appropriate dashboard
  */
 async function loadDashboardData() {
-    // First, fetch fresh user data from API to get accurate role/client info
+    // TEST MODE: Force client view with test data
+    if (testMode.isEnabled()) {
+        console.log('%c[TestMode] Loading test data for dashboard...', 'color: #00ff00;');
+
+        // Always show client view in test mode
+        document.getElementById('client-view').style.display = 'block';
+        document.getElementById('member-view').style.display = 'none';
+
+        // Load all test data in parallel
+        await Promise.all([
+            loadProjectsTestMode(),
+            loadAppointmentsTestMode(),
+            loadTicketsTestMode()
+        ]);
+
+        // Update stats with test counts
+        const mockUser = testMode.getMockUser();
+        updateStatsFromCounts({
+            projects: 5,
+            invoices_unpaid: 3,
+            tickets_open: 2
+        });
+
+        return;
+    }
+
+    // NORMAL MODE: Fetch fresh user data from API
     let userData = auth.getUser();
 
     try {
@@ -91,7 +134,8 @@ async function loadDashboardData() {
         await Promise.all([
             loadMemberUnreadMessages(),
             loadMemberAppointments(),
-            loadMemberTickets()
+            loadMemberTickets(),
+            loadMemberComments()
         ]);
     }
 }
@@ -321,6 +365,101 @@ async function loadMemberTickets() {
         console.error('Failed to load member tickets:', error);
         container.innerHTML = '<p class="empty-text">No open tickets.</p>';
         if (countEl) countEl.textContent = '0';
+    }
+}
+
+async function loadMemberComments() {
+    const container = document.getElementById('member-comments-container');
+    if (!container) return;
+
+    // Test mode: use mock comments
+    if (testMode.isEnabled()) {
+        console.log('[TestMode] Loading test comments');
+        const mockComments = testMode.getMockComments();
+        renderMemberComments(mockComments);
+        return;
+    }
+
+    try {
+        const response = await commentService.getMyComments({ perPage: 5 });
+        const comments = response.comments || [];
+        renderMemberComments(comments);
+    } catch (error) {
+        console.error('Failed to load member comments:', error);
+        container.innerHTML = '<p class="empty-text">No comments yet.</p>';
+    }
+}
+
+function renderMemberComments(comments) {
+    const container = document.getElementById('member-comments-container');
+    if (!container) return;
+
+    if (!comments || comments.length === 0) {
+        container.innerHTML = '<p class="empty-text">No comments yet.</p>';
+        return;
+    }
+
+    container.innerHTML = comments.slice(0, 3).map(comment => {
+        const date = new Date(comment.date);
+        const excerpt = stripHtml(comment.content?.rendered || comment.content || '').slice(0, 80);
+        return `
+            <a href="${comment.link || '#'}" class="comment-item" target="_blank">
+                <div class="comment-content">
+                    <p class="comment-excerpt">${excerpt}${excerpt.length >= 80 ? '...' : ''}</p>
+                    <div class="comment-meta">
+                        <span class="comment-date">${date.toLocaleDateString()}</span>
+                        ${comment.post_title ? `<span class="comment-post">on "${comment.post_title}"</span>` : ''}
+                    </div>
+                </div>
+            </a>
+        `;
+    }).join('');
+}
+
+function stripHtml(html) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+}
+
+// ─────────────────────────────────────────────────────────────
+// TEST MODE LOADERS
+// ─────────────────────────────────────────────────────────────
+
+async function loadProjectsTestMode() {
+    try {
+        const projects = await testMode.getProjects(10);
+        console.log('[TestMode] Loaded projects:', projects.length);
+        renderProjects(projects);
+        updateProjectStats(projects);
+    } catch (error) {
+        console.error('[TestMode] Failed to load projects:', error);
+        renderMockProjects();
+    }
+}
+
+async function loadAppointmentsTestMode() {
+    const container = document.getElementById('appointments-container');
+    if (!container) return;
+
+    try {
+        const appointments = await testMode.getAppointments(5);
+        console.log('[TestMode] Loaded appointments:', appointments.length);
+        renderAppointments(appointments.slice(0, 3));
+    } catch (error) {
+        console.error('[TestMode] Failed to load appointments:', error);
+        container.innerHTML = '<p class="empty-text">No upcoming appointments.</p>';
+    }
+}
+
+async function loadTicketsTestMode() {
+    try {
+        const tickets = await testMode.getTickets(10);
+        console.log('[TestMode] Loaded tickets:', tickets.length);
+        const openTickets = tickets.filter(t => t.status !== 'closed' && t.status !== 'resolved');
+        document.getElementById('stats-tickets-open').textContent = openTickets.length;
+    } catch (error) {
+        console.error('[TestMode] Failed to load tickets:', error);
     }
 }
 

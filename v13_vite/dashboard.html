@@ -265,6 +265,40 @@
         .quick-link i {
             margin-right: 8px;
         }
+
+        /* Test Mode Toggle */
+        .test-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px 15px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .test-mode-toggle label {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .test-mode-toggle input[type="checkbox"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary-color);
+        }
+
+        .test-mode-toggle .shortcut {
+            color: #555;
+            font-size: 0.7rem;
+        }
     </style>
 </head>
 
@@ -429,6 +463,17 @@
                         </div>
                     </div>
 
+                    <!-- Member Comments Widget -->
+                    <div class="appointments-widget" style="margin-top: 30px;">
+                        <div class="widget-header">
+                            <h3 class="widget-title">My Comments</h3>
+                            <a href="my-comments.html" class="action-button small">View All</a>
+                        </div>
+                        <div id="member-comments-container">
+                            <p class="empty-text">Loading comments...</p>
+                        </div>
+                    </div>
+
                     <!-- Become a Client CTA -->
                     <div class="stat-card" style="margin-top: 40px; text-align: center; padding: 40px 30px; border-color: var(--primary-color);">
                         <i class="icofont-rocket-alt-2" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
@@ -444,7 +489,26 @@
         </div>
     </main>
 
+    <!-- Test Mode Toggle (Dev Only) -->
+    <div class="test-mode-toggle" id="test-mode-widget">
+        <input type="checkbox" id="test-mode-checkbox">
+        <label for="test-mode-checkbox">Test Mode</label>
+        <span class="shortcut">(Ctrl+Shift+T)</span>
+    </div>
+
     <script type="module" src="/src/js/dashboard.js"></script>
+    <script type="module">
+        // Initialize test mode checkbox
+        import { testMode } from '/src/js/utils/testMode.js';
+
+        const checkbox = document.getElementById('test-mode-checkbox');
+        checkbox.checked = testMode.isEnabled();
+
+        checkbox.addEventListener('change', () => {
+            testMode.toggle();
+            window.location.reload();
+        });
+    </script>
 </body>
 
 </html>

@@ -1,8 +1,11 @@
 import { auth } from './auth.js';
 import api from './api.js';
+import { testMode } from './utils/testMode.js';
 
-// 1. Guard
-auth.requireAuth();
+// 1. Guard (skip in test mode)
+if (!testMode.isEnabled()) {
+    auth.requireAuth();
+}
 
 // 2. Reveal
 document.getElementById('project-app').style.display = 'block';
@@ -29,6 +32,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function loadProjectDetails(id) {
+    // Test mode: use mock data
+    if (testMode.isEnabled()) {
+        console.log('[TestMode] Loading test project details for ID:', id);
+        const mockProject = getMockProject(id);
+        if (mockProject) {
+            renderProject(mockProject);
+        } else {
+            // Create a generic mock for any ID in test mode
+            renderProject({
+                id: parseInt(id),
+                project_name: `Test Project #${id}`,
+                description: 'This is a test project created for demonstration purposes.',
+                status: 'in_progress',
+                start_date: '2026-01-05',
+                deadline: '2026-03-01',
+                budget: 5000,
+                deliverables: ['Deliverable 1', 'Deliverable 2', 'Deliverable 3']
+            });
+        }
+        return;
+    }
+
     try {
         const response = await api.get(`/projects/${id}`);
         renderProject(response.data);
