@@ -358,40 +358,87 @@
                 </section>
             </div>
 
-            <!-- Member View (Store & Orders) -->
+            <!-- Member View (Limited Access - No Projects/Invoices) -->
             <div id="member-view" style="display: none;">
                 <section class="dashboard-header">
                     <div class="site-container">
                         <h1 class="dashboard-welcome">Welcome, <span id="member-display-name">Member</span></h1>
-                        <p style="color: #999;">Manage your orders and account details.</p>
+                        <p style="color: #999;">Manage your account, messages, and appointments.</p>
                     </div>
                 </section>
 
                 <section class="site-container" style="padding-top: 40px; padding-bottom: 80px;">
-                    <div class="card-grid"
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
 
-                        <div class="stat-card" style="text-align: center; padding: 40px 20px;">
-                            <i class="icofont-cart-alt"
-                                style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
-                            <h3>Start a New Project</h3>
-                            <p style="color: #999; margin-bottom: 20px;">Browse our services and start working with us.
-                            </p>
-                            <a href="store.html" class="action-button">Visit Store</a>
+                    <!-- Member Stats -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-value" id="member-messages-count">0</span>
+                            <span class="stat-label">Unread Messages</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value" id="member-tickets-count">0</span>
+                            <span class="stat-label">Open Tickets</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Cards -->
+                    <div class="card-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px;">
+
+                        <div class="stat-card" style="text-align: center; padding: 30px 20px;">
+                            <i class="icofont-ui-messaging" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; display: block;"></i>
+                            <h3 style="margin-bottom: 10px;">Messages</h3>
+                            <p style="color: #999; margin-bottom: 20px; font-size: 0.9rem;">View and respond to conversations.</p>
+                            <a href="conversations.html" class="action-button small">View Messages</a>
                         </div>
 
-                        <div class="stat-card" style="text-align: center; padding: 40px 20px;">
-                            <i class="icofont-support"
-                                style="font-size: 3rem; margin-bottom: 20px; display: block; color: #666;"></i>
-                            <h3>Need Help?</h3>
-                            <p style="color: #999; margin-bottom: 20px;">Create a support ticket and we'll assist you.</p>
-                            <a href="tickets.html" class="action-button secondary"
-                                style="background: transparent; border: 1px solid #333;">
-                                Support Tickets
-                            </a>
+                        <div class="stat-card" style="text-align: center; padding: 30px 20px;">
+                            <i class="icofont-support" style="font-size: 2.5rem; color: #666; margin-bottom: 15px; display: block;"></i>
+                            <h3 style="margin-bottom: 10px;">Support</h3>
+                            <p style="color: #999; margin-bottom: 20px; font-size: 0.9rem;">Create or view support tickets.</p>
+                            <a href="tickets.html" class="action-button small secondary" style="background: transparent; border: 1px solid #333;">Support Tickets</a>
+                        </div>
+
+                        <div class="stat-card" style="text-align: center; padding: 30px 20px;">
+                            <i class="icofont-calendar" style="font-size: 2.5rem; color: #666; margin-bottom: 15px; display: block;"></i>
+                            <h3 style="margin-bottom: 10px;">Appointments</h3>
+                            <p style="color: #999; margin-bottom: 20px; font-size: 0.9rem;">Book or manage appointments.</p>
+                            <a href="book-appointment.html" class="action-button small secondary" style="background: transparent; border: 1px solid #333;">Book Appointment</a>
                         </div>
 
                     </div>
+
+                    <!-- Member Appointments Widget -->
+                    <div class="appointments-widget">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Upcoming Appointments</h3>
+                            <a href="appointments.html" class="action-button small">View All</a>
+                        </div>
+                        <div id="member-appointments-container">
+                            <p class="empty-text">Loading appointments...</p>
+                        </div>
+                    </div>
+
+                    <!-- Member Tickets Widget -->
+                    <div class="appointments-widget" style="margin-top: 30px;">
+                        <div class="widget-header">
+                            <h3 class="widget-title">Recent Tickets</h3>
+                            <a href="tickets.html" class="action-button small">View All</a>
+                        </div>
+                        <div id="member-tickets-container">
+                            <p class="empty-text">Loading tickets...</p>
+                        </div>
+                    </div>
+
+                    <!-- Become a Client CTA -->
+                    <div class="stat-card" style="margin-top: 40px; text-align: center; padding: 40px 30px; border-color: var(--primary-color);">
+                        <i class="icofont-rocket-alt-2" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+                        <h3 style="margin-bottom: 10px;">Ready to Start a Project?</h3>
+                        <p style="color: #999; margin-bottom: 25px; max-width: 400px; margin-left: auto; margin-right: auto;">
+                            Become a client to unlock full access to projects, invoices, and dedicated support.
+                        </p>
+                        <a href="router.html" class="action-button">Get Started</a>
+                    </div>
+
                 </section>
             </div>
         </div>

@@ -11,3 +11,4 @@ export { messageService } from './MessageService.js';
 export { mediaService } from './MediaService.js';
 export { appointmentService } from './AppointmentService.js';
 export { paymentService, PAYMENT_TYPES } from './PaymentService.js';
+export { commentService } from './CommentService.js';
