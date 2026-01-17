@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Ticket | Client Portal</title>
     <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
-    <link rel="stylesheet" href="/src/scss/main.css" />
+    <!-- CSS loaded via main.js -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -222,7 +222,8 @@
                 <div class="form-section">
                     <div class="form-group">
                         <label class="form-label" for="subject">Subject *</label>
-                        <input type="text" id="subject" class="form-input" placeholder="Brief summary of your issue" required>
+                        <input type="text" id="subject" class="form-input" placeholder="Brief summary of your issue"
+                            required>
                     </div>
 
                     <div class="form-row">
@@ -249,7 +250,8 @@
 
                     <div class="form-group">
                         <label class="form-label" for="description">Description *</label>
-                        <textarea id="description" class="form-textarea" placeholder="Describe your issue in detail..." required></textarea>
+                        <textarea id="description" class="form-textarea" placeholder="Describe your issue in detail..."
+                            required></textarea>
                     </div>
                 </div>
 
@@ -265,6 +267,7 @@
     </main>
 
     <script type="module" src="/src/js/ticket-create.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

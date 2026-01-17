@@ -3,17 +3,7 @@
  * Handles global UI interactions like specific navigation toggles.
  */
 
-import { initTracking } from './tracking/index.js';
-import { autoInitForms } from './utils/index.js';
-
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded');
-    initTracking();
-    initMobileMenu();
-    autoInitForms(); // Auto-initialize forms with data-wpbe-form attribute
-});
-
-function initMobileMenu() {
+export function initMobileMenu() {
     const mobileBtn = document.getElementById('mobileBtn');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeBtn = document.querySelector('.mobile-menu-close');

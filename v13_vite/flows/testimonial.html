@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Testimonial | Christin Morton</title>
     <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
-    <link rel="stylesheet" href="/src/scss/main.css" />
+    <!-- CSS loaded via main.js -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -61,7 +61,8 @@
         <section class="page-header">
             <div class="site-container">
                 <h1 class="hero-title" style="text-align: center;">Share Your Experience</h1>
-                <p class="hero-description" style="text-align: center; margin: 0 auto;">We'd love to hear about your experience working with us.</p>
+                <p class="hero-description" style="text-align: center; margin: 0 auto;">We'd love to hear about your
+                    experience working with us.</p>
             </div>
         </section>
 
@@ -97,19 +98,21 @@
                     </div>
                     <div class="form-group">
                         <label>Your Testimonial *</label>
-                        <textarea name="message" rows="5" required placeholder="Tell us about your experience working with us..."></textarea>
+                        <textarea name="message" rows="5" required
+                            placeholder="Tell us about your experience working with us..."></textarea>
                     </div>
                     <button type="submit" class="action-button" style="width: 100%;">
                         <span>Submit Testimonial</span>
                         <div class="button-icon"><i class="icofont-star"></i></div>
                     </button>
-                    <div class="form-status" aria-live="polite" style="margin-top: 1rem; padding: 1rem; border-radius: 4px;"></div>
+                    <div class="form-status" aria-live="polite"
+                        style="margin-top: 1rem; padding: 1rem; border-radius: 4px;"></div>
                 </form>
             </div>
         </section>
     </main>
 
-    <script type="module" src="/src/js/core.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

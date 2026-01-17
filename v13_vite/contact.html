@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Christin Morton</title>
     <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
-    <link rel="stylesheet" href="/src/scss/main.css" />
+    <!-- CSS loaded via main.js -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -279,7 +279,8 @@
                         </div>
                         <div class="form-group">
                             <label>Message</label>
-                            <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                            <textarea name="message" rows="5" placeholder="Tell me about your project..."
+                                required></textarea>
                         </div>
                         <button type="submit" class="action-button submit-btn">
                             <span>Send Message</span>
@@ -290,7 +291,8 @@
                                 </svg>
                             </div>
                         </button>
-                        <div class="form-status" aria-live="polite" style="margin-top: 1rem; padding: 1rem; border-radius: 4px;"></div>
+                        <div class="form-status" aria-live="polite"
+                            style="margin-top: 1rem; padding: 1rem; border-radius: 4px;"></div>
                     </form>
                 </div>
             </div>
@@ -298,6 +300,7 @@
     </main>
 
     <script type="module" src="/src/js/core.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Appointment | Client Portal</title>
     <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
-    <link rel="stylesheet" href="/src/scss/main.css" />
+    <!-- CSS loaded via main.js -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -240,7 +240,8 @@
 
         <section class="page-header">
             <div class="site-container">
-                <a href="appointments.html" class="back-link"><i class="icofont-arrow-left"></i> Back to Appointments</a>
+                <a href="appointments.html" class="back-link"><i class="icofont-arrow-left"></i> Back to
+                    Appointments</a>
                 <h1 class="page-title">Book an Appointment</h1>
                 <p class="page-subtitle">Select a date and time that works for you.</p>
             </div>
@@ -277,7 +278,8 @@
 
                     <div class="form-group">
                         <label class="form-label" for="notes">Notes (Optional)</label>
-                        <textarea id="notes" class="form-textarea" placeholder="Anything you'd like to discuss..."></textarea>
+                        <textarea id="notes" class="form-textarea"
+                            placeholder="Anything you'd like to discuss..."></textarea>
                     </div>
                 </div>
 
@@ -293,6 +295,7 @@
     </main>
 
     <script type="module" src="/src/js/appointment-booking.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

@@ -66,6 +66,11 @@ This is main CSS file that contains custom style rules used in this template
     --hybrid-template-secondary: #16213e;
     --hybrid-template-accent: var(--primary-color);
     /* #00d4ff;*/
+
+    /* Visual Refinements */
+    --card-bg-solid: #050505;
+    --card-bg-transparent: rgba(5, 5, 5, 0.85);
+    --border-color-subtle: #333333;
 }
 
 /* Fonts */
@@ -175,7 +180,7 @@ a:hover {
 
 // End of Base Styles
 
-/** Layout
+/** Layout & Components
       --------------------------------------------------------------*/
 .site-container {
     width: 100%;
@@ -185,6 +190,51 @@ a:hover {
     margin-left: auto;
     max-width: 1200px;
 }
+
+/* Generic Card / Content Panel */
+.content-panel,
+.card {
+    background-color: var(--card-bg-transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color-subtle);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Specific overrides for text readability */
+.text-block {
+    background-color: var(--card-bg-transparent);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    /* Keep max-width but ensure it has background */
+
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
+
+/* Background/Stats Grid Items */
+.stat-item,
+.background-item {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.stat-item:hover,
+.background-item:hover {
+    background-color: var(--card-bg-solid);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
 
 @media (min-width: 576px) {
     .site-container {

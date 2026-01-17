@@ -1,29 +1,29 @@
-import './style.css'
-import { ThreeBackground } from './js/components/ThreeBackground.js'
-
-// Initialize 3D Background
-new ThreeBackground();
-
-// Initialize Guest Tracking
+import './scss/main.scss';
+import { ThreeBackground } from './js/components/ThreeBackground.js';
 import { initTracking } from './js/tracking/index.js';
-initTracking();
+import { initMobileMenu } from './js/core.js';
+import { autoInitForms } from './js/utils/index.js';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Initialize Application
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Initialize 3D Background (if applicable)
+  // Only init if we are not on a mobile device or if performance allows? 
+  // For now, adhering to previous implementation which just ran new ThreeBackground()
+  // However, ThreeBackground likely manages its own container check.
+  try {
+    new ThreeBackground();
+  } catch (e) {
+    console.warn('ThreeBackground initialization failed or skipped', e);
+  }
 
-setupCounter(document.querySelector('#counter'))
+  // 2. Initialize Tracking
+  initTracking();
+
+  // 3. Initialize Core UI (Mobile Menu)
+  initMobileMenu();
+
+  // 4. Initialize Forms
+  autoInitForms();
+
+  console.log('App Initialized');
+});

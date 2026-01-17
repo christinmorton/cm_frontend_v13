@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Client Portal</title>
     <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
-    <link rel="stylesheet" href="/src/scss/main.css" />
+    <!-- CSS loaded via main.js -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -352,7 +352,8 @@
                     <div class="quick-links">
                         <a href="tickets.html" class="quick-link"><i class="icofont-support"></i> Support Tickets</a>
                         <a href="client-profile.html" class="quick-link"><i class="icofont-user"></i> My Profile</a>
-                        <a href="book-appointment.html" class="quick-link"><i class="icofont-calendar"></i> Book Appointment</a>
+                        <a href="book-appointment.html" class="quick-link"><i class="icofont-calendar"></i> Book
+                            Appointment</a>
                     </div>
 
                 </section>
@@ -382,27 +383,36 @@
                     </div>
 
                     <!-- Action Cards -->
-                    <div class="card-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                    <div class="card-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px;">
 
                         <div class="stat-card" style="text-align: center; padding: 30px 20px;">
-                            <i class="icofont-ui-messaging" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; display: block;"></i>
+                            <i class="icofont-ui-messaging"
+                                style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; display: block;"></i>
                             <h3 style="margin-bottom: 10px;">Messages</h3>
-                            <p style="color: #999; margin-bottom: 20px; font-size: 0.9rem;">View and respond to conversations.</p>
+                            <p style="color: #999; margin-bottom: 20px; font-size: 0.9rem;">View and respond to
+                                conversations.</p>
                             <a href="conversations.html" class="action-button small">View Messages</a>
                         </div>
 
                         <div class="stat-card" style="text-align: center; padding: 30px 20px;">
-                            <i class="icofont-support" style="font-size: 2.5rem; color: #666; margin-bottom: 15px; display: block;"></i>
+                            <i class="icofont-support"
+                                style="font-size: 2.5rem; color: #666; margin-bottom: 15px; display: block;"></i>
                             <h3 style="margin-bottom: 10px;">Support</h3>
-                            <p style="color: #999; margin-bottom: 20px; font-size: 0.9rem;">Create or view support tickets.</p>
-                            <a href="tickets.html" class="action-button small secondary" style="background: transparent; border: 1px solid #333;">Support Tickets</a>
+                            <p style="color: #999; margin-bottom: 20px; font-size: 0.9rem;">Create or view support
+                                tickets.</p>
+                            <a href="tickets.html" class="action-button small secondary"
+                                style="background: transparent; border: 1px solid #333;">Support Tickets</a>
                         </div>
 
                         <div class="stat-card" style="text-align: center; padding: 30px 20px;">
-                            <i class="icofont-calendar" style="font-size: 2.5rem; color: #666; margin-bottom: 15px; display: block;"></i>
+                            <i class="icofont-calendar"
+                                style="font-size: 2.5rem; color: #666; margin-bottom: 15px; display: block;"></i>
                             <h3 style="margin-bottom: 10px;">Appointments</h3>
-                            <p style="color: #999; margin-bottom: 20px; font-size: 0.9rem;">Book or manage appointments.</p>
-                            <a href="book-appointment.html" class="action-button small secondary" style="background: transparent; border: 1px solid #333;">Book Appointment</a>
+                            <p style="color: #999; margin-bottom: 20px; font-size: 0.9rem;">Book or manage appointments.
+                            </p>
+                            <a href="book-appointment.html" class="action-button small secondary"
+                                style="background: transparent; border: 1px solid #333;">Book Appointment</a>
                         </div>
 
                     </div>
@@ -430,10 +440,13 @@
                     </div>
 
                     <!-- Become a Client CTA -->
-                    <div class="stat-card" style="margin-top: 40px; text-align: center; padding: 40px 30px; border-color: var(--primary-color);">
-                        <i class="icofont-rocket-alt-2" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
+                    <div class="stat-card"
+                        style="margin-top: 40px; text-align: center; padding: 40px 30px; border-color: var(--primary-color);">
+                        <i class="icofont-rocket-alt-2"
+                            style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; display: block;"></i>
                         <h3 style="margin-bottom: 10px;">Ready to Start a Project?</h3>
-                        <p style="color: #999; margin-bottom: 25px; max-width: 400px; margin-left: auto; margin-right: auto;">
+                        <p
+                            style="color: #999; margin-bottom: 25px; max-width: 400px; margin-left: auto; margin-right: auto;">
                             Become a client to unlock full access to projects, invoices, and dedicated support.
                         </p>
                         <a href="router.html" class="action-button">Get Started</a>
@@ -445,6 +458,7 @@
     </main>
 
     <script type="module" src="/src/js/dashboard.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
