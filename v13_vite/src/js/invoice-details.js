@@ -1,5 +1,6 @@
 import { auth } from './auth.js';
 import api from './api.js';
+import { paymentService } from './services/PaymentService.js';
 
 // 1. Guard
 auth.requireAuth();
@@ -25,22 +26,65 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    await loadInvoiceDetails(invoiceId);
+    const invoiceData = await loadInvoiceDetails(invoiceId);
 
-    // Placeholder actions
+    // Download PDF placeholder
     document.getElementById('download-btn').addEventListener('click', () => {
         alert('Download PDF feature coming soon.');
     });
 
-    document.getElementById('pay-btn').addEventListener('click', () => {
-        alert('Payment gateway integration coming soon.');
+    // Pay Now button - integrates with Stripe via PaymentService
+    const payBtn = document.getElementById('pay-btn');
+    payBtn.addEventListener('click', async () => {
+        if (!invoiceData) {
+            alert('Invoice data not loaded.');
+            return;
+        }
+
+        // Check if invoice is already paid
+        if (invoiceData.status?.toLowerCase() === 'paid') {
+            alert('This invoice has already been paid.');
+            return;
+        }
+
+        // Get user info for email
+        const user = auth.getUser();
+        const clientEmail = invoiceData.client_email || user?.user_email;
+
+        if (!clientEmail) {
+            alert('Client email not found. Please contact support.');
+            return;
+        }
+
+        // Disable button and show loading state
+        payBtn.disabled = true;
+        payBtn.innerHTML = '<i class="icofont-spinner-alt-4"></i> Redirecting to payment...';
+
+        try {
+            await paymentService.startPayment({
+                invoiceId: invoiceData.id,
+                amount: parseFloat(invoiceData.total) || parseFloat(invoiceData.amount) || 0,
+                clientEmail: clientEmail,
+                invoiceNumber: invoiceData.invoice_number || invoiceData.number,
+                clientName: invoiceData.client_name,
+                paymentType: 'full'
+            });
+            // User will be redirected to Stripe Checkout
+        } catch (error) {
+            console.error('Payment error:', error);
+            payBtn.disabled = false;
+            payBtn.innerHTML = '<i class="icofont-credit-card"></i> Pay Now';
+            alert('Failed to start payment. Please try again or contact support.');
+        }
     });
 });
 
 async function loadInvoiceDetails(id) {
     try {
         const response = await api.get(`/invoices/${id}`);
-        renderInvoice(response.data);
+        const invoice = response.data?.data || response.data;
+        renderInvoice(invoice);
+        return invoice;
     } catch (error) {
         console.error('Error fetching invoice:', error);
 
@@ -48,9 +92,11 @@ async function loadInvoiceDetails(id) {
         const mockInvoice = getMockInvoice(id);
         if (mockInvoice) {
             renderInvoice(mockInvoice);
+            return mockInvoice;
         } else {
             document.getElementById('invoice-id').textContent = 'Not Found';
             document.getElementById('client-info').textContent = 'The requested invoice could not be loaded.';
+            return null;
         }
     }
 }
@@ -89,6 +135,14 @@ function renderInvoice(invoice) {
     }
 
     document.getElementById('invoice-total').textContent = formatter.format(invoice.total);
+
+    // Hide Pay button if invoice is already paid
+    const payBtn = document.getElementById('pay-btn');
+    if (invoice.status?.toLowerCase() === 'paid') {
+        payBtn.style.display = 'none';
+    } else {
+        payBtn.style.display = 'inline-flex';
+    }
 }
 
 // Mock Data Helper

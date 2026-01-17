@@ -324,6 +324,10 @@
                             <span class="option-text">Do a full discovery intake</span>
                             <span class="option-icon"><i class="icofont-chart-flow"></i></span>
                         </button>
+                        <button class="option-btn" onclick="finishFunnel('reserve_spot')">
+                            <span class="option-text">Reserve my spot with a deposit</span>
+                            <span class="option-icon"><i class="icofont-credit-card"></i></span>
+                        </button>
                     </div>
                     <div class="nav-actions">
                         <button class="back-btn" onclick="prevStep(4)">Back</button>
@@ -440,8 +444,21 @@
 
             // --- ROUTING LOGIC (Matching funnel_decision_tree.md) ---
 
+            // Path 0: Reserve Spot (High Commitment - Ready to Pay)
+            if (readiness === 'reserve_spot') {
+                result = {
+                    title: "Reserve Your Spot",
+                    desc: "Great! A deposit secures your place in my schedule and allows us to start planning your project.",
+                    btnText: "Pay Deposit",
+                    url: "flows/deposit.html",
+                    alts: [
+                        { text: "Book a call first", url: "flows/consultation.html" },
+                        { text: "Request a quote", url: "flows/quote-request.html" }
+                    ]
+                };
+            }
             // Path 1: Quick Message (Low Commitment)
-            if (timing === 'researching' || readiness === 'quick_message') {
+            else if (timing === 'researching' || readiness === 'quick_message') {
                 result = {
                     title: "Send a Quick Message",
                     desc: "Since you're just researching or have a quick question, dropping a line is the best way to start.",

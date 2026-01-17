@@ -213,11 +213,21 @@ export const formSubmissionService = {
         const formDataObj = {};
         for (const [key, value] of formData.entries()) {
             // Skip standard fields we've already processed
-            const standardFields = ['email', 'sender_email', 'e-mail', 'name', 'sender_name', 'full_name', 
+            const standardFields = ['email', 'sender_email', 'e-mail', 'name', 'sender_name', 'full_name',
                                  'phone', 'sender_phone', 'tel', 'subject', 'title', 'message', 'body', 'comments'];
             if (!standardFields.includes(key.toLowerCase()) && value) {
                 formDataObj[key] = value;
             }
+        }
+
+        // Special handling for appointment-creating form types (book_a_call, discovery_intake)
+        if (formType === FORM_TYPES.BOOK_A_CALL || formType === FORM_TYPES.DISCOVERY_INTAKE) {
+            // Ensure preferred_time has seconds (HH:MM:SS format)
+            if (formDataObj.preferred_time && !formDataObj.preferred_time.includes(':00', 5)) {
+                formDataObj.preferred_time = formDataObj.preferred_time + ':00';
+            }
+            // Add user's timezone
+            formDataObj.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         }
 
         // Add form_data if there are additional fields

@@ -126,15 +126,25 @@ export function initFormSubmission(formElement, options = {}) {
 /**
  * Auto-initialize forms with data-wpbe-form attribute
  * Call this after DOM is loaded to automatically initialize forms
+ *
+ * Form attributes:
+ * - data-wpbe-form="form_type" (required) - The form type
+ * - data-redirect="/path/to/page.html" (optional) - Redirect URL on success
  */
 export function autoInitForms() {
     const forms = document.querySelectorAll('[data-wpbe-form]');
-    
+
     forms.forEach((form) => {
         const formType = form.getAttribute('data-wpbe-form');
-        
+        const redirectUrl = form.getAttribute('data-redirect');
+
         if (formType && Object.values(FORM_TYPES).includes(formType)) {
-            initFormSubmission(form, { formType });
+            initFormSubmission(form, {
+                formType,
+                onSuccess: redirectUrl ? () => {
+                    window.location.href = redirectUrl;
+                } : undefined
+            });
         } else {
             console.warn(`Invalid or missing form type for form: ${formType}`);
         }

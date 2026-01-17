@@ -82,5 +82,20 @@ export const contentService = {
     async getDynamicCards() {
         const response = await api.get('/dynamic-cards/public');
         return response.data;
+    },
+
+    async getActiveDynamicCards() {
+        const response = await api.get('/dynamic-cards/active');
+        return response.data;
+    },
+
+    async getDynamicCardsByType(type) {
+        const response = await api.get(`/dynamic-cards/type/${type}`);
+        return response.data;
+    },
+
+    async getDynamicCard(id) {
+        const response = await api.get(`/dynamic-cards/${id}`);
+        return response.data;
     }
 };
