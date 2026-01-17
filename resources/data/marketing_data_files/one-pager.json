@@ -1,0 +1,117 @@
+{
+  "document": "one-pager",
+  "version": "1.0",
+  "lastUpdated": "2025-01-15",
+  "brand": {
+    "name": "Christin Morton",
+    "title": "Web Development & Custom Digital Solutions",
+    "location": "Las Vegas, NV",
+    "website": "christinmorton.com",
+    "email": "hello@christinmorton.com",
+    "tagline": "I build digital platforms that you own."
+  },
+  "hero": {
+    "headline": "Christin Morton",
+    "subheadline": "Web Development & Custom Digital Solutions",
+    "tagline": "I build digital platforms that you own."
+  },
+  "whatIDo": {
+    "heading": "What I Do",
+    "description": "I create custom websites and applications for business owners who want a professional digital presence without renting expensive software or being locked into templates. When your project is complete, you own everything — no monthly fees, no vendor lock-in.",
+    "services": [
+      {
+        "title": "New Websites & Apps",
+        "description": "Custom-built solutions tailored to your business goals"
+      },
+      {
+        "title": "Updates & Improvements",
+        "description": "Modernize and enhance your existing digital presence"
+      }
+    ]
+  },
+  "whyWorkWithMe": {
+    "heading": "Why Work With Me",
+    "benefits": [
+      {
+        "title": "10 years of experience",
+        "description": "I understand why solutions work, not just how to build them"
+      },
+      {
+        "title": "Full-stack capability",
+        "description": "One point of contact from design to deployment"
+      },
+      {
+        "title": "Modern + reliable",
+        "description": "I leverage AI tools for speed while building custom backends for stability"
+      },
+      {
+        "title": "You own it",
+        "description": "I hand over the keys when we're done. Your platform belongs to you."
+      }
+    ]
+  },
+  "pricing": {
+    "heading": "Investment",
+    "packages": [
+      {
+        "name": "Starter",
+        "bestFor": "Landing pages, simple sites, email capture",
+        "startingAt": 1500,
+        "displayPrice": "$1,500"
+      },
+      {
+        "name": "Standard",
+        "bestFor": "Full websites, custom applications, CMS",
+        "startingAt": 3500,
+        "displayPrice": "$3,500"
+      },
+      {
+        "name": "Custom",
+        "bestFor": "Complex apps, integrations, SaaS products",
+        "startingAt": 5000,
+        "displayPrice": "$5,000+"
+      },
+      {
+        "name": "Maintenance",
+        "bestFor": "Ongoing support, updates, and security",
+        "startingAt": 200,
+        "displayPrice": "$200/mo",
+        "isRecurring": true
+      }
+    ]
+  },
+  "process": {
+    "heading": "How It Works",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Discovery",
+        "description": "We discuss your goals and requirements"
+      },
+      {
+        "number": 2,
+        "title": "Proposal",
+        "description": "You receive a clear scope and fixed quote"
+      },
+      {
+        "number": 3,
+        "title": "Build",
+        "description": "I develop with regular progress updates"
+      },
+      {
+        "number": 4,
+        "title": "Deliver",
+        "description": "You get full ownership of everything"
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to build something?",
+    "subheading": "Let's talk about your project — no commitment required.",
+    "buttonText": "Get Started",
+    "contactInfo": {
+      "website": "christinmorton.com",
+      "email": "hello@christinmorton.com"
+    }
+  }
+}

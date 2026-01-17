@@ -1,0 +1,183 @@
+{
+  "document": "lead-magnet-ownership-checklist",
+  "version": "1.0",
+  "lastUpdated": "2025-01-15",
+  "meta": {
+    "title": "Website Ownership Checklist",
+    "subtitle": "Do You Actually Own Your Website?",
+    "description": "A 5-minute audit to find out if you own your digital presence — or just rent it.",
+    "totalQuestions": 16,
+    "estimatedTime": "5 minutes"
+  },
+  "intro": {
+    "paragraphs": [
+      "Most business owners assume they own their website. They paid for it, it has their name on it, and it shows up when people search. But ownership is more complicated than it looks.",
+      "Take this quick checklist to find out where you really stand."
+    ]
+  },
+  "sections": [
+    {
+      "id": "domain",
+      "number": 1,
+      "title": "Domain Name",
+      "description": "Your domain (yourbusiness.com) is your address on the internet.",
+      "questions": [
+        {
+          "id": "domain_1",
+          "text": "I know which registrar my domain is registered with (GoDaddy, Namecheap, etc.)"
+        },
+        {
+          "id": "domain_2",
+          "text": "I have login credentials for my domain registrar account"
+        },
+        {
+          "id": "domain_3",
+          "text": "The domain is registered under my name or my business name"
+        },
+        {
+          "id": "domain_4",
+          "text": "I can transfer my domain to a different registrar if I want to"
+        }
+      ],
+      "results": {
+        "allChecked": "You own your domain.",
+        "someMissing": "You may be renting your domain through a website builder, or someone else controls it."
+      }
+    },
+    {
+      "id": "hosting",
+      "number": 2,
+      "title": "Hosting",
+      "description": "Hosting is where your website files actually live.",
+      "questions": [
+        {
+          "id": "hosting_1",
+          "text": "I know which hosting provider my site uses"
+        },
+        {
+          "id": "hosting_2",
+          "text": "I have direct login access to my hosting account"
+        },
+        {
+          "id": "hosting_3",
+          "text": "I can download a full backup of my website files"
+        },
+        {
+          "id": "hosting_4",
+          "text": "I could move my site to a different host if I wanted"
+        }
+      ],
+      "results": {
+        "allChecked": "You control your hosting.",
+        "someMissing": "Your website may be locked into a proprietary platform."
+      }
+    },
+    {
+      "id": "code",
+      "number": 3,
+      "title": "Website Code",
+      "description": "The actual files that make your website work.",
+      "questions": [
+        {
+          "id": "code_1",
+          "text": "My website is built on open technology (WordPress, custom code, etc.)"
+        },
+        {
+          "id": "code_2",
+          "text": "I have access to all source code files"
+        },
+        {
+          "id": "code_3",
+          "text": "I could hire any developer to work on my site (not just the original creator)"
+        },
+        {
+          "id": "code_4",
+          "text": "My website would still work if the platform/builder shut down tomorrow"
+        }
+      ],
+      "results": {
+        "allChecked": "You own your code.",
+        "someMissing": "You may be building on proprietary technology you can't take with you."
+      }
+    },
+    {
+      "id": "content",
+      "number": 4,
+      "title": "Content & Data",
+      "description": "Your text, images, customer data, and business information.",
+      "questions": [
+        {
+          "id": "content_1",
+          "text": "I can export all my content (pages, blog posts, product listings)"
+        },
+        {
+          "id": "content_2",
+          "text": "I can export my customer/contact data"
+        },
+        {
+          "id": "content_3",
+          "text": "I have original copies of all images and media files"
+        },
+        {
+          "id": "content_4",
+          "text": "I could rebuild my site elsewhere without losing critical information"
+        }
+      ],
+      "results": {
+        "allChecked": "Your content is portable.",
+        "someMissing": "You risk losing valuable business data if you ever leave your platform."
+      }
+    }
+  ],
+  "scoring": {
+    "tiers": [
+      {
+        "name": "OWNER",
+        "range": {
+          "min": 13,
+          "max": 16
+        },
+        "displayRange": "13-16 checks",
+        "color": "green",
+        "colorHex": "#2E7D32",
+        "backgroundColor": "#E8F5E9",
+        "description": "Great news — you have real ownership of your digital presence. Keep those credentials safe and documented."
+      },
+      {
+        "name": "PARTIAL",
+        "range": {
+          "min": 7,
+          "max": 12
+        },
+        "displayRange": "7-12 checks",
+        "color": "orange",
+        "colorHex": "#E65100",
+        "backgroundColor": "#FFF3E0",
+        "description": "You have some control, but gaps exist. Consider whether those gaps put your business at risk."
+      },
+      {
+        "name": "RENTER",
+        "range": {
+          "min": 0,
+          "max": 6
+        },
+        "displayRange": "0-6 checks",
+        "color": "red",
+        "colorHex": "#C62828",
+        "backgroundColor": "#FFEBEE",
+        "description": "You're paying for a website you don't really own. If the platform raises prices, shuts down, or changes terms — you could lose everything."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to actually own your digital presence?",
+    "subheading": "I build custom websites and applications that belong to you — no monthly fees, no vendor lock-in.",
+    "buttonText": "Let's talk",
+    "link": "christinmorton.com"
+  },
+  "footer": {
+    "name": "Christin Morton",
+    "website": "christinmorton.com",
+    "tagline": "I build digital platforms that you own."
+  }
+}

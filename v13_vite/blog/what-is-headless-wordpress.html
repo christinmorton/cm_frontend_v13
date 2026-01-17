@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is Headless WordPress? A Plain-English Guide for Business Owners | Christin Morton</title>
+    <meta name="description" content="Headless WordPress explained in plain English. What it is, why it exists, the tradeoffs, and whether it makes sense for your business.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What Is Headless WordPress? A Plain-English Guide">
+    <meta property="og:description" content="What it means, whether it matters for your business, and when it makes sense.">
+    <meta property="og:url" content="https://christinmorton.com/blog/what-is-headless-wordpress.html">
+
+    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
+    <link rel="stylesheet" href="/src/scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .article-header {
+            padding: 150px 0 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-meta {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .article-title {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+
+        .article-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+        }
+
+        .concept-box {
+            background: #111;
+            border: 1px solid #333;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .concept-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .concept-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .concept-item {
+            background: #0a0a0a;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #222;
+        }
+
+        .concept-item h4 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .concept-item p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .analogy-box {
+            background: #111;
+            border: 1px solid #333;
+            border-left: 4px solid var(--primary-color);
+            padding: 25px;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .analogy-box p {
+            margin-bottom: 0;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 2rem 0;
+        }
+
+        .column-box {
+            background: #111;
+            border: 1px solid #333;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .column-box h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .column-box ul {
+            margin-bottom: 0;
+            padding-left: 1.2rem;
+        }
+
+        .column-box li {
+            font-size: 1rem;
+        }
+
+        .article-cta {
+            background: #111;
+            border: 1px solid #333;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .article-cta h3 {
+            margin-top: 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .concept-comparison, .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-nav" class="header-nav">
+        <div class="site-container">
+            <div class="header-left">
+                <a class="logo" href="../index.html">
+                    <img src="../logo_2.png" alt="Christin Morton Logo">
+                </a>
+            </div>
+            <div class="header-right desktop-only">
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="../work.html" class="nav-link">Work</a></li>
+                        <li><a href="../service.html" class="nav-link">Services</a></li>
+                        <li><a href="../content.html" class="nav-link active">Content</a></li>
+                        <li><a href="../contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <button id="mobileBtn" class="mobile-menu-toggle mobile-only" type="button"><span class="menu-icon"></span></button>
+        </div>
+    </header>
+
+    <main>
+        <article class="site-container">
+            <header class="article-header">
+                <a href="../content.html" class="back-link"><i class="icofont-arrow-left"></i> Back to Insights</a>
+                <div class="article-meta">January 2026 • Technical</div>
+                <h1 class="article-title">What Is Headless WordPress? A Plain-English Guide for Business Owners</h1>
+            </header>
+
+            <div class="article-content">
+                <p>"Headless" sounds technical and confusing. Most explanations are written for developers, not business owners.</p>
+
+                <p>This one is different. By the end, you'll understand what headless WordPress actually means, why it exists, and whether it's relevant to your business.</p>
+
+                <div class="concept-box">
+                    <h3>The Simple Explanation</h3>
+                    <div class="concept-comparison">
+                        <div class="concept-item">
+                            <h4>Traditional WordPress</h4>
+                            <p>The same system manages your content AND displays your website. They're connected.</p>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Headless WordPress</h4>
+                            <p>WordPress manages your content, but a separate system displays your website. The "head" (the display layer) is detached.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analogy-box">
+                    <p><strong>Think of it this way:</strong> WordPress is the kitchen, and your website is the restaurant dining room. Traditional WordPress: kitchen and dining room are in the same building, connected. Headless: the kitchen sends food to a dining room that could be anywhere. A food truck, a different building, multiple locations.</p>
+                </div>
+
+                <h2>Why Would Anyone Do This?</h2>
+
+                <p>Headless WordPress isn't just complexity for its own sake. There are real benefits. though they matter most for larger sites or businesses with specific performance needs.</p>
+
+                <ul>
+                    <li><strong>Speed:</strong> The front-end can be built with modern technology that loads faster than traditional WordPress themes.</li>
+                    <li><strong>Security:</strong> The WordPress admin is separate from the public site, reducing the attack surface.</li>
+                    <li><strong>Flexibility:</strong> Your content can power a website, mobile app, and other platforms from one source.</li>
+                    <li><strong>Modern experience:</strong> Smoother interactions, faster page transitions, app-like feel.</li>
+                </ul>
+
+                <h2>The Tradeoffs</h2>
+
+                <p>Headless isn't "better", it's different. It solves specific problems but comes with real costs.</p>
+
+                <ul>
+                    <li><strong>More complex to build:</strong> Requires more development expertise.</li>
+                    <li><strong>Higher upfront cost:</strong> You're essentially building two systems instead of one.</li>
+                    <li><strong>Plugin limitations:</strong> Many WordPress plugins assume a traditional setup and won't work out of the box.</li>
+                    <li><strong>More moving parts:</strong> More things that can need maintenance.</li>
+                </ul>
+
+                <h2>Who Actually Needs Headless WordPress?</h2>
+
+                <p>Most small businesses don't need headless. It's worth knowing it exists for when you do.</p>
+
+                <div class="two-column">
+                    <div class="column-box">
+                        <h4>Headless makes sense if:</h4>
+                        <ul>
+                            <li>Performance is critical (e-commerce, high-traffic sites)</li>
+                            <li>You need to deliver content to multiple platforms (web, app, kiosks)</li>
+                            <li>You want a modern, app-like user experience</li>
+                            <li>You have the budget for custom development</li>
+                        </ul>
+                    </div>
+                    <div class="column-box">
+                        <h4>Traditional WordPress is fine if:</h4>
+                        <ul>
+                            <li>You have a standard business website</li>
+                            <li>Your budget is limited</li>
+                            <li>You want to make simple updates yourself</li>
+                            <li>Your needs are straightforward</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>What It Looks Like in Practice</h2>
+
+                <p>A local service business with a 10-page website doesn't need headless. Traditional WordPress handles that perfectly.</p>
+
+                <p>But a growing e-commerce brand with 5,000 products that needs lightning-fast browsing and plans to launch a mobile app? Headless architecture lets them manage inventory in one place while delivering fast experiences everywhere.</p>
+
+                <p>The technology should match the problem. For most small businesses, headless is overkill. For specific high-performance needs, it's the right tool.</p>
+
+                <h2>The Bottom Line</h2>
+
+                <p>Headless WordPress is a powerful tool for the right situation. Now you understand what it is well enough to ask informed questions if a developer recommends it.</p>
+
+                <p>If someone tells you that you "need" headless for a simple business website, be skeptical. If you're building something complex with high performance requirements, it might be worth exploring.</p>
+
+                <div class="article-cta">
+                    <h3>Curious if headless makes sense for your project?</h3>
+                    <p style="color: #999; margin-bottom: 25px;">I'm happy to discuss it. no pressure, just clarity on whether it's the right fit.</p>
+                    <a href="../flows/consultation.html" class="action-button" style="display: inline-flex;">
+                        <span>Schedule a Consultation</span>
+                        <div class="button-icon"><i class="icofont-paper-plane"></i></div>
+                    </a>
+                </div>
+
+                <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid #333;">
+                    <p style="color: #888; font-size: 0.95rem;"><strong>About the author:</strong> Christin Morton is a full-stack web developer based in Las Vegas, NV with experience in both traditional and headless WordPress architectures. <a href="../about.html" style="color: var(--primary-color);">Learn more</a></p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+</body>
+
+</html>

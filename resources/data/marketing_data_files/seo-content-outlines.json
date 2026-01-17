@@ -1,0 +1,594 @@
+{
+  "document": "seo-content-outlines",
+  "version": "1.0",
+  "lastUpdated": "2025-01-17",
+  "metadata": {
+    "purpose": "SEO content outlines for WordPress development services",
+    "totalOutlines": 5,
+    "recommendedWritingOrder": [
+      "wordpress_cost",
+      "las_vegas_developer",
+      "website_not_converting",
+      "platform_comparison",
+      "headless_wordpress"
+    ]
+  },
+  "outlines": [
+    {
+      "id": "wordpress_cost",
+      "title": "How Much Does a Custom WordPress Website Cost in 2026?",
+      "targetKeyword": "custom wordpress website cost",
+      "buyerIntent": "Consideration/Decision",
+      "recommendedLength": "1,200–1,800 words",
+      "priority": 1,
+      "opening": {
+        "paragraphs": 2,
+        "guidance": "Hook with the real answer: 'It depends' is true but unhelpful. Give a real range upfront ($1,500–$15,000+ for most small business projects) so readers know immediately if they're in the right place. Acknowledge the frustration of vague pricing online."
+      },
+      "sections": [
+        {
+          "heading": "What Drives the Cost",
+          "points": [
+            "Complexity — 5-page brochure site vs. booking system vs. membership portal",
+            "Design — template customization vs. fully custom design",
+            "Functionality — contact form vs. e-commerce vs. integrations with other tools",
+            "Content — do they provide it or do you help create it",
+            "Ongoing needs — one-time build vs. maintenance relationship"
+          ],
+          "example": "A local restaurant needing a menu, hours, and reservation link is a different project than a consultant needing a course platform with payments."
+        },
+        {
+          "heading": "The Real Cost of 'Cheap' Websites",
+          "guidance": "This is your positioning moment. Address the $500 Fiverr option and the DIY Squarespace route directly. Not to trash them—but to explain the tradeoffs.",
+          "points": [
+            "What you don't own",
+            "What breaks when you want to change something",
+            "Hidden costs (plugins, themes, monthly fees, migration later)",
+            "The cost of a site that doesn't convert"
+          ],
+          "keyMessage": "Cheap now often means expensive later."
+        },
+        {
+          "heading": "What You're Actually Paying For",
+          "guidance": "Educate them on what professional development includes that they might not see. This justifies your pricing without being defensive.",
+          "points": [
+            "Discovery and strategy (understanding their business, not just building pages)",
+            "Mobile optimization and speed",
+            "Security foundations",
+            "SEO-ready structure",
+            "Training so they can update it themselves"
+          ]
+        },
+        {
+          "heading": "Ballpark Ranges (Be Specific)",
+          "guidance": "Give them real numbers tied to project types. Adjust these to your actual tiers. The specificity builds trust.",
+          "pricingTable": [
+            {
+              "projectType": "Starter business site (5-7 pages)",
+              "range": "$1,500–$2,500",
+              "includes": "Custom design, mobile-ready, basic SEO, contact form"
+            },
+            {
+              "projectType": "Service business with booking/intake",
+              "range": "$3,000–$5,000",
+              "includes": "Above + scheduling integration, lead capture, analytics"
+            },
+            {
+              "projectType": "E-commerce or membership",
+              "range": "$5,000–$10,000+",
+              "includes": "Full store setup, payment processing, member areas"
+            },
+            {
+              "projectType": "Ongoing maintenance",
+              "range": "$200–$500/month",
+              "includes": "Updates, security, backups, support hours"
+            }
+          ]
+        },
+        {
+          "heading": "Questions to Ask Before You Hire",
+          "guidance": "Flip it—help them evaluate anyone, not just you. This positions you as an advisor, not a salesperson.",
+          "questions": [
+            "Do they explain what you'll own when the project ends?",
+            "What's included in the quote vs. what costs extra?",
+            "Who handles hosting, domain, updates after launch?",
+            "Can you see examples of similar projects?"
+          ]
+        }
+      ],
+      "closing": {
+        "paragraphs": 2,
+        "guidance": "Bring it back to your philosophy: a website is an investment in a platform you control. Invite them to reach out if they want to discuss their specific project. Keep the CTA simple—contact form or scheduling link."
+      },
+      "writingNotes": {
+        "tone": "Direct, no fluff. You're the expert who respects their intelligence.",
+        "proof": "If you have a past project you can reference (anonymized or with permission), include it as a concrete example.",
+        "structure": "Use the headings above. This helps both readers and AI systems understand your content.",
+        "internalLink": "Link to your local hiring guide when discussing how to evaluate developers."
+      }
+    },
+    {
+      "id": "las_vegas_developer",
+      "title": "Las Vegas Web Developer — What to Look for When Hiring Local",
+      "targetKeyword": "las vegas web developer",
+      "buyerIntent": "Decision/Local",
+      "recommendedLength": "1,000–1,500 words",
+      "priority": 2,
+      "opening": {
+        "paragraphs": 2,
+        "guidance": "Acknowledge why they're searching locally. Maybe they've been burned by overseas freelancers or agencies that disappeared. Maybe they want someone they can meet face-to-face. Maybe they just want to support local business. All valid. Set the frame: hiring a web developer is a relationship, not a transaction."
+      },
+      "sections": [
+        {
+          "heading": "Why Local Can Matter (And When It Doesn't)",
+          "guidance": "Be honest about this. Local isn't always necessary—but for certain clients it's a real advantage. This honesty builds trust.",
+          "whenLocalMatters": [
+            "You want ongoing support, not just a one-time build",
+            "Your business serves Las Vegas customers (local SEO alignment)",
+            "You prefer meeting in person to discuss your project",
+            "You value being able to call someone in your timezone",
+            "You want someone who understands your market"
+          ],
+          "whenItMightNot": [
+            "Highly technical projects where expertise trumps proximity",
+            "One-time builds with no ongoing relationship",
+            "Tight budgets where remote developers offer better rates"
+          ]
+        },
+        {
+          "heading": "Questions to Ask Any Developer Before Hiring",
+          "guidance": "Give them a practical checklist. Frame this as: these questions protect you regardless of who you hire.",
+          "questionCategories": [
+            {
+              "category": "About their process",
+              "questions": [
+                "How do you start a project? (Discovery call, questionnaire, just start building?)",
+                "What do you need from me, and when?",
+                "How long will this take, realistically?"
+              ]
+            },
+            {
+              "category": "About ownership",
+              "questions": [
+                "Will I own the website when it's done?",
+                "Who controls the hosting and domain?",
+                "What happens if we stop working together?"
+              ]
+            },
+            {
+              "category": "About support",
+              "questions": [
+                "What's included after launch?",
+                "How do I reach you if something breaks?",
+                "Do you offer maintenance plans?"
+              ]
+            },
+            {
+              "category": "About fit",
+              "questions": [
+                "Can I see examples of similar projects?",
+                "Have you worked with businesses like mine?",
+                "What's your communication style?"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Red Flags to Watch For",
+          "guidance": "Help them avoid bad experiences. Keep this factual, not snarky. You're protecting them, not trashing competitors.",
+          "redFlags": [
+            "No portfolio or unwillingness to show past work",
+            "Can't explain what you'll own vs. what they control",
+            "Vague pricing ('we'll figure it out as we go')",
+            "No contract or scope document",
+            "Promises that sound too good ('#1 on Google in 30 days')",
+            "Pressure to sign immediately",
+            "They only talk about design, never about your business goals"
+          ]
+        },
+        {
+          "heading": "What Good Looks Like",
+          "guidance": "Paint a picture of a healthy working relationship. This subtly describes how you work without saying 'here's how I work.'",
+          "greenFlags": [
+            "Clear scope and timeline before work begins",
+            "Regular communication without you having to chase them",
+            "They ask about your business, not just your color preferences",
+            "You understand what you're paying for",
+            "Training so you're not dependent on them for every small change",
+            "Documentation you can hand to someone else if needed"
+          ]
+        },
+        {
+          "heading": "The Las Vegas Advantage",
+          "guidance": "Now bring it local. What's specific about hiring in Vegas. You can mention specific neighborhoods or the business climate without being cheesy about it. Just be genuine.",
+          "points": [
+            "Someone who knows the local market (tourism, hospitality, service businesses, the hustle)",
+            "Understanding of seasonal business patterns",
+            "Potential for face-to-face meetings (coffee, co-working space, your office)",
+            "Supporting the local economy",
+            "Shared context—you both live here"
+          ]
+        }
+      ],
+      "closing": {
+        "paragraphs": 2,
+        "guidance": "Bring it home: the right developer is someone who treats your website as a business tool, not just a design project. Someone who answers your questions clearly and respects your time. Soft CTA: if you're looking for a Las Vegas-based developer who builds sites you actually own, here's how to reach me."
+      },
+      "writingNotes": {
+        "tone": "Helpful neighbor, not salesperson. You're the local expert sharing what you know.",
+        "localSignals": "Mention Las Vegas naturally throughout. This helps search engines understand your geographic relevance.",
+        "authorBio": "Include your name and a brief bio at the end. This builds the E-E-A-T signals (experience, expertise, authoritativeness, trust) that matter for 2026 SEO.",
+        "internalLink": "Link to your pricing post when you mention cost questions."
+      }
+    },
+    {
+      "id": "platform_comparison",
+      "title": "WordPress vs Squarespace vs Wix — Which Should You Actually Choose?",
+      "targetKeyword": "wordpress vs squarespace vs wix",
+      "buyerIntent": "Awareness/Consideration",
+      "recommendedLength": "1,500–2,000 words",
+      "priority": 4,
+      "opening": {
+        "paragraphs": 2,
+        "guidance": "Acknowledge the overwhelm. There are a hundred comparison articles out there, most of them affiliate-driven or outdated. You're going to give them the real answer: it depends on what they need, and there's no universally 'best' option. Set your angle early: ownership and long-term flexibility matter more than most comparisons discuss."
+      },
+      "sections": [
+        {
+          "heading": "The Quick Answer",
+          "guidance": "Give them a decision framework upfront so they don't have to read the whole thing if they're in a hurry. Then tell them: keep reading if you want to understand why.",
+          "quickSummary": [
+            {
+              "platform": "Wix",
+              "bestFor": "Simple sites you want to build yourself with minimal learning curve. Limited flexibility long-term."
+            },
+            {
+              "platform": "Squarespace",
+              "bestFor": "Visually-driven businesses (photographers, restaurants, portfolios) who want polished templates without code."
+            },
+            {
+              "platform": "WordPress",
+              "bestFor": "Businesses that want full control, plan to grow, or need custom functionality."
+            }
+          ]
+        },
+        {
+          "heading": "What You Actually Own",
+          "guidance": "This is your positioning section. Most comparisons skip this. Frame the tradeoff honestly: ownership requires more responsibility. But for a business asset, that tradeoff usually makes sense.",
+          "comparison": {
+            "wixSquarespace": "You're renting. Your site lives on their servers, uses their system. If you leave, you start over. If they change pricing or features, you adapt or migrate.",
+            "wordpress": "You own the code and content. You can move hosts, hire any developer, modify anything. It's yours."
+          }
+        },
+        {
+          "heading": "Cost Comparison (Honest Version)",
+          "guidance": "Break down real costs, not just sticker prices.",
+          "costTable": [
+            {
+              "platform": "Wix",
+              "monthlyCost": "$17–$35/mo",
+              "hiddenCosts": "Apps, storage upgrades, domain",
+              "threeYearReality": "$600–$1,500"
+            },
+            {
+              "platform": "Squarespace",
+              "monthlyCost": "$16–$49/mo",
+              "hiddenCosts": "E-commerce fees, limited integrations",
+              "threeYearReality": "$600–$1,800"
+            },
+            {
+              "platform": "WordPress",
+              "monthlyCost": "$5–$50/mo hosting",
+              "hiddenCosts": "Theme, plugins, developer if needed",
+              "threeYearReality": "$200–$2,000+"
+            }
+          ],
+          "note": "WordPress can be cheaper or more expensive depending on how you build it. Custom development is an investment, but you're building equity, not renting."
+        },
+        {
+          "heading": "Flexibility and Growth",
+          "guidance": "What happens when your business changes?",
+          "comparison": [
+            {
+              "platform": "Wix",
+              "assessment": "Adding complex features often means workarounds or switching platforms entirely."
+            },
+            {
+              "platform": "Squarespace",
+              "assessment": "Great within its constraints, but those constraints are real. E-commerce is limited compared to dedicated solutions."
+            },
+            {
+              "platform": "WordPress",
+              "assessment": "Nearly unlimited flexibility. Booking systems, membership areas, custom integrations, headless architecture—it can grow with you."
+            }
+          ],
+          "example": "A service business that starts with a simple site but later wants client portals and automated invoicing will find WordPress adapts. With Squarespace, they'd likely need to migrate."
+        },
+        {
+          "heading": "Ease of Use (The Real Story)",
+          "guidance": "Be honest. The question isn't 'which is easiest' but 'what kind of easy do you need?' Easy to start vs. easy to maintain vs. easy to change.",
+          "comparison": [
+            {
+              "platform": "Wix",
+              "assessment": "Easiest to start. Drag and drop. But can become messy as you add more."
+            },
+            {
+              "platform": "Squarespace",
+              "assessment": "Clean interface, but more rigid. You work within their structure."
+            },
+            {
+              "platform": "WordPress",
+              "assessment": "Steeper learning curve, but most business owners can handle basic updates after training. Complex changes need a developer."
+            }
+          ]
+        },
+        {
+          "heading": "SEO and Performance",
+          "guidance": "Brief but important. Don't oversell WordPress here—acknowledge that for a simple site, the SEO difference is minimal.",
+          "points": [
+            "All three can rank in Google if done well",
+            "WordPress offers more control over technical SEO",
+            "Squarespace and Wix have improved but still have limitations",
+            "Page speed varies by how you build, not just platform"
+          ]
+        },
+        {
+          "heading": "So Which Should You Choose?",
+          "recommendations": [
+            {
+              "platform": "Wix",
+              "chooseIf": [
+                "You need something up fast and simple",
+                "You're comfortable with limited customization",
+                "Budget is tight and you're doing it yourself"
+              ]
+            },
+            {
+              "platform": "Squarespace",
+              "chooseIf": [
+                "Visual design matters most (creative businesses)",
+                "You want polished templates without touching code",
+                "Your needs are unlikely to change dramatically"
+              ]
+            },
+            {
+              "platform": "WordPress",
+              "chooseIf": [
+                "You're building a long-term business asset",
+                "You want to own your platform",
+                "You anticipate needing custom features or integrations",
+                "You're willing to invest in professional development"
+              ]
+            }
+          ]
+        }
+      ],
+      "closing": {
+        "paragraphs": 2,
+        "guidance": "Bring it back to the core question: what kind of business are you building? A website you rent works for some. A platform you own makes sense for others. Soft CTA: if you've decided WordPress is right and want help building it properly, here's how to reach me."
+      },
+      "writingNotes": {
+        "tone": "Objective advisor, not WordPress salesperson. Your credibility comes from honesty.",
+        "proof": "If you've migrated clients from Wix/Squarespace to WordPress, mention it briefly as a real example.",
+        "internalLinks": "Link to your pricing post and local hiring guide."
+      }
+    },
+    {
+      "id": "website_not_converting",
+      "title": "Why Your Website Isn't Bringing You Customers (And What to Do About It)",
+      "targetKeyword": "website not getting customers / website not converting",
+      "buyerIntent": "Problem-aware",
+      "recommendedLength": "1,200–1,600 words",
+      "priority": 3,
+      "opening": {
+        "paragraphs": 2,
+        "guidance": "Start with the frustration they're feeling: you paid for a website, it looks fine, but the phone isn't ringing. Leads aren't coming in. You're not sure what's wrong. Validate that this is common. Most websites are built to 'exist' rather than to convert. The good news: it's usually fixable once you know what to look for."
+      },
+      "sections": [
+        {
+          "heading": "Your Website Loads Too Slowly",
+          "guidance": "First, the technical basics.",
+          "points": [
+            "If your site takes more than 3 seconds to load, you're losing visitors",
+            "Mobile speed matters even more than desktop",
+            "Common culprits: oversized images, bloated themes, cheap hosting"
+          ],
+          "actionItem": "Test your site at PageSpeed Insights. If the score is below 50, speed is hurting you."
+        },
+        {
+          "heading": "Nobody Knows What You Want Them to Do",
+          "guidance": "The most common problem: no clear call to action.",
+          "points": [
+            "Visitors land on your site and... then what?",
+            "'Contact us' buried in the footer isn't a strategy",
+            "Every page should guide them toward one action"
+          ],
+          "examples": [
+            "Schedule a Free Consultation",
+            "Get a Quote in 24 Hours",
+            "Download Our Guide"
+          ]
+        },
+        {
+          "heading": "Your Site Doesn't Build Trust",
+          "guidance": "People buy from businesses they trust. Your website needs to earn that trust quickly. For local businesses especially: show you're a real person in a real place.",
+          "trustProblems": [
+            "No photos of real people (stock photos feel fake)",
+            "No testimonials or reviews",
+            "No clear explanation of who you are",
+            "No address, phone number, or way to verify you're real"
+          ]
+        },
+        {
+          "heading": "You're Not Showing Up in Search",
+          "guidance": "If people can't find you, they can't hire you. Basic SEO isn't magic—it's making sure Google understands what you do and where you do it.",
+          "diagnosticQuestions": [
+            "Does your site show up when you search your business name?",
+            "What about '[your service] + [your city]'?",
+            "Do your pages have clear titles and descriptions?"
+          ]
+        },
+        {
+          "heading": "Your Site Isn't Mobile-Friendly",
+          "guidance": "More than half of web traffic is mobile. Test it yourself. Pull up your site on your phone and try to complete the main action. If it's frustrating, visitors are leaving.",
+          "mobileProblems": [
+            "Buttons too small to tap",
+            "Text too small to read",
+            "Forms that are painful to fill out",
+            "Layout that breaks or scrolls weirdly"
+          ]
+        },
+        {
+          "heading": "You're Attracting the Wrong People (Or No One)",
+          "guidance": "Sometimes the site works fine—but nobody's coming. A website without traffic is a brochure in a locked drawer.",
+          "diagnosticQuestions": [
+            "Are you creating any content that attracts searchers?",
+            "Does your site speak to your ideal customer or just describe your services generically?",
+            "Is there a reason for anyone to visit if they don't already know you?"
+          ]
+        },
+        {
+          "heading": "What to Do About It",
+          "guidance": "Give them a prioritized action list.",
+          "actionList": [
+            {
+              "priority": 1,
+              "action": "Test your speed",
+              "detail": "fix it if it's slow"
+            },
+            {
+              "priority": 2,
+              "action": "Add a clear CTA",
+              "detail": "above the fold, on every page"
+            },
+            {
+              "priority": 3,
+              "action": "Add trust signals",
+              "detail": "real photos, testimonials, contact info"
+            },
+            {
+              "priority": 4,
+              "action": "Check mobile",
+              "detail": "fix any usability issues"
+            },
+            {
+              "priority": 5,
+              "action": "Claim your Google Business Profile",
+              "detail": "essential for local businesses"
+            },
+            {
+              "priority": 6,
+              "action": "Create one piece of helpful content",
+              "detail": "answer a question your customers actually ask"
+            }
+          ]
+        }
+      ],
+      "closing": {
+        "paragraphs": 2,
+        "guidance": "A website that doesn't convert isn't a finished website—it's a starting point. Most of these issues are fixable without starting over. Soft CTA: if you want a professional assessment of what's holding your site back, I'm happy to take a look."
+      },
+      "writingNotes": {
+        "tone": "Diagnostic and helpful. You're the expert who can see what they can't.",
+        "specificity": "Give them real things to check, not vague advice.",
+        "internalLinks": "Link to your pricing post when discussing professional fixes."
+      }
+    },
+    {
+      "id": "headless_wordpress",
+      "title": "What Is Headless WordPress? A Plain-English Guide for Business Owners",
+      "targetKeyword": "headless wordpress explained / what is headless wordpress",
+      "buyerIntent": "Education/Authority",
+      "recommendedLength": "1,000–1,400 words",
+      "priority": 5,
+      "opening": {
+        "paragraphs": 2,
+        "guidance": "Acknowledge that 'headless' sounds technical and confusing. Most explanations are written for developers. This one is for business owners who've heard the term and want to understand if it matters for them. Promise: by the end, you'll understand what it is, why it exists, and whether it's relevant to your business."
+      },
+      "sections": [
+        {
+          "heading": "The Simple Explanation",
+          "concepts": {
+            "traditional": "The same system manages your content AND displays your website. They're connected.",
+            "headless": "WordPress manages your content, but a separate system displays your website. The 'head' (the display layer) is detached."
+          },
+          "analogy": "Think of WordPress as the kitchen and your website as the restaurant dining room. Traditional WordPress: kitchen and dining room are in the same building, connected. Headless: the kitchen sends food to a dining room that could be anywhere—a food truck, a different building, multiple locations."
+        },
+        {
+          "heading": "Why Would Anyone Do This?",
+          "guidance": "Explain the benefits without hype. Be honest: these benefits matter most for larger sites or businesses with specific performance needs.",
+          "benefits": [
+            {
+              "benefit": "Speed",
+              "explanation": "The front-end can be built with modern technology that loads faster"
+            },
+            {
+              "benefit": "Security",
+              "explanation": "The WordPress admin is separate from the public site, reducing attack surface"
+            },
+            {
+              "benefit": "Flexibility",
+              "explanation": "Your content can power a website, mobile app, and other platforms from one source"
+            },
+            {
+              "benefit": "Modern experience",
+              "explanation": "Smoother interactions, faster page transitions, app-like feel"
+            }
+          ]
+        },
+        {
+          "heading": "The Tradeoffs",
+          "guidance": "Don't oversell it. Headless has real costs. Headless isn't better—it's different. It solves specific problems.",
+          "tradeoffs": [
+            {
+              "tradeoff": "More complex to build",
+              "explanation": "Requires more development expertise"
+            },
+            {
+              "tradeoff": "Higher upfront cost",
+              "explanation": "Two systems instead of one"
+            },
+            {
+              "tradeoff": "Plugin limitations",
+              "explanation": "Many WordPress plugins assume traditional setup"
+            },
+            {
+              "tradeoff": "More moving parts",
+              "explanation": "More things that can need maintenance"
+            }
+          ]
+        },
+        {
+          "heading": "Who Actually Needs Headless WordPress?",
+          "guidance": "Give clear guidance. Most small businesses don't need headless. It's worth knowing it exists for when you do.",
+          "headlessMakesSenseIf": [
+            "Performance is critical (e-commerce, high-traffic sites)",
+            "You need to deliver content to multiple platforms (web, app, kiosks)",
+            "You want a modern, app-like user experience",
+            "You have the budget for custom development"
+          ],
+          "traditionalIsFineIf": [
+            "You have a standard business website",
+            "Your budget is limited",
+            "You want to make simple updates yourself",
+            "Your needs are straightforward"
+          ]
+        },
+        {
+          "heading": "What It Looks Like in Practice",
+          "guidance": "Give a concrete example. If you have a real project example (anonymized), use it here.",
+          "example": "A local service business with a 10-page website doesn't need headless—traditional WordPress handles that perfectly. But a growing e-commerce brand with 5,000 products that needs lightning-fast browsing and plans to launch a mobile app? Headless architecture lets them manage inventory in one place while delivering fast experiences everywhere."
+        }
+      ],
+      "closing": {
+        "paragraphs": 2,
+        "guidance": "Bring it back to their decision: headless WordPress is a powerful tool for the right situation. Now you understand what it is well enough to ask informed questions if a developer recommends it. Soft CTA: if you're curious whether headless makes sense for your project, I'm happy to discuss it—no pressure, just clarity."
+      },
+      "writingNotes": {
+        "tone": "Teacher, not salesperson. You're sharing expertise without pushing.",
+        "simplicity": "No jargon. Every technical term gets explained.",
+        "credibility": "This piece demonstrates you understand modern architecture, which attracts higher-budget clients.",
+        "internalLinks": "Link to your pricing post when discussing costs."
+      }
+    }
+  ]
+}

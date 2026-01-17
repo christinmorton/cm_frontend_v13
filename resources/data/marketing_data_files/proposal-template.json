@@ -1,0 +1,182 @@
+{
+  "document": "proposal-template",
+  "version": "1.0",
+  "lastUpdated": "2025-01-15",
+  "metadata": {
+    "validityDays": 30,
+    "depositPercentage": 50
+  },
+  "placeholders": {
+    "required": [
+      "projectName",
+      "clientName",
+      "date",
+      "totalAmount",
+      "maintenanceAmount"
+    ],
+    "optional": [
+      "deliverables",
+      "exclusions",
+      "timelinePhases"
+    ]
+  },
+  "header": {
+    "documentType": "PROPOSAL",
+    "titleTemplate": "[projectName]",
+    "subtitleTemplate": "Prepared for [clientName] • [date]"
+  },
+  "sections": {
+    "projectOverview": {
+      "heading": "Project Overview",
+      "instructions": "Customize this section based on your discovery call. Briefly summarize what the client needs and how you'll solve it. 2-3 paragraphs max.",
+      "template": "[clientName] is looking to [describe their goal]. The current situation is [describe current state or problem].\n\nThis proposal outlines a solution that will [key benefit 1], [key benefit 2], and [key benefit 3]. Upon completion, [clientName] will have full ownership of the platform with no ongoing fees or dependencies."
+    },
+    "scopeOfWork": {
+      "heading": "Scope of Work",
+      "included": {
+        "subheading": "Included in This Project",
+        "defaultItems": [
+          "Custom [X]-page website with responsive design",
+          "Content management system for easy updates",
+          "Contact form with email notifications",
+          "Deployment to your hosting environment",
+          "Full handoff with all credentials and documentation"
+        ]
+      },
+      "excluded": {
+        "subheading": "Not Included (Available as Add-Ons)",
+        "defaultItems": [
+          "Ongoing maintenance and support",
+          "Additional pages beyond initial scope",
+          "Logo design or branding work"
+        ]
+      }
+    },
+    "timeline": {
+      "heading": "Timeline",
+      "note": "Timeline begins upon receipt of deposit and required assets (content, logos, etc.)",
+      "defaultPhases": [
+        {
+          "phase": "Discovery & Planning",
+          "description": "Requirements, assets, kickoff",
+          "duration": "Week 1"
+        },
+        {
+          "phase": "Design & Prototyping",
+          "description": "[Customize based on project]",
+          "duration": "Week 2"
+        },
+        {
+          "phase": "Development",
+          "description": "[Customize based on project]",
+          "duration": "Weeks 3-4"
+        },
+        {
+          "phase": "Review & Revisions",
+          "description": "Client feedback, refinements",
+          "duration": "Week 5"
+        },
+        {
+          "phase": "Deployment & Handoff",
+          "description": "Go live, documentation, training",
+          "duration": "Week 6"
+        }
+      ]
+    },
+    "investment": {
+      "heading": "Investment",
+      "lineItemTemplate": {
+        "description": "[projectName] — Complete Solution",
+        "amount": "[totalAmount]"
+      },
+      "paymentTerms": {
+        "subheading": "Payment Terms",
+        "terms": [
+          {
+            "label": "50% deposit",
+            "description": "due upon acceptance to begin work"
+          },
+          {
+            "label": "50% final payment",
+            "description": "due upon delivery"
+          }
+        ],
+        "acceptedMethods": ["Bank transfer", "PayPal", "Check"]
+      }
+    },
+    "whatYoullOwn": {
+      "heading": "What You'll Own",
+      "intro": "Upon project completion, you will receive:",
+      "items": [
+        "Complete source code for all custom development",
+        "Full access to hosting and domain management",
+        "All login credentials and administrative access",
+        "Documentation for maintaining and updating your site"
+      ],
+      "closingStatement": "You own everything. No monthly fees, no vendor lock-in, no dependency on me to keep things running."
+    },
+    "optionalMaintenance": {
+      "heading": "Optional: Ongoing Maintenance",
+      "intro": "After delivery, you can walk away with full ownership — or continue with a monthly maintenance package.",
+      "package": {
+        "name": "Monthly Maintenance Package",
+        "description": "Security updates, backups, minor updates, priority support",
+        "priceTemplate": "[maintenanceAmount]/month"
+      }
+    },
+    "nextSteps": {
+      "heading": "Next Steps",
+      "steps": [
+        {
+          "action": "Review this proposal",
+          "description": "Let me know if you have questions"
+        },
+        {
+          "action": "Sign below",
+          "description": "To confirm the project"
+        },
+        {
+          "action": "Submit deposit",
+          "description": "Work begins upon receipt"
+        },
+        {
+          "action": "Kick-off call",
+          "description": "We'll align on details and get started"
+        }
+      ],
+      "validityNote": "This proposal is valid for 30 days from the date above."
+    },
+    "acceptance": {
+      "heading": "Acceptance",
+      "legalText": "By signing below, [clientName] agrees to the scope, timeline, and investment outlined in this proposal.",
+      "signatures": {
+        "client": {
+          "label": "Client",
+          "nameField": "[clientName]",
+          "dateField": true
+        },
+        "developer": {
+          "label": "Developer",
+          "nameField": "Christin Morton",
+          "dateField": true
+        }
+      }
+    },
+    "contact": {
+      "heading": "Questions?",
+      "info": {
+        "name": "Christin Morton",
+        "website": "christinmorton.com",
+        "email": "hello@christinmorton.com",
+        "location": "Las Vegas, NV"
+      }
+    }
+  },
+  "exampleData": {
+    "projectName": "Modern Business Website",
+    "clientName": "Acme Corp",
+    "date": "January 15, 2025",
+    "totalAmount": "$3,500",
+    "maintenanceAmount": "$250"
+  }
+}

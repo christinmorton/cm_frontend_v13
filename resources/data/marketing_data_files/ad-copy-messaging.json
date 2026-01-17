@@ -1,0 +1,117 @@
+{
+  "document": "ad-copy-messaging",
+  "version": "1.0",
+  "lastUpdated": "2025-01-15",
+  "coreMessaging": {
+    "primaryTagline": "I build digital platforms that you own.",
+    "supportingMessages": [
+      "No monthly fees. No vendor lock-in. Just a platform that belongs to you.",
+      "10 years of experience. Modern tools. Reliable results.",
+      "I hand over the keys when the project is done."
+    ]
+  },
+  "headlines": {
+    "ownershipFocused": [
+      "Stop Renting Your Website",
+      "Your Business Deserves a Platform You Own",
+      "No Monthly Fees. No Lock-In. Just Results.",
+      "Finally Own Your Digital Presence"
+    ],
+    "experienceFocused": [
+      "10 Years of Code. Zero Shortcuts.",
+      "AI Moves Fast. I Know What Lasts.",
+      "Built on Fundamentals. Powered by Experience.",
+      "When AI Breaks It, I Can Fix It."
+    ],
+    "problemFocused": [
+      "Tired of Paying Monthly for a Website You Don't Own?",
+      "Your Wix Site Is Holding You Back",
+      "Ready to Graduate from Templates?",
+      "What Happens When Your Page Builder Company Shuts Down?"
+    ],
+    "localLasVegas": [
+      "Vegas Web Developer. Real Results.",
+      "Las Vegas Business? Let's Build Something Together.",
+      "Local Developer. Global Standards."
+    ]
+  },
+  "shortFormCopy": {
+    "googleAds": [
+      {
+        "text": "Custom websites you own outright. No monthly fees. 10 years experience.",
+        "charCount": 73
+      },
+      {
+        "text": "Stop renting your website. Get a custom platform built for your business.",
+        "charCount": 72
+      },
+      {
+        "text": "Las Vegas web developer. Full-stack solutions. You own everything.",
+        "charCount": 66
+      }
+    ],
+    "socialMediaBio": "I build digital platforms that you own. 10 years of web development. Based in Las Vegas. Let's build something.",
+    "elevatorPitch": "I'm a web developer who builds custom websites and applications. The difference is — when the project is done, you own everything. No monthly fees, no vendor lock-in. I've been doing this for 10 years, so I can build with modern tools while actually understanding why things work. Most of my clients are business owners who are tired of renting their digital presence and want something built specifically for them."
+  },
+  "longFormCopy": {
+    "aboutPage": {
+      "paragraphs": [
+        "Most business owners are stuck in a trap: they're paying monthly fees for website builders, but they don't actually own anything. If the company shuts down or raises prices, they're starting over.",
+        "I build a different way. When your project is complete, you get the keys to everything — the code, the hosting, the whole platform. It's yours. No monthly rent, no lock-in.",
+        "I've been writing code for 10 years. That means I can leverage modern AI tools for speed, but I also understand the fundamentals well enough to fix things when they break. You get the best of both worlds: fast development and reliable infrastructure.",
+        "If you're ready to stop renting and start owning, let's talk."
+      ]
+    },
+    "coldOutreachEmail": {
+      "subject": "Quick question about [Business Name]'s website",
+      "body": [
+        "Hi [Name],",
+        "I noticed [something specific about their business or website]. I'm a web developer based in Las Vegas, and I help business owners build digital platforms they actually own — no monthly fees or vendor lock-in.",
+        "Would you be open to a 15-minute call to see if there's a fit?",
+        "— Christin"
+      ],
+      "placeholders": ["[Business Name]", "[Name]", "[something specific about their business or website]"]
+    }
+  },
+  "socialMediaPosts": {
+    "educational": [
+      "The website builder you're paying $30/month for? You don't own any of it. If they shut down tomorrow, you'd be starting from scratch. There's another way.",
+      "AI can write code. But can it deploy it? Debug it at 2am? Understand why your server is throwing 500 errors? That's where 10 years of experience still matters.",
+      "Hot take: The technology behind your website matters less than whether you own it."
+    ],
+    "behindTheScenes": [
+      "Currently building: [project type]. The client came to me after their Squarespace site couldn't do [specific thing]. Custom solutions aren't always more expensive — they're just more yours.",
+      "Today's debugging adventure: [interesting technical problem]. This is why I love what I do — every project teaches me something new."
+    ]
+  },
+  "callsToAction": {
+    "soft": [
+      "Let's talk about your project",
+      "Schedule a free consultation",
+      "See if we're a good fit"
+    ],
+    "direct": [
+      "Get your free quote",
+      "Start your project today",
+      "Book your discovery call"
+    ]
+  },
+  "usageNotes": [
+    {
+      "tip": "Customize placeholders",
+      "description": "Replace [brackets] with specific details for each use."
+    },
+    {
+      "tip": "Match the platform",
+      "description": "LinkedIn favors professional tone. Instagram can be more casual."
+    },
+    {
+      "tip": "Test and iterate",
+      "description": "Try different headlines and see what resonates with your audience."
+    },
+    {
+      "tip": "Stay consistent",
+      "description": "Always come back to the core message — ownership, experience, reliability."
+    }
+  ]
+}

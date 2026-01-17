@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Web Application Development | Las Vegas | Christin Morton</title>
+    <meta name="description" content="Custom web applications built for your business. Dashboards, client portals, booking systems, and SaaS products you own outright. Starting at $3,500.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Custom Web Application Development | Christin Morton">
+    <meta property="og:description" content="Dashboards, portals, and custom tools built for your business needs.">
+    <meta property="og:url" content="https://christinmorton.com/service-apps.html">
+
+    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
+    <link rel="stylesheet" href="/src/scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .service-hero {
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+
+        .service-icon-large {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .service-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-subtitle {
+            font-size: 1.5rem;
+            color: #999;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .detail-card {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .detail-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            color: #ccc;
+        }
+
+        .detail-list li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .process-section {
+            margin-bottom: 100px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            text-align: center;
+        }
+
+        .step-number {
+            font-family: var(--heading-font);
+            font-size: 4rem;
+            color: #222;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .step-desc {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .pricing-section {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 60px;
+            border-radius: 20px;
+            margin-bottom: 100px;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .pricing-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .pricing-header p {
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        .pricing-tiers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .pricing-tier {
+            border: 1px solid #333;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .tier-name {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .tier-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .tier-best-for {
+            color: #888;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .tier-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tier-features li {
+            padding: 8px 0;
+            color: #ccc;
+            border-bottom: 1px solid #222;
+        }
+
+        .service-cta {
+            background: #111;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid #333;
+        }
+
+        .cta-heading {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: #999;
+            margin-bottom: 40px;
+        }
+
+        @media(max-width: 900px) {
+            .details-grid,
+            .pricing-tiers {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-nav" class="header-nav">
+        <div class="site-container">
+            <div class="header-left">
+                <a class="logo" href="index.html">
+                    <img src="logo_2.png" alt="Christin Morton Logo">
+                </a>
+            </div>
+            <div class="header-right desktop-only">
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="work.html" class="nav-link">Work</a></li>
+                        <li><a href="service.html" class="nav-link active">Services</a></li>
+                        <li><a href="content.html" class="nav-link">Content</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <button id="mobileBtn" class="mobile-menu-toggle mobile-only" type="button"><span
+                    class="menu-icon"></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="site-container">
+            <!-- Hero -->
+            <div class="service-hero">
+                <div class="service-icon-large"><i class="icofont-web"></i></div>
+                <h1 class="service-title">Web Applications</h1>
+                <p class="service-subtitle">Dashboards, client portals, booking systems, and custom tools. When off-the-shelf software doesn't fit, I build exactly what you need.</p>
+            </div>
+
+            <!-- Details -->
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3 class="detail-title">What I Build</h3>
+                    <ul class="detail-list">
+                        <li>Client portals and dashboards</li>
+                        <li>Booking and scheduling systems</li>
+                        <li>Internal business tools</li>
+                        <li>Data visualization dashboards</li>
+                        <li>API integrations</li>
+                        <li>Custom SaaS products</li>
+                        <li>Member management systems</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3 class="detail-title">Why Custom?</h3>
+                    <ul class="detail-list">
+                        <li>No monthly SaaS fees eating into profits</li>
+                        <li>Built for your exact workflow</li>
+                        <li>Scales with your business</li>
+                        <li>Integrates with your existing tools</li>
+                        <li>You own the code forever</li>
+                        <li>No feature limitations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Process -->
+            <div class="process-section">
+                <h2 style="text-align: center; font-size: 2.5rem;">How It Works</h2>
+                <div class="process-steps">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <h3 class="step-title">Discovery</h3>
+                        <p class="step-desc">We map out your requirements, user flows, and technical needs in detail.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <h3 class="step-title">Proposal</h3>
+                        <p class="step-desc">You receive a detailed scope, timeline, and fixed quote for your project.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <h3 class="step-title">Build</h3>
+                        <p class="step-desc">Iterative development with regular demos. You're involved every step of the way.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <h3 class="step-title">Deliver</h3>
+                        <p class="step-desc">Full deployment, documentation, and training. You own everything.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="pricing-section">
+                <div class="pricing-header">
+                    <h2>Investment</h2>
+                    <p>Complex problems require custom solutions. Let's scope yours.</p>
+                </div>
+                <div class="pricing-tiers">
+                    <div class="pricing-tier">
+                        <h3 class="tier-name">Standard</h3>
+                        <div class="tier-price">$3,500+</div>
+                        <p class="tier-best-for">Dashboards, portals, and business tools</p>
+                        <ul class="tier-features">
+                            <li>User authentication</li>
+                            <li>Database backend</li>
+                            <li>Custom user interface</li>
+                            <li>API integrations</li>
+                            <li>Mobile-responsive design</li>
+                            <li>Documentation and training</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-tier">
+                        <h3 class="tier-name">Custom</h3>
+                        <div class="tier-price">$5,000+</div>
+                        <p class="tier-best-for">Complex apps, SaaS products, integrations</p>
+                        <ul class="tier-features">
+                            <li>Everything in Standard</li>
+                            <li>Complex business logic</li>
+                            <li>Third-party integrations</li>
+                            <li>Payment processing</li>
+                            <li>Advanced security features</li>
+                            <li>Ongoing support available</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="service-cta">
+                <h2 class="cta-heading">Have a custom project in mind?</h2>
+                <p class="cta-text">Let's discuss what you're trying to build. No commitment required.</p>
+                <a href="flows/consultation.html" class="action-button" style="display: inline-flex;">
+                    <span>Schedule a Consultation</span>
+                    <div class="button-icon"><i class="icofont-paper-plane"></i></div>
+                </a>
+            </div>
+
+            <div style="height: 100px;"></div>
+
+        </section>
+    </main>
+
+</body>
+
+</html>
