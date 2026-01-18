@@ -1,4 +1,5 @@
-import './scss/main.scss';
+// SCSS imported via HTML head to prevent FOUC
+// import './scss/main.scss';
 import { ThreeBackground } from './js/components/ThreeBackground.js';
 import { initTracking } from './js/tracking/index.js';
 import { initMobileMenu } from './js/core.js';
