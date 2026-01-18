@@ -1,0 +1,73 @@
+# GitHub Actions CI/CD Workflow for Vite Frontend
+# Triggers on push to main branch and deploys to production server
+# 
+# Required GitHub Secrets:
+#   SSH_PRIVATE_KEY    - Private key for server authentication
+#   SSH_HOST           - Server hostname (e.g., christinmorton.com or IP)
+#   SSH_USER           - SSH username on the server
+#   SSH_PORT           - SSH port (usually 22)
+#   DEPLOY_PATH        - Path to web root (e.g., /var/www/christinmorton.com/public)
+
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js with caching for faster builds
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build the Vite application
+      - name: Build
+        run: npm run build
+        env:
+          # Add any environment variables your build needs
+          VITE_API_URL: https://cms.christinmorton.com/wp-json
+          # VITE_OTHER_VAR: ${{ secrets.OTHER_VAR }}
+
+      # 5. Setup SSH key for deployment
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      # 6. Deploy to server using rsync
+      - name: Deploy to server
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT }}" \
+            ./dist/ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}/
+
+      # 7. Cleanup
+      - name: Cleanup SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
+
+      # 8. Notify on completion (optional - can add Slack/Discord webhook)
+      - name: Deployment complete
+        run: echo "✅ Deployed to production successfully!"

@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(dir /b \"c:\\\\Users\\\\msdnC\\\\Documents\\\\code_projects\\\\cmm_dot_com_frontend_v13\\\\v12_code\")",
+      "Bash(dir /s /b \"c:\\\\Users\\\\msdnC\\\\Documents\\\\code_projects\\\\cmm_dot_com_frontend_v13\" -maxdepth 1)"
     ]
   }
 }

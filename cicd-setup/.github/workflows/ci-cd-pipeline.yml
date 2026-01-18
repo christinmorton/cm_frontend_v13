@@ -1,0 +1,206 @@
+# GitHub Actions CI/CD Workflow - Full Development Pipeline
+# 
+# Workflow:
+#   - Pull Requests: Build & test only (no deploy)
+#   - Push to develop: Deploy to staging
+#   - Push to main: Deploy to production
+#
+# Required GitHub Secrets:
+#   SSH_PRIVATE_KEY         - Private key for server authentication
+#   PROD_SSH_HOST           - Production server hostname
+#   PROD_SSH_USER           - Production SSH username
+#   PROD_SSH_PORT           - Production SSH port
+#   PROD_DEPLOY_PATH        - Production web root path
+#   STAGING_SSH_HOST        - (Optional) Staging server hostname
+#   STAGING_SSH_USER        - (Optional) Staging SSH username  
+#   STAGING_SSH_PORT        - (Optional) Staging SSH port
+#   STAGING_DEPLOY_PATH     - (Optional) Staging web root path
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  # ============================================
+  # BUILD & TEST JOB
+  # Runs on all pushes and PRs
+  # ============================================
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint (if configured)
+        run: npm run lint --if-present
+        continue-on-error: true
+
+      - name: Run tests (if configured)
+        run: npm test --if-present
+        continue-on-error: true
+
+      - name: Build application
+        run: npm run build
+        env:
+          VITE_API_URL: ${{ github.ref == 'refs/heads/main' && 'https://cms.christinmorton.com/wp-json' || 'https://staging-cms.christinmorton.com/wp-json' }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+  # ============================================
+  # DEPLOY TO STAGING
+  # Runs on push to develop branch
+  # ============================================
+  deploy-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+    environment: staging
+    
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p ${{ secrets.STAGING_SSH_PORT || '22' }} -H ${{ secrets.STAGING_SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to staging
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.STAGING_SSH_PORT || '22' }}" \
+            ./dist/ \
+            ${{ secrets.STAGING_SSH_USER }}@${{ secrets.STAGING_SSH_HOST }}:${{ secrets.STAGING_DEPLOY_PATH }}/
+
+      - name: Cleanup
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
+
+  # ============================================
+  # DEPLOY TO PRODUCTION
+  # Runs on push to main branch
+  # ============================================
+  deploy-production:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+    
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p ${{ secrets.PROD_SSH_PORT || '22' }} -H ${{ secrets.PROD_SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to production
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.PROD_SSH_PORT || '22' }}" \
+            ./dist/ \
+            ${{ secrets.PROD_SSH_USER }}@${{ secrets.PROD_SSH_HOST }}:${{ secrets.PROD_DEPLOY_PATH }}/
+
+      - name: Cleanup
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
+
+      - name: Create deployment marker
+        run: echo "Deployed commit ${{ github.sha }} at $(date -u)" 
+
+  # ============================================
+  # MANUAL DEPLOY
+  # Triggered via workflow_dispatch
+  # ============================================
+  deploy-manual:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    environment: ${{ github.event.inputs.environment }}
+    
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Set deployment variables
+        id: vars
+        run: |
+          if [ "${{ github.event.inputs.environment }}" == "production" ]; then
+            echo "host=${{ secrets.PROD_SSH_HOST }}" >> $GITHUB_OUTPUT
+            echo "user=${{ secrets.PROD_SSH_USER }}" >> $GITHUB_OUTPUT
+            echo "port=${{ secrets.PROD_SSH_PORT || '22' }}" >> $GITHUB_OUTPUT
+            echo "path=${{ secrets.PROD_DEPLOY_PATH }}" >> $GITHUB_OUTPUT
+          else
+            echo "host=${{ secrets.STAGING_SSH_HOST }}" >> $GITHUB_OUTPUT
+            echo "user=${{ secrets.STAGING_SSH_USER }}" >> $GITHUB_OUTPUT
+            echo "port=${{ secrets.STAGING_SSH_PORT || '22' }}" >> $GITHUB_OUTPUT
+            echo "path=${{ secrets.STAGING_DEPLOY_PATH }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p ${{ steps.vars.outputs.port }} -H ${{ steps.vars.outputs.host }} >> ~/.ssh/known_hosts
+
+      - name: Deploy
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ steps.vars.outputs.port }}" \
+            ./dist/ \
+            ${{ steps.vars.outputs.user }}@${{ steps.vars.outputs.host }}:${{ steps.vars.outputs.path }}/
+
+      - name: Cleanup
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
