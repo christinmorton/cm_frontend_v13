@@ -22,7 +22,9 @@ export const FORM_TYPES = {
     NEWSLETTER_SIGNUP: 'newsletter_signup',
     SUPPORT_REQUEST: 'support_request',
     SUPPORT_FORM: 'support_form',
-    FAQ_QUESTION: 'faq_question'
+    FAQ_QUESTION: 'faq_question',
+    TESTIMONIAL_SUBMISSION: 'testimonial_submission',
+    SOCIAL_PROOF_SUBMISSION: 'social_proof_submission'
 };
 
 /**
@@ -228,6 +230,20 @@ export const formSubmissionService = {
             }
             // Add user's timezone
             formDataObj.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        }
+
+        // Special handling for testimonial submissions - convert rating to integer
+        if (formType === FORM_TYPES.TESTIMONIAL_SUBMISSION) {
+            if (formDataObj.rating) {
+                formDataObj.rating = parseInt(formDataObj.rating, 10);
+            }
+        }
+
+        // Special handling for social proof submissions - ensure engagement_count is integer
+        if (formType === FORM_TYPES.SOCIAL_PROOF_SUBMISSION) {
+            if (formDataObj.engagement_count) {
+                formDataObj.engagement_count = parseInt(formDataObj.engagement_count, 10);
+            }
         }
 
         // Add form_data if there are additional fields

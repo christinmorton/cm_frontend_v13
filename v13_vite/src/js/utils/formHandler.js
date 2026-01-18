@@ -43,14 +43,26 @@ export function initFormSubmission(formElement, options = {}) {
         // Disable submit button
         if (submitButton) {
             submitButton.disabled = true;
-            // Store original text if not already stored
-            if (!submitButton.dataset.originalText) {
-                submitButton.dataset.originalText = submitButton.textContent || submitButton.value || 'Submit';
-            }
-            // Update button text
-            if (submitButton.textContent !== undefined) {
+
+            // Check if button has a span for text (common pattern with icons)
+            const buttonSpan = submitButton.querySelector('span');
+
+            if (buttonSpan) {
+                // Store original text from span
+                if (!submitButton.dataset.originalText) {
+                    submitButton.dataset.originalText = buttonSpan.textContent || 'Submit';
+                }
+                buttonSpan.textContent = 'Sending...';
+            } else if (submitButton.textContent !== undefined) {
+                // Store original text if not already stored
+                if (!submitButton.dataset.originalText) {
+                    submitButton.dataset.originalText = submitButton.textContent || submitButton.value || 'Submit';
+                }
                 submitButton.textContent = 'Sending...';
             } else {
+                if (!submitButton.dataset.originalText) {
+                    submitButton.dataset.originalText = submitButton.value || 'Submit';
+                }
                 submitButton.value = 'Sending...';
             }
         }
@@ -113,7 +125,13 @@ export function initFormSubmission(formElement, options = {}) {
             if (submitButton) {
                 submitButton.disabled = false;
                 const originalText = submitButton.dataset.originalText || 'Submit';
-                if (submitButton.textContent !== undefined) {
+
+                // Check if button has a span for text
+                const buttonSpan = submitButton.querySelector('span');
+
+                if (buttonSpan) {
+                    buttonSpan.textContent = originalText;
+                } else if (submitButton.textContent !== undefined) {
                     submitButton.textContent = originalText;
                 } else if (submitButton.value !== undefined) {
                     submitButton.value = originalText;
