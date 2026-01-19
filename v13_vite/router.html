@@ -443,7 +443,9 @@
             const timing = answers.timing;
             const readiness = answers.readiness;
 
-            // --- ROUTING LOGIC (Matching funnel_decision_tree.md) ---
+            // --- ROUTING LOGIC ---
+            // Primary routing is based on Step 4 choice (readiness).
+            // Context from earlier steps (intent, clarity, timing) adjusts messaging.
 
             // Path 0: Reserve Spot (High Commitment - Ready to Pay)
             if (readiness === 'reserve_spot') {
@@ -459,10 +461,13 @@
                 };
             }
             // Path 1: Quick Message (Low Commitment)
-            else if (timing === 'researching' || readiness === 'quick_message') {
+            else if (readiness === 'quick_message') {
+                const isResearching = timing === 'researching';
                 result = {
                     title: "Send a Quick Message",
-                    desc: "Since you're just researching or have a quick question, dropping a line is the best way to start.",
+                    desc: isResearching
+                        ? "Since you're just researching, dropping a line is the best way to start."
+                        : "No pressure. Just send a quick question or hello.",
                     btnText: "Send Message",
                     url: "flows/quick-message.html",
                     alts: [
@@ -470,11 +475,30 @@
                     ]
                 };
             }
-            // Path 3: Quote (Prepared Buyer)
-            else if (clarity === 'very_clear' && readiness === 'request_quote') {
+            // Path 2: Book a Call / Consultation
+            else if (readiness === 'book_call') {
+                const needsGuidance = clarity === 'not_clear' || intent === 'unsure';
+                result = {
+                    title: "Book a Free Consultation",
+                    desc: needsGuidance
+                        ? "Since you're looking for guidance, a quick chat is the best way to clarify your next steps."
+                        : "Let's talk through your project and figure out the best approach together.",
+                    btnText: "Schedule Call",
+                    url: "flows/consultation.html",
+                    alts: [
+                        { text: "Just send a message", url: "flows/quick-message.html" },
+                        { text: "Request a quote", url: "flows/quote-request.html" }
+                    ]
+                };
+            }
+            // Path 3: Quote Request (Prepared Buyer)
+            else if (readiness === 'request_quote') {
+                const isPrepared = clarity === 'very_clear';
                 result = {
                     title: "Request a Quote",
-                    desc: "You know exactly what you need. Let's get you a price estimate quickly.",
+                    desc: isPrepared
+                        ? "You know exactly what you need. Let's get you a price estimate quickly."
+                        : "Tell me about your project and I'll send you a custom quote.",
                     btnText: "Start Quote",
                     url: "flows/quote-request.html",
                     alts: [
@@ -482,23 +506,26 @@
                     ]
                 };
             }
-            // Path 4: Discovery (Complex)
-            else if (intent === 'build_new' && clarity === 'somewhat_clear' && readiness === 'discovery') {
+            // Path 4: Discovery Intake (Complex/High-Value)
+            else if (readiness === 'discovery') {
+                const isNewBuild = intent === 'build_new';
                 result = {
                     title: "Start Project Discovery",
-                    desc: "For complex new builds, a deep-dive intake helps us map out the perfect solution.",
-                    btnText: "Start Analysis",
+                    desc: isNewBuild
+                        ? "For complex new builds, a deep-dive intake helps us map out the perfect solution."
+                        : "A detailed intake helps me understand your project fully before we begin.",
+                    btnText: "Begin Discovery",
                     url: "flows/discovery.html",
                     alts: [
                         { text: "Just book a call", url: "flows/consultation.html" }
                     ]
                 };
             }
-            // Path 2: Consultation (Default/Guidance)
+            // Fallback: Consultation (shouldn't normally reach here)
             else {
                 result = {
                     title: "Book a Free Consultation",
-                    desc: "Since you're looking for guidance, a quick 15-minute chat is the best way to clarify your next steps.",
+                    desc: "Let's talk through your project and figure out the best next step.",
                     btnText: "Schedule Call",
                     url: "flows/consultation.html",
                     alts: [
