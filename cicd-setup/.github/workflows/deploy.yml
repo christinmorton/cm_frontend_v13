@@ -8,6 +8,13 @@
 #   SSH_PORT           - SSH port (usually 22)
 #   DEPLOY_PATH        - Path to web root (e.g., /var/www/christinmorton.com/public)
 #
+# Optional Build Secrets (for VITE_ environment variables):
+#   VITE_GTM_ID                    - Google Tag Manager ID
+#   VITE_STRIPE_PUBLISHABLE_KEY    - Stripe public key (safe for client)
+#   VITE_OPENAI_API_KEY            - OpenAI API key (for chatbot - if client-side)
+#   VITE_GOOGLE_PLACES_API_KEY     - Google Places API key
+#   VITE_CALENDLY_URL              - Calendly scheduling link
+#
 # Workflow:
 #   1. Develop on v1.0/service (or other version branches)
 #   2. When ready to deploy, merge into 'production' branch
@@ -54,9 +61,20 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # Add any environment variables your build needs
+          # Core API endpoints
           VITE_API_BASE_URL: https://cms.christinmorton.com/wp-json/wpbe/v1
-          # VITE_OTHER_VAR: ${{ secrets.OTHER_VAR }}
+          VITE_JWT_AUTH_URL: https://cms.christinmorton.com/wp-json/jwt-auth/v1
+          VITE_WP_API_BASE_URL: https://cms.christinmorton.com/wp-json/wp/v2
+          VITE_SITE_URL: https://christinmorton.com
+
+          # Analytics
+          VITE_GTM_ID: GTM-WQ2PVPGW
+
+          # Future integrations (uncomment and add secrets when ready)
+          # VITE_STRIPE_PUBLISHABLE_KEY: ${{ secrets.VITE_STRIPE_PUBLISHABLE_KEY }}
+          # VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
+          # VITE_GOOGLE_PLACES_API_KEY: ${{ secrets.VITE_GOOGLE_PLACES_API_KEY }}
+          # VITE_CALENDLY_URL: ${{ secrets.VITE_CALENDLY_URL }}
 
       # 5. Setup SSH key for deployment
       - name: Setup SSH
