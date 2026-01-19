@@ -1,0 +1,81 @@
+#
+# Default server configuration
+#
+
+server {
+
+      # Document root - where Vite build files are served from
+    root /var/www/christinmorton.com/html;
+
+    # Default files to serve
+    index index.html;
+
+    # Server names
+    server_name christinmorton.com www.christinmorton.com;
+
+    # Gzip compression for better performance
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types
+        text/plain
+	text/css
+        text/xml
+        text/javascript
+        application/javascript
+        application/xml+rss
+        application/json;
+
+    # Cache hashed assets aggressively (Vite outputs hashed filenames)
+    location ~* \.(?:js|css|png|jpg|jpeg|gif|ico|svg|webp|avif|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        add_header Vary "Accept-Encoding";
+        try_files $uri =404;
+        access_log off;
+    }
+
+# Main route: serve files if they exist; if SPA, fall back to index.html
+    location / {
+        # For a pure static multi-page site use the next line:
+        try_files $uri $uri.html $uri/ =404;
+
+        # For a SPA, comment the line above and use this instead:
+        # try_files $uri /index.html;
+    }
+
+    # Security headers
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+ listen [::]:443 ssl ipv6only=on; # managed by Certbot
+ ...
+
+}
+
+
+
+server {
+    if ($host = www.christinmorton.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = christinmorton.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+      listen 80 default_server;
+      listen [::]:80 default_server;
+
+
+      server_name christinmorton.com www.christinmorton.com;
+    return 404; # managed by Certbot
+
+
+
+
+}

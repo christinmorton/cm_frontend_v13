@@ -68,7 +68,7 @@ jobs:
           VITE_SITE_URL: https://christinmorton.com
 
           # Analytics
-          VITE_GTM_ID: GTM-WQ2PVPGW
+          VITE_GTM_ID: GTM-KRSPLG3N
 
           # Future integrations (uncomment and add secrets when ready)
           # VITE_STRIPE_PUBLISHABLE_KEY: ${{ secrets.VITE_STRIPE_PUBLISHABLE_KEY }}
