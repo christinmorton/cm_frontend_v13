@@ -159,8 +159,17 @@ export function autoInitForms() {
         if (formType && Object.values(FORM_TYPES).includes(formType)) {
             initFormSubmission(form, {
                 formType,
-                onSuccess: redirectUrl ? () => {
-                    window.location.href = redirectUrl;
+                onSuccess: redirectUrl ? (response, formData) => {
+                    const url = new URL(redirectUrl, window.location.origin);
+                    url.searchParams.set('type', formType);
+
+                    // Add first name if available for personalization
+                    if (formData.sender_name) {
+                        const firstName = formData.sender_name.split(' ')[0];
+                        url.searchParams.set('name', firstName);
+                    }
+
+                    window.location.href = url.toString();
                 } : undefined
             });
         } else {

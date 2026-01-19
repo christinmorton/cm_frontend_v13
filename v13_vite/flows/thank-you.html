@@ -51,7 +51,54 @@
             color: #999;
             font-size: 1.1rem;
             line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .alt-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .alt-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .redirect-notice {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        .redirect-notice .countdown {
+            color: #888;
+            font-weight: 500;
+        }
+
+        .cancel-redirect {
+            color: #666;
+            font-size: 0.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-left: 8px;
+            padding: 0;
+        }
+
+        .cancel-redirect:hover {
+            color: #999;
         }
     </style>
 </head>
@@ -104,18 +151,256 @@
         <section class="page-header">
             <div class="site-container">
                 <div class="thank-you-card">
-                    <div class="icon-large"><i class="icofont-check-circled"></i></div>
-                    <h1 class="message-title">Received!</h1>
-                    <p class="message-body">Thanks for reaching out. I'll review your information and get back to you
-                        within 24-48 hours.</p>
+                    <div class="icon-large"><i id="thank-you-icon" class="icofont-check-circled"></i></div>
+                    <h1 id="message-title" class="message-title">Received!</h1>
+                    <p id="message-body" class="message-body">Thanks for reaching out. I'll review your information and get back to you within 24-48 hours.</p>
 
-                    <a href="../index.html" class="action-button">
-                        <span>Back to Home</span>
-                    </a>
+                    <div class="cta-container">
+                        <a id="primary-cta" href="../index.html" class="action-button">
+                            <span>Back to Home</span>
+                        </a>
+                        <a id="secondary-cta" href="#" class="alt-link" style="display: none;">
+                            Alternative Action
+                        </a>
+                    </div>
+
+                    <p id="redirect-notice" class="redirect-notice">
+                        Redirecting in <span id="countdown" class="countdown">8</span> seconds...
+                        <button id="cancel-redirect" class="cancel-redirect">Cancel</button>
+                    </p>
                 </div>
             </div>
         </section>
     </main>
+
+    <script>
+        /**
+         * Thank You Page - Dynamic Content Configuration
+         *
+         * Each form type can have custom messaging, CTAs, and redirect timing.
+         * To enable secondary CTA for a form type, set altCta.enabled to true.
+         */
+        const THANK_YOU_CONTENT = {
+            // Quick message - casual, fast response
+            quick_message: {
+                title: "Message Sent!",
+                body: "Thanks for reaching out. I typically respond within 24 hours.",
+                icon: "icofont-check-circled",
+                redirectDelay: 8,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: { text: "View Services", href: "../service.html", enabled: false }
+            },
+
+            // Book a call / consultation request
+            book_a_call: {
+                title: "Call Requested!",
+                body: "I'll confirm your consultation time via email shortly. Check your inbox for next steps.",
+                icon: "icofont-check-circled",
+                redirectDelay: 10,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: { text: "View Services", href: "../service.html", enabled: false }
+            },
+
+            // Quote request - prepared buyer
+            quote_request: {
+                title: "Quote Request Received!",
+                body: "I'll review your project details and send a custom quote within 48 hours.",
+                icon: "icofont-check-circled",
+                redirectDelay: 10,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: { text: "Browse Portfolio", href: "../work.html", enabled: false }
+            },
+
+            // Alternate quote request form type
+            request_a_quote: {
+                title: "Quote Request Received!",
+                body: "I'll review your project details and send a custom quote within 48 hours.",
+                icon: "icofont-check-circled",
+                redirectDelay: 10,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: { text: "Browse Portfolio", href: "../work.html", enabled: false }
+            },
+
+            // Discovery intake - complex/high-value projects
+            discovery_intake: {
+                title: "Discovery Intake Complete!",
+                body: "Thank you for the detailed information. I'll reach out within 2-3 business days to discuss your project.",
+                icon: "icofont-check-circled",
+                redirectDelay: 12,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: { text: "Learn About My Process", href: "../service.html", enabled: false }
+            },
+
+            // General contact form
+            contact_form: {
+                title: "Thanks for Reaching Out!",
+                body: "I've received your message and will get back to you soon.",
+                icon: "icofont-check-circled",
+                redirectDelay: 8,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: null
+            },
+
+            // Newsletter signup
+            newsletter_signup: {
+                title: "You're Subscribed!",
+                body: "Welcome! You'll receive updates on new projects and insights.",
+                icon: "icofont-check-circled",
+                redirectDelay: 6,
+                cta: { text: "Continue Browsing", href: "../index.html" },
+                altCta: { text: "Read Latest Content", href: "../content.html", enabled: false }
+            },
+
+            // FAQ question submission
+            faq_question: {
+                title: "Question Submitted!",
+                body: "I'll review your question and may add it to the FAQ if it helps others.",
+                icon: "icofont-check-circled",
+                redirectDelay: 8,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: { text: "View FAQs", href: "../faq.html", enabled: false }
+            },
+
+            // Testimonial submission
+            testimonial_submission: {
+                title: "Thank You!",
+                body: "Your testimonial means a lot. It will appear on the site after review.",
+                icon: "icofont-check-circled",
+                redirectDelay: 8,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: null
+            },
+
+            // Social proof submission
+            social_proof_submission: {
+                title: "Submission Received!",
+                body: "Thanks for sharing. Your submission will be reviewed shortly.",
+                icon: "icofont-check-circled",
+                redirectDelay: 8,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: null
+            },
+
+            // Support request
+            support_request: {
+                title: "Support Request Received!",
+                body: "I've received your request and will respond as soon as possible.",
+                icon: "icofont-check-circled",
+                redirectDelay: 8,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: null
+            },
+
+            // Support form (alternate)
+            support_form: {
+                title: "Support Request Received!",
+                body: "I've received your request and will respond as soon as possible.",
+                icon: "icofont-check-circled",
+                redirectDelay: 8,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: null
+            },
+
+            // Default fallback
+            default: {
+                title: "Received!",
+                body: "Thanks for reaching out. I'll review your information and get back to you within 24-48 hours.",
+                icon: "icofont-check-circled",
+                redirectDelay: 8,
+                cta: { text: "Back to Home", href: "../index.html" },
+                altCta: null
+            }
+        };
+
+        /**
+         * Initialize the thank you page with dynamic content
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const formType = params.get('type');
+            const userName = params.get('name');
+
+            // Get content config for this form type (or use default)
+            const content = THANK_YOU_CONTENT[formType] || THANK_YOU_CONTENT.default;
+
+            // 1. Update title with optional name personalization
+            let title = content.title;
+            if (userName) {
+                // Insert name before the exclamation mark
+                title = title.replace('!', `, ${decodeURIComponent(userName)}!`);
+            }
+            document.getElementById('message-title').textContent = title;
+
+            // 2. Update message body
+            document.getElementById('message-body').textContent = content.body;
+
+            // 3. Update icon (if different from default)
+            if (content.icon) {
+                const iconEl = document.getElementById('thank-you-icon');
+                iconEl.className = content.icon;
+            }
+
+            // 4. Update primary CTA
+            const primaryCta = document.getElementById('primary-cta');
+            primaryCta.href = content.cta.href;
+            primaryCta.querySelector('span').textContent = content.cta.text;
+
+            // 5. Show secondary CTA if enabled
+            const secondaryCta = document.getElementById('secondary-cta');
+            if (content.altCta && content.altCta.enabled) {
+                secondaryCta.href = content.altCta.href;
+                secondaryCta.textContent = content.altCta.text;
+                secondaryCta.style.display = 'inline-block';
+            }
+
+            // 6. Auto-redirect countdown
+            let seconds = content.redirectDelay;
+            const countdownEl = document.getElementById('countdown');
+            const redirectNotice = document.getElementById('redirect-notice');
+            const cancelBtn = document.getElementById('cancel-redirect');
+            let redirectTimer = null;
+
+            const startCountdown = () => {
+                countdownEl.textContent = seconds;
+
+                redirectTimer = setInterval(() => {
+                    seconds--;
+                    countdownEl.textContent = seconds;
+
+                    if (seconds <= 0) {
+                        clearInterval(redirectTimer);
+                        window.location.href = content.cta.href;
+                    }
+                }, 1000);
+            };
+
+            const cancelRedirect = () => {
+                if (redirectTimer) {
+                    clearInterval(redirectTimer);
+                    redirectTimer = null;
+                }
+                redirectNotice.style.display = 'none';
+            };
+
+            // Start the countdown
+            startCountdown();
+
+            // Cancel redirect on button click
+            cancelBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                cancelRedirect();
+            });
+
+            // Cancel redirect if user clicks any navigation link
+            document.querySelectorAll('a:not(#cancel-redirect)').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (redirectTimer) {
+                        clearInterval(redirectTimer);
+                    }
+                });
+            });
+        });
+    </script>
 
     <script type="module" src="/src/main.js"></script>
 </body>
