@@ -1,0 +1,103 @@
+# GitHub Actions CI/CD Workflow for Vite Frontend
+# Triggers on push to production branch and deploys to production server
+#
+# Required GitHub Secrets:
+#   SSH_PRIVATE_KEY    - Private key for server authentication
+#   SSH_HOST           - Server hostname (e.g., christinmorton.com or IP)
+#   SSH_USER           - SSH username on the server
+#   SSH_PORT           - SSH port (usually 22)
+#   DEPLOY_PATH        - Path to web root (e.g., /var/www/christinmorton.com/public)
+#
+# Optional Build Secrets (for VITE_ environment variables):
+#   VITE_GTM_ID                    - Google Tag Manager ID
+#   VITE_STRIPE_PUBLISHABLE_KEY    - Stripe public key (safe for client)
+#   VITE_OPENAI_API_KEY            - OpenAI API key (for chatbot - if client-side)
+#   VITE_GOOGLE_PLACES_API_KEY     - Google Places API key
+#   VITE_CALENDLY_URL              - Calendly scheduling link
+#
+# Workflow:
+#   1. Develop on v1.0/service (or other version branches)
+#   2. When ready to deploy, merge into 'production' branch
+#   3. Push to production triggers this workflow
+
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - production
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+env:
+  NODE_VERSION: '20'
+  WORKING_DIR: 'v13_vite'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIR }}
+
+    steps:
+      # 1. Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js with caching for faster builds
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: '${{ env.WORKING_DIR }}/package-lock.json'
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build the Vite application
+      - name: Build
+        run: npm run build
+        env:
+          # Core API endpoints
+          VITE_API_BASE_URL: https://cms.christinmorton.com/wp-json/wpbe/v1
+          VITE_JWT_AUTH_URL: https://cms.christinmorton.com/wp-json/jwt-auth/v1
+          VITE_WP_API_BASE_URL: https://cms.christinmorton.com/wp-json/wp/v2
+          VITE_SITE_URL: https://christinmorton.com
+
+          # Analytics
+          VITE_GTM_ID: GTM-KRSPLG3N
+
+          # Future integrations (uncomment and add secrets when ready)
+          # VITE_STRIPE_PUBLISHABLE_KEY: ${{ secrets.VITE_STRIPE_PUBLISHABLE_KEY }}
+          # VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
+          # VITE_GOOGLE_PLACES_API_KEY: ${{ secrets.VITE_GOOGLE_PLACES_API_KEY }}
+          # VITE_CALENDLY_URL: ${{ secrets.VITE_CALENDLY_URL }}
+
+      # 5. Setup SSH key for deployment
+      - name: Setup SSH
+        working-directory: .
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      # 6. Deploy to server using rsync
+      - name: Deploy to server
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT }}" \
+            ./dist/ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}/
+
+      # 7. Cleanup
+      - name: Cleanup SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
+
+      # 8. Notify on completion (optional - can add Slack/Discord webhook)
+      - name: Deployment complete
+        run: echo "✅ Deployed to production successfully!"
