@@ -1,0 +1,40 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "deploy/digital-ocean-setup" ]
+  workflow_dispatch: {}  # lets you choose the branch in the Actions UI
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    env:
+      NODE_ENV: ${{secrets.NODE_ENV}}
+      STRIPE_SECRET_KEY_PROD: ${{secrets.STRIPE_SECRET_KEY_PROD}}
+      VITE_API_URL: ${{secrets.VITE_API_URL}}
+      VITE_SITE_URL: ${{secrets.VITE_SITE_URL}}
+      VITE_STRIPE_PRICE_ID_CONSULTATION_PROD: ${{secrets.VITE_STRIPE_PRICE_ID_CONSULTATION_PROD}}
+      VITE_STRIPE_PRICE_ID_WEB_DEV_PREMIUM_PROD: ${{secrets.VITE_STRIPE_PRICE_ID_WEB_DEV_PREMIUM_PROD}}
+      VITE_STRIPE_PRICE_ID_WEB_DEV_STANDARD_PROD: ${{secrets.VITE_STRIPE_PRICE_ID_WEB_DEV_STANDARD_PROD}}
+      VITE_STRIPE_PRICE_ID_WEB_DEV_STARTER_PROD: ${{secrets.VITE_STRIPE_PRICE_ID_WEB_DEV_STARTER_PROD}}
+      VITE_STRIPE_PUBLISHABLE_KEY_PROD: ${{secrets.VITE_STRIPE_PUBLISHABLE_KEY_PROD}}
+      WORDPRESS_API_BASE_DEV: ${{secrets.WORDPRESS_API_BASE_DEV}}
+      WORDPRESS_API_BASE_PROD: ${{secrets.WORDPRESS_API_BASE_PROD}}
+      WORDPRESS_APP_PASSWORD: ${{secrets.WORDPRESS_APP_PASSWORD}}
+      WORDPRESS_APP_USER: ${{secrets.WORDPRESS_APP_USER}}
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
