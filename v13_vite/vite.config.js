@@ -1,4 +1,32 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
+import { readdirSync, statSync } from 'fs';
+
+// Recursively find all HTML files
+function getHtmlEntries(dir, base = '') {
+  const entries = {};
+  const files = readdirSync(dir);
+
+  for (const file of files) {
+    const fullPath = resolve(dir, file);
+    const relativePath = base ? `${base}/${file}` : file;
+
+    if (statSync(fullPath).isDirectory()) {
+      // Skip node_modules and dist
+      if (file !== 'node_modules' && file !== 'dist') {
+        Object.assign(entries, getHtmlEntries(fullPath, relativePath));
+      }
+    } else if (file.endsWith('.html')) {
+      // Use path without .html as the entry name
+      const name = relativePath.replace('.html', '').replace(/\//g, '-');
+      entries[name] = fullPath;
+    }
+  }
+
+  return entries;
+}
+
+const htmlEntries = getHtmlEntries(resolve(__dirname));
 
 export default defineConfig({
   base: '/',
@@ -8,7 +36,10 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true
+    sourcemap: true,
+    rollupOptions: {
+      input: htmlEntries
+    }
   }
   // Note: Vite automatically exposes environment variables prefixed with VITE_
   // Create a .env file with:
