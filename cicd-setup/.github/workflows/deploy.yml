@@ -1,28 +1,38 @@
 # GitHub Actions CI/CD Workflow for Vite Frontend
-# Triggers on push to main branch and deploys to production server
-# 
+# Triggers on push to production branch and deploys to production server
+#
 # Required GitHub Secrets:
 #   SSH_PRIVATE_KEY    - Private key for server authentication
 #   SSH_HOST           - Server hostname (e.g., christinmorton.com or IP)
 #   SSH_USER           - SSH username on the server
 #   SSH_PORT           - SSH port (usually 22)
 #   DEPLOY_PATH        - Path to web root (e.g., /var/www/christinmorton.com/public)
+#
+# Workflow:
+#   1. Develop on v1.0/service (or other version branches)
+#   2. When ready to deploy, merge into 'production' branch
+#   3. Push to production triggers this workflow
 
 name: Deploy Frontend
 
 on:
   push:
     branches:
-      - main
+      - production
   workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 env:
   NODE_VERSION: '20'
+  WORKING_DIR: 'v13_vite'
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIR }}
+
     steps:
       # 1. Checkout the repository
       - name: Checkout code
@@ -34,6 +44,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
+          cache-dependency-path: '${{ env.WORKING_DIR }}/package-lock.json'
 
       # 3. Install dependencies
       - name: Install dependencies
@@ -44,11 +55,12 @@ jobs:
         run: npm run build
         env:
           # Add any environment variables your build needs
-          VITE_API_URL: https://cms.christinmorton.com/wp-json
+          VITE_API_BASE_URL: https://cms.christinmorton.com/wp-json/wpbe/v1
           # VITE_OTHER_VAR: ${{ secrets.OTHER_VAR }}
 
       # 5. Setup SSH key for deployment
       - name: Setup SSH
+        working-directory: .
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
