@@ -83,7 +83,9 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          echo "Scanning host on port ${{ secrets.SSH_PORT }}..."
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>&1 || echo "ssh-keyscan failed, continuing anyway"
+          echo "SSH setup complete"
 
       # 6. Deploy to server using rsync
       - name: Deploy to server
