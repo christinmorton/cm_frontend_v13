@@ -1,0 +1,255 @@
+// =============================================================================
+// CSS Reset
+// =============================================================================
+// A modern CSS reset based on best practices.
+// Provides a consistent baseline across browsers.
+
+// -----------------------------------------------------------------------------
+// Box Sizing
+// -----------------------------------------------------------------------------
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// -----------------------------------------------------------------------------
+// Remove Default Margins & Padding
+// -----------------------------------------------------------------------------
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// -----------------------------------------------------------------------------
+// HTML & Body
+// -----------------------------------------------------------------------------
+
+html {
+  // Prevent font size inflation on mobile
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+
+  // Smooth scrolling (when not reduced motion)
+  scroll-behavior: smooth;
+
+  // Prevent horizontal overflow
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  line-height: var(--leading-normal);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  // Better text rendering
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// -----------------------------------------------------------------------------
+// Typography Defaults
+// -----------------------------------------------------------------------------
+
+// Remove default list styles
+ul,
+ol {
+  list-style: none;
+}
+
+// Headings reset
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+// Links reset
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+// Strong & emphasis
+b,
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+// Small text
+small {
+  font-size: var(--text-sm);
+}
+
+// Subscript & superscript
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+// -----------------------------------------------------------------------------
+// Media Elements
+// -----------------------------------------------------------------------------
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Remove default iframe border
+iframe {
+  border: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Form Elements
+// -----------------------------------------------------------------------------
+
+// Inherit fonts for form controls
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+// Remove default button styles
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+// Remove default textarea resize (can be overridden)
+textarea {
+  resize: vertical;
+}
+
+// Remove spinner from number inputs (optional)
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// Remove search input styling
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+// Fieldset reset
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Legend reset
+legend {
+  padding: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Table
+// -----------------------------------------------------------------------------
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Interactive Elements
+// -----------------------------------------------------------------------------
+
+// Summary cursor
+summary {
+  cursor: pointer;
+}
+
+// Disabled state
+[disabled] {
+  cursor: not-allowed;
+}
+
+// Hidden attribute
+[hidden] {
+  display: none !important;
+}
+
+// -----------------------------------------------------------------------------
+// Accessibility
+// -----------------------------------------------------------------------------
+
+// Reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Focus visible for keyboard navigation
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// Remove outline for mouse users
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Skip link (add .skip-link class to your skip navigation link)
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: var(--space-2) var(--space-4);
+  z-index: 100;
+  transition: top var(--transition-fast);
+
+  &:focus {
+    top: 0;
+  }
+}

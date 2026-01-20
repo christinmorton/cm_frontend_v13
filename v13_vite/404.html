@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | Site Name</title>
+  <meta name="description" content="The page you're looking for doesn't exist.">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+
+<body>
+  <!-- SVG Icon Sprites -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="arrow-right" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </symbol>
+    <symbol id="close" viewBox="0 0 16 16">
+      <path fill="currentColor"
+        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+    </symbol>
+  </svg>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container container">
+      <a href="index.html" class="logo">
+        <span class="logo__text">Logo</span>
+      </a>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="content.html" class="nav__link">Content</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="login.html" class="btn btn--outline btn--sm desktop-only">Login</a>
+
+      <button id="mobileBtn" class="nav-toggle mobile-only" type="button" aria-label="Toggle navigation">
+        <span class="nav-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-menu">
+    <div class="mobile-nav__header">
+      <a href="index.html" class="logo">Logo</a>
+      <button class="mobile-nav__close" id="mobileClose" aria-label="Close menu">
+        <svg width="20" height="20">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">Home</a></li>
+      <li><a href="about.html" class="mobile-nav__link">About</a></li>
+      <li><a href="content.html" class="mobile-nav__link">Content</a></li>
+      <li><a href="contact.html" class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__footer">
+      <a href="login.html" class="btn btn--primary btn--block">Login</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section class="section" style="min-height: 70vh; display: flex; align-items: center;">
+      <div class="container text-center">
+        <h1 style="font-size: 8rem; margin: 0; line-height: 1; color: var(--color-text-light);">404</h1>
+        <h2 class="mb-4">Page Not Found</h2>
+        <p class="lead text-muted mb-8" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+          Sorry, the page you're looking for doesn't exist or has been moved.
+        </p>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <a href="index.html" class="btn btn--primary btn--lg">
+            Back to Home
+            <svg width="20" height="20">
+              <use xlink:href="#arrow-right"></use>
+            </svg>
+          </a>
+          <a href="contact.html" class="btn btn--outline btn--lg">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

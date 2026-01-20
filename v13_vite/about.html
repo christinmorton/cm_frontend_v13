@@ -2,348 +2,184 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Web Developer in Las Vegas | Christin Morton</title>
-    <meta name="description"
-        content="10 years of web development experience. I build custom websites and applications that you own outright. Based in Las Vegas, NV.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Site Name</title>
+  <meta name="description" content="Learn more about us and our story.">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="About Christin Morton | Web Developer">
-    <meta property="og:description"
-        content="10 years of web development. Custom platforms you own. Based in Las Vegas.">
-    <meta property="og:url" content="https://christinmorton.com/about.html">
-
-    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
-    <!-- Direct SCSS load to prevent FOUC in Vite -->
-    <link rel="stylesheet" href="/src/scss/main.scss" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
-    <style>
-        body {
-            background: #000000;
-            color: #ffffff;
-        }
-
-        .page-header {
-            padding: 150px 0 80px;
-        }
-
-        .content-section {
-            padding-bottom: 100px;
-        }
-
-        .text-block {
-            max-width: 800px;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #e0e0e0;
-        }
-
-        .text-block p {
-            margin-bottom: 2rem;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 60px;
-            border-top: 1px solid #333;
-            padding-top: 40px;
-        }
-
-        .stat-item h3 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin: 0;
-        }
-
-        .stat-item p {
-            color: #999;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Background Section */
-        .background-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 80px;
-            padding-top: 60px;
-            border-top: 1px solid #333;
-        }
-
-        .background-col h3 {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .background-item {
-            margin-bottom: 40px;
-        }
-
-        .background-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: white;
-        }
-
-        .meta-text {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            font-family: var(--heading-font);
-        }
-
-        .desc-text {
-            color: #ccc;
-            line-height: 1.6;
-        }
-
-        @media(max-width: 768px) {
-            .stat-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .background-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-    </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/scss/main.scss" />
 </head>
 
 <body>
+  <!-- SVG Icon Sprites -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="arrow-right" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </symbol>
+    <symbol id="close" viewBox="0 0 16 16">
+      <path fill="currentColor"
+        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+    </symbol>
+  </svg>
 
-    <header id="header-nav" class="header-nav">
-        <div class="site-container">
-            <!-- Logo - Left -->
-            <div class="header-left">
-                <a class="logo" href="index.html">
-                    <img src="logo_2.png" alt="Christin Morton Logo" id="logo-img">
-                </a>
-            </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container container">
+      <a href="index.html" class="logo">
+        <span class="logo__text">Logo</span>
+      </a>
 
-            <!-- Navigation - Right (Desktop only) -->
-            <div class="header-right desktop-only">
-                <nav class="main-nav">
-                    <ul class="nav-menu" id="site-menu">
-                        <li><a href="work.html" class="nav-link">Work</a></li>
-                        <li><a href="service.html" class="nav-link">Services</a></li>
-                        <li><a href="content.html" class="nav-link">Content</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="about.html" class="nav__link active">About</a></li>
+          <li><a href="content.html" class="nav__link">Content</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
 
-            <!-- Mobile Menu Toggle -->
-            <button id="mobileBtn" class="mobile-menu-toggle mobile-only" type="button" aria-label="Toggle navigation"
-                aria-controls="mobile-menu" aria-expanded="false">
-                <span class="menu-icon"></span>
-            </button>
+      <a href="login.html" class="btn btn--outline btn--sm desktop-only">Login</a>
 
-            <!-- Mobile Menu -->
-            <div class="mobile-menu" id="mobile-menu">
-                <div class="mobile-menu-header">
-                    <button type="button" class="mobile-menu-close" aria-label="Close menu">
-                        <svg width="16" height="16">
-                            <use xlink:href="#close"></use>
-                        </svg>
-                    </button>
-                </div>
+      <button id="mobileBtn" class="nav-toggle mobile-only" type="button" aria-label="Toggle navigation">
+        <span class="nav-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
 
-                <div class="mobile-menu-content">
-                    <!-- Mobile Navigation -->
-                    <nav class="mobile-nav">
-                        <ul class="mobile-nav-menu">
-                            <li><a href="work.html" class="nav-link">Work</a></li>
-                            <li><a href="service.html" class="nav-link">Services</a></li>
-                            <li><a href="content.html" class="nav-link">Content</a></li>
-                            <li><a href="contact.html" class="nav-link">Contact</a></li>
-                        </ul>
-                    </nav>
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-menu">
+    <div class="mobile-nav__header">
+      <a href="index.html" class="logo">Logo</a>
+      <button class="mobile-nav__close" id="mobileClose" aria-label="Close menu">
+        <svg width="20" height="20">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">Home</a></li>
+      <li><a href="about.html" class="mobile-nav__link active">About</a></li>
+      <li><a href="content.html" class="mobile-nav__link">Content</a></li>
+      <li><a href="contact.html" class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__footer">
+      <a href="login.html" class="btn btn--primary btn--block">Login</a>
+    </div>
+  </nav>
 
-                    <div class="mobile-only">
-                        <div class="cta-section">
-                            <a href="project-quote.html" class="action-button">
-                                <span>Get Quote</span>
-                                <div class="button-icon">
-                                    <svg class="arrow-right" width="28" height="28">
-                                        <use xlink:href="#arrow-right"></use>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+  <!-- Main Content -->
+  <main>
+    <!-- Page Header -->
+    <section class="section bg-light">
+      <div class="container text-center">
+        <h1>About Us</h1>
+        <p class="lead">Learn more about who we are and what we do.</p>
+      </div>
+    </section>
 
-                    <!-- Mobile Social Links -->
-                    <ul class="social-links mobile-social">
-                        <li>
-                            <a href="https://www.facebook.com/morton41Christin" aria-label="Facebook">
-                                <svg class="social-icon" width="24" height="24">
-                                    <use xlink:href="#facebook"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/christinmorton41" aria-label="Instagram">
-                                <svg class="social-icon" width="24" height="24">
-                                    <use xlink:href="#instagram"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/christin-morton-b24512209" aria-label="LinkedIn">
-                                <svg class="social-icon" width="24" height="24">
-                                    <use xlink:href="#linkedin"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/christinmorton" aria-label="GitHub">
-                                <i class="icofont-github"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://dribbble.com/ChristinMorton" aria-label="Dribbble">
-                                <svg class="social-icon" width="24" height="24">
-                                    <use xlink:href="#dribbble"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.behance.net/chrismorton11" aria-label="Behance">
-                                <i class="icofont-behance"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <!-- About Content -->
+    <section class="section">
+      <div class="container-narrow">
+        <div class="mb-8">
+          <h2>Our Story</h2>
+          <p>
+            This is a placeholder for your company's story. Share how you started, what motivated you,
+            and the journey that led you to where you are today. People connect with authentic stories.
+          </p>
+          <p>
+            Add details about your founding, your team, and what makes your approach unique. This section
+            helps visitors understand the people behind the brand.
+          </p>
         </div>
-    </header>
 
-    <main>
-        <section class="page-header">
-            <div class="site-container">
-                <h1 class="hero-title">I build digital platforms that you own.</h1>
+        <div class="mb-8">
+          <h2>Our Mission</h2>
+          <p>
+            Describe your mission statement here. What problem are you solving? What value do you provide
+            to your customers? Be clear and concise about your purpose.
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <h2>Our Values</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card card--flat p-6">
+              <h3 class="card__title">Value One</h3>
+              <p class="card__text">A brief description of this core value and how it guides your work.</p>
             </div>
-        </section>
-
-        <section class="content-section">
-            <div class="site-container">
-                <div class="text-block">
-                    <p>Most business owners are stuck in a trap: they're paying monthly fees for website builders, but
-                        they don't actually own anything. If the company shuts down or raises prices, they're starting
-                        over.</p>
-
-                    <p>I build a different way. When your project is complete, you get the keys to everything — the
-                        code, the hosting, the whole platform. It's yours. No monthly rent, no lock-in.</p>
-
-                    <p>I've been writing code for 10 years. That means I can leverage modern AI tools for speed, but I
-                        also understand the fundamentals well enough to fix things when they break. You get the best of
-                        both worlds: fast development and reliable infrastructure.</p>
-
-                    <p>If you're ready to stop renting and start owning, let's talk.</p>
-
-                    <div class="stat-grid">
-                        <div class="stat-item">
-                            <h3>10+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>Full-Stack</h3>
-                            <p>Capability</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>100%</h3>
-                            <p>Ownership</p>
-                        </div>
-                    </div>
-
-                    <!-- Why Work With Me -->
-                    <div class="background-grid">
-                        <div class="background-col">
-                            <h3>Why Work With Me</h3>
-                            <div class="background-item">
-                                <h4>10 Years of Experience</h4>
-                                <p class="desc-text">I understand why solutions work, not just how to build them. When
-                                    something breaks, I can fix it.</p>
-                            </div>
-                            <div class="background-item">
-                                <h4>Full-Stack Capability</h4>
-                                <p class="desc-text">One point of contact from design to deployment. No coordinating
-                                    between designers, developers, and DevOps.</p>
-                            </div>
-                            <div class="background-item">
-                                <h4>Modern + Reliable</h4>
-                                <p class="desc-text">I leverage AI tools for speed while building custom backends for
-                                    stability. Fast to build, built to last.</p>
-                            </div>
-                            <div class="background-item">
-                                <h4>You Own It</h4>
-                                <p class="desc-text">I hand over the keys when we're done. Your platform belongs to you
-                                    — forever.</p>
-                            </div>
-                        </div>
-                        <div class="background-col">
-                            <h3>Background</h3>
-                            <div class="background-item">
-                                <h4>Freelance Web Developer</h4>
-                                <p class="meta-text">Christin Morton • Las Vegas, NV</p>
-                                <p class="desc-text">Custom websites and web applications for business owners who want
-                                    to own their digital presence. <a href="work.html"
-                                        style="color: var(--primary-color); text-decoration: none;">View my work</a></p>
-                            </div>
-                            <div class="background-item">
-                                <h4>Urban Sunset</h4>
-                                <p class="meta-text">Founder & Creative Director</p>
-                                <p class="desc-text">A fashion label blending artistic design with modern streetwear
-                                    culture. Full e-commerce and brand operations.</p>
-                            </div>
-                            <div class="background-item">
-                                <h4>College of Southern Nevada</h4>
-                                <p class="meta-text">Associate of Arts in Business • 2025</p>
-                                <p class="desc-text">Business management, communication, and entrepreneurship
-                                    foundation.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="card card--flat p-6">
+              <h3 class="card__title">Value Two</h3>
+              <p class="card__text">A brief description of this core value and how it guides your work.</p>
             </div>
-        </section>
-
-        <section class="site-container" style="text-align: center; padding-bottom: 80px;">
-            <div style="background: #111; padding: 60px 40px; border-radius: 20px; border: 1px solid #333;">
-                <h2 style="font-size: 2rem; margin-bottom: 15px;">Stop Renting. Start Owning.</h2>
-                <p style="color: #999; margin-bottom: 30px;">Let's talk about your project. No commitment required.</p>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="flows/consultation.html" class="action-button" style="display: inline-flex; width: auto;">
-                        <span>Schedule a Consultation</span>
-                        <div class="button-icon"><i class="icofont-paper-plane"></i></div>
-                    </a>
-                    <a href="flows/faq-question.html" class="action-button"
-                        style="display: inline-flex; width: auto; background: transparent; border: 1px solid #333;">
-                        <span>Have a Question? Ask Me.</span>
-                        <div class="button-icon"><i class="icofont-question-circle"></i></div>
-                    </a>
-                </div>
+            <div class="card card--flat p-6">
+              <h3 class="card__title">Value Three</h3>
+              <p class="card__text">A brief description of this core value and how it guides your work.</p>
             </div>
-        </section>
-    </main>
+            <div class="card card--flat p-6">
+              <h3 class="card__title">Value Four</h3>
+              <p class="card__text">A brief description of this core value and how it guides your work.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- <script type="module" src="/src/js/core.js"></script> -->
-    <script type="module" src="/src/main.js"></script>
+    <!-- CTA Section -->
+    <section class="section bg-light">
+      <div class="container text-center">
+        <h2>Want to work together?</h2>
+        <p class="lead mb-6">Get in touch and let's discuss how we can help.</p>
+        <a href="contact.html" class="btn btn--primary btn--lg">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__container">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">Logo</a>
+          <p class="footer__description">
+            A brief description of your company or project. Replace this with your own content.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer__title">Navigation</h4>
+          <ul class="footer__list">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About</a></li>
+            <li><a href="content.html" class="footer__link">Content</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Resources</h4>
+          <ul class="footer__list">
+            <li><a href="style-guide.html" class="footer__link">Style Guide</a></li>
+            <li><a href="router.html" class="footer__link">Multi-step Form</a></li>
+            <li><a href="login.html" class="footer__link">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Legal</h4>
+          <ul class="footer__list">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

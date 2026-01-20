@@ -12,22 +12,7 @@ Non-critical bugs and improvements to be addressed in future updates.
 
 ## Open Issues
 
-### [ISS-001] Hardcoded WooCommerce checkout URL
-- **File**: `v13_vite/cart.html` line 169
-- **Description**: Checkout URL is hardcoded as `http://general-wp.local/checkout/`
-- **Impact**: Low - Cart functionality won't work in production
-- **Fix**: Replace with `import.meta.env.VITE_WC_CHECKOUT_URL`
-- **Blocked by**: Need to update archived version branches first
-- **Date opened**: 2025-01-19
-
-### [ISS-002] GTM ID hardcoded in HTML
-- **File**: `v13_vite/index.html` lines 88-97
-- **Description**: Google Tag Manager ID is hardcoded directly in HTML
-- **Impact**: Low - Works, but not configurable per environment
-- **Fix**: Inject GTM script dynamically using `import.meta.env.VITE_GTM_ID`
-- **Date opened**: 2025-01-19
-
-### [ISS-003] Local fallback URLs in services
+### [ISS-004] Local fallback URLs in services
 - **Files**:
   - `src/js/api.js`
   - `src/js/tracking/Analytics.js`
@@ -40,6 +25,13 @@ Non-critical bugs and improvements to be addressed in future updates.
 - **Fix**: Consider throwing error if required env vars are missing, or document `.env` setup
 - **Date opened**: 2025-01-19
 
+### [ISS-005] Auth redirect paths need configuration
+- **Files**: `login.html`, `signup.html`, `forgot-password.html`, `reset-password.html`
+- **Description**: Auth pages redirect to `/index.html` after login. This should be configurable.
+- **Impact**: Low - Works for basic use cases
+- **Fix**: Add `VITE_AUTH_REDIRECT_URL` environment variable or make it configurable per page
+- **Date opened**: 2025-01-19
+
 ---
 
 ## In Progress
@@ -50,12 +42,23 @@ Non-critical bugs and improvements to be addressed in future updates.
 
 ## Resolved
 
-### [ISS-000] Template
-- **File**: `path/to/file.js` line X
-- **Description**: Description of the issue
-- **Resolution**: How it was fixed
-- **Date opened**: YYYY-MM-DD
-- **Date resolved**: YYYY-MM-DD
+### [ISS-001] Hardcoded WooCommerce checkout URL
+- **File**: `v13_vite/cart.html` (deleted)
+- **Resolution**: File removed during template simplification - e-commerce pages deleted
+- **Date opened**: 2025-01-19
+- **Date resolved**: 2025-01-19
+
+### [ISS-002] GTM ID hardcoded in HTML
+- **File**: `v13_vite/index.html`
+- **Resolution**: GTM script removed during template simplification
+- **Date opened**: 2025-01-19
+- **Date resolved**: 2025-01-19
+
+### [ISS-003] Three.js dependency unused in most pages
+- **File**: `src/main.js`, `package.json`
+- **Resolution**: Three.js removed from project during template simplification
+- **Date opened**: 2025-01-19
+- **Date resolved**: 2025-01-19
 
 ---
 

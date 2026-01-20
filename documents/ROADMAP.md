@@ -1,6 +1,6 @@
 # Project Roadmap
 
-This document tracks planned features, integrations, and improvements for the christinmorton.com frontend.
+This document tracks planned features, integrations, and improvements for the Vanilla Vite Template Engine.
 
 ## Status Legend
 
@@ -12,90 +12,105 @@ This document tracks planned features, integrations, and improvements for the ch
 
 ## High Priority
 
-### AI Chatbot Integration
-- [ ] Design chatbot architecture (client widget + backend proxy)
-- [ ] Set up OpenAI API integration on backend (avoid exposing key client-side)
-- [ ] Create chat widget component
-- [ ] Implement conversation context management
-- [ ] Add chat history persistence (optional)
-- [ ] Consider offering as white-label service for clients
+### Template Enhancements
+- [ ] Add dark mode support with CSS custom properties
+- [ ] Create additional page templates (pricing, FAQ, team)
+- [ ] Add skeleton loading states for dynamic content
+- [ ] Implement toast/notification component
 
-### Deployment & Infrastructure
-- [x] Set up GitHub Actions CI/CD workflow
-- [x] Configure production branch deployment
-- [x] Set up deploy user and SSH keys on server
-- [x] Configure environment variables in deploy.yml
-- [ ] Verify first deployment to production
-- [ ] Set up Nginx configuration on server
-- [ ] Configure SSL certificate (Let's Encrypt)
+### Documentation
+- [ ] Add JSDoc comments to JavaScript modules
+- [ ] Create component usage examples in style guide
+- [ ] Document environment variable configuration
+- [ ] Add deployment guide for common hosting platforms
 
 ---
 
 ## Medium Priority
 
-### Payment Integration (Stripe)
-- [ ] Add Stripe publishable key to GitHub secrets
-- [ ] Implement deposit payment flow (flows/deposit.html)
-- [ ] Add payment confirmation handling
-- [ ] Test Stripe webhook integration with WordPress backend
+### Form Handling
+- [ ] Add client-side form validation with visual feedback
+- [ ] Implement multi-step form progress saving (localStorage)
+- [ ] Add file upload component with drag-and-drop
+- [ ] Create form field components (date picker, phone input)
 
-### Scheduling Integration
-- [ ] Set up Calendly account/booking page
-- [ ] Embed Calendly widget in consultation flow
-- [ ] Alternative: Evaluate Cal.com for self-hosted option
-- [ ] Integrate with Google Calendar for availability sync
+### Accessibility
+- [ ] Audit all components for WCAG 2.1 AA compliance
+- [ ] Add skip navigation links
+- [ ] Improve keyboard navigation for mobile menu
+- [ ] Add ARIA live regions for dynamic content
 
-### Email Notifications
-- [ ] Evaluate SendGrid vs Mailgun for transactional emails
-- [ ] Set up email templates for form confirmations
-- [ ] Configure email notifications through WordPress backend
+### Performance
+- [ ] Implement lazy loading for images
+- [ ] Add service worker for offline support
+- [ ] Optimize SCSS output with PurgeCSS
+- [ ] Add preload hints for critical resources
 
 ---
 
 ## Lower Priority
 
-### Google Places Integration
-- [ ] Set up Google Business Profile
-- [ ] Obtain Google Places API key
-- [ ] Display Google reviews on site
-- [ ] Add structured data for local SEO
+### Additional Components
+- [ ] Modal/dialog component
+- [ ] Tabs component
+- [ ] Accordion component
+- [ ] Tooltip component
+- [ ] Dropdown menu component
+- [ ] Pagination component
 
-### Notion Integration
-- [ ] Evaluate Notion API for client project visibility
-- [ ] Design client-facing project board template
-- [ ] Implement read-only project status widget
+### Integrations
+- [ ] Add Google Analytics 4 configuration option
+- [ ] Create Stripe payment form template
+- [ ] Add social share buttons
+- [ ] Implement cookie consent banner
 
-### Code Improvements
-- [ ] Update cart.html to use VITE_WC_CHECKOUT_URL environment variable
-- [ ] Make GTM ID load dynamically from environment variable in index.html
-- [ ] Add error boundary/fallback UI for API failures
-- [ ] Implement service worker for offline support
+### Developer Experience
+- [ ] Add ESLint configuration
+- [ ] Set up Prettier for code formatting
+- [ ] Create VS Code workspace settings
+- [ ] Add Husky pre-commit hooks
 
 ---
 
 ## Completed
 
+### Template Simplification (v2.0)
+- [x] Remove project-specific content and branding
+- [x] Delete unused pages (blog, e-commerce, client portal, services)
+- [x] Remove Three.js 3D background dependency
+- [x] Create modular SCSS architecture with BEM naming
+- [x] Build comprehensive style guide page
+- [x] Simplify HTML files with generic placeholder content
+- [x] Add 404 error page
+- [x] Streamline flows to core multi-step form concept
+
 ### Smart Thank You Page (v1.0)
 - [x] Dynamic content based on form type
 - [x] Name personalization from URL params
 - [x] Auto-redirect countdown with cancel option
-- [x] Secondary CTA support (toggled off by default)
 
-### Router Funnel Fix (v1.0)
-- [x] Fixed routing logic so Step 4 choice determines destination
-- [x] Earlier steps now adjust messaging, not routing
-- [x] Documented router funnel system
+### Router Funnel (v1.0)
+- [x] Multi-step wizard component
+- [x] Progress bar indicator
+- [x] Dynamic result routing based on answers
 
-### Repository Structure (v1.0)
-- [x] Reorganized with branch-based variant system
-- [x] Main branch contains docs only
-- [x] Version branches (v1.0/service) contain app code
-- [x] Production branch for deployments
+### SCSS Architecture (v2.0)
+- [x] CSS custom properties for design tokens
+- [x] Modern CSS reset
+- [x] Typography scale
+- [x] Layout utilities (container, grid, flex)
+- [x] Button variants and sizes
+- [x] Form components with validation states
+- [x] Card component with variants
+- [x] Navigation components (header, mobile nav, footer)
+- [x] Utility classes (display, spacing, text, colors)
+- [x] Auth page layout
+- [x] Alert and badge components
 
 ---
 
 ## Notes
 
-- **OpenAI API Key**: Should NOT be exposed client-side. Route through backend proxy.
-- **Stripe Keys**: Only the publishable key is safe for client-side; secret key stays on server.
-- **Google Places**: Requires active Google Business Profile to pull reviews.
+- **No Tailwind** - This template uses custom SCSS for full control over styling
+- **WordPress Integration** - JavaScript modules support WordPress REST API but are optional
+- **Minimal Dependencies** - Only axios and gsap included; add others as needed

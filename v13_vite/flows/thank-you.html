@@ -2,407 +2,216 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | Christin Morton</title>
-    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
-    <!-- Direct SCSS load to prevent FOUC in Vite -->
-    <link rel="stylesheet" href="/src/scss/main.scss" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
-    <style>
-        body {
-            background: #000000;
-            color: #ffffff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Site Name</title>
+  <meta name="description" content="Your submission was received.">
 
-        .page-header {
-            padding: 150px 0 60px;
-        }
-
-        .thank-you-card {
-            background: #111;
-            border: 1px solid #222;
-            padding: 60px 40px;
-            border-radius: 12px;
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .icon-large {
-            font-size: 4rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .message-title {
-            font-family: var(--heading-font);
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: white;
-        }
-
-        .message-body {
-            color: #999;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .cta-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .alt-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: opacity 0.2s ease;
-        }
-
-        .alt-link:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        .redirect-notice {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 20px;
-            margin-bottom: 0;
-        }
-
-        .redirect-notice .countdown {
-            color: #888;
-            font-weight: 500;
-        }
-
-        .cancel-redirect {
-            color: #666;
-            font-size: 0.8rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-decoration: underline;
-            margin-left: 8px;
-            padding: 0;
-        }
-
-        .cancel-redirect:hover {
-            color: #999;
-        }
-    </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/scss/main.scss" />
 </head>
 
 <body>
+  <!-- SVG Icon Sprites -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="arrow-right" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </symbol>
+    <symbol id="close" viewBox="0 0 16 16">
+      <path fill="currentColor"
+        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+    </symbol>
+  </svg>
 
-    <header id="header-nav" class="header-nav">
-        <div class="site-container">
-            <div class="header-left">
-                <a class="logo" href="../index.html">
-                    <img src="../logo_2.png" alt="Christin Morton Logo">
-                </a>
-            </div>
-            <div class="header-right desktop-only">
-                <nav class="main-nav">
-                    <ul class="nav-menu">
-                        <li><a href="../work.html" class="nav-link">Work</a></li>
-                        <li><a href="../service.html" class="nav-link">Services</a></li>
-                        <li><a href="../content.html" class="nav-link">Content</a></li>
-                        <li><a href="../contact.html" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container container">
+      <a href="../index.html" class="logo">
+        <span class="logo__text">Logo</span>
+      </a>
 
-            <button id="mobileBtn" class="mobile-menu-toggle mobile-only" type="button"><span
-                    class="menu-icon"></span></button>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link">Home</a></li>
+          <li><a href="../about.html" class="nav__link">About</a></li>
+          <li><a href="../content.html" class="nav__link">Content</a></li>
+          <li><a href="../contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
 
-            <!-- Mobile Menu -->
-            <div class="mobile-menu" id="mobile-menu">
-                <div class="mobile-menu-header">
-                    <button type="button" class="mobile-menu-close"><svg width="16" height="16">
-                            <use xlink:href="#close"></use>
-                        </svg></button>
-                </div>
-                <div class="mobile-menu-content">
-                    <nav class="mobile-nav">
-                        <ul class="mobile-nav-menu">
-                            <li><a href="../work.html" class="nav-link">Work</a></li>
-                            <li><a href="../service.html" class="nav-link">Services</a></li>
-                            <li><a href="../content.html" class="nav-link">Content</a></li>
-                            <li><a href="../contact.html" class="nav-link">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+      <a href="../login.html" class="btn btn--outline btn--sm desktop-only">Login</a>
+
+      <button id="mobileBtn" class="nav-toggle mobile-only" type="button" aria-label="Toggle navigation">
+        <span class="nav-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-menu">
+    <div class="mobile-nav__header">
+      <a href="../index.html" class="logo">Logo</a>
+      <button class="mobile-nav__close" id="mobileClose" aria-label="Close menu">
+        <svg width="20" height="20">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav__list">
+      <li><a href="../index.html" class="mobile-nav__link">Home</a></li>
+      <li><a href="../about.html" class="mobile-nav__link">About</a></li>
+      <li><a href="../content.html" class="mobile-nav__link">Content</a></li>
+      <li><a href="../contact.html" class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__footer">
+      <a href="../login.html" class="btn btn--primary btn--block">Login</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section class="section" style="min-height: 70vh; display: flex; align-items: center;">
+      <div class="container" style="max-width: 600px;">
+        <div class="card card--elevated p-8 text-center">
+          <!-- Success Icon -->
+          <div class="mb-6">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+
+          <h1 id="message-title" class="mb-4">Received!</h1>
+          <p id="message-body" class="text-muted mb-6">
+            Thanks for reaching out. We'll review your information and get back to you within 24-48 hours.
+          </p>
+
+          <div class="mb-6">
+            <a id="primary-cta" href="../index.html" class="btn btn--primary btn--lg">
+              Back to Home
+              <svg width="20" height="20">
+                <use xlink:href="#arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+
+          <p id="redirect-notice" class="text-sm text-muted">
+            Redirecting in <span id="countdown">8</span> seconds...
+            <button id="cancel-redirect" class="btn btn--link text-sm" style="margin-left: 0.5rem;">Cancel</button>
+          </p>
         </div>
-    </header>
+      </div>
+    </section>
+  </main>
 
-    <main>
-        <section class="page-header">
-            <div class="site-container">
-                <div class="thank-you-card">
-                    <div class="icon-large"><i id="thank-you-icon" class="icofont-check-circled"></i></div>
-                    <h1 id="message-title" class="message-title">Received!</h1>
-                    <p id="message-body" class="message-body">Thanks for reaching out. I'll review your information and get back to you within 24-48 hours.</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-                    <div class="cta-container">
-                        <a id="primary-cta" href="../index.html" class="action-button">
-                            <span>Back to Home</span>
-                        </a>
-                        <a id="secondary-cta" href="#" class="alt-link" style="display: none;">
-                            Alternative Action
-                        </a>
-                    </div>
+  <script>
+    /**
+     * Thank You Page - Dynamic Content Configuration
+     */
+    const THANK_YOU_CONTENT = {
+      quick_message: {
+        title: "Message Sent!",
+        body: "Thanks for reaching out. We typically respond within 24 hours.",
+        redirectDelay: 8,
+        ctaUrl: "../index.html"
+      },
+      contact_form: {
+        title: "Thanks for Reaching Out!",
+        body: "We've received your message and will get back to you soon.",
+        redirectDelay: 8,
+        ctaUrl: "../index.html"
+      },
+      default: {
+        title: "Received!",
+        body: "Thanks for reaching out. We'll review your information and get back to you within 24-48 hours.",
+        redirectDelay: 8,
+        ctaUrl: "../index.html"
+      }
+    };
 
-                    <p id="redirect-notice" class="redirect-notice">
-                        Redirecting in <span id="countdown" class="countdown">8</span> seconds...
-                        <button id="cancel-redirect" class="cancel-redirect">Cancel</button>
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const formType = params.get('type');
+      const userName = params.get('name');
 
-    <script>
-        /**
-         * Thank You Page - Dynamic Content Configuration
-         *
-         * Each form type can have custom messaging, CTAs, and redirect timing.
-         * To enable secondary CTA for a form type, set altCta.enabled to true.
-         */
-        const THANK_YOU_CONTENT = {
-            // Quick message - casual, fast response
-            quick_message: {
-                title: "Message Sent!",
-                body: "Thanks for reaching out. I typically respond within 24 hours.",
-                icon: "icofont-check-circled",
-                redirectDelay: 8,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: { text: "View Services", href: "../service.html", enabled: false }
-            },
+      // Get content config for this form type (or use default)
+      const content = THANK_YOU_CONTENT[formType] || THANK_YOU_CONTENT.default;
 
-            // Book a call / consultation request
-            book_a_call: {
-                title: "Call Requested!",
-                body: "I'll confirm your consultation time via email shortly. Check your inbox for next steps.",
-                icon: "icofont-check-circled",
-                redirectDelay: 10,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: { text: "View Services", href: "../service.html", enabled: false }
-            },
+      // Update title with optional name personalization
+      let title = content.title;
+      if (userName) {
+        title = title.replace('!', `, ${decodeURIComponent(userName)}!`);
+      }
+      document.getElementById('message-title').textContent = title;
 
-            // Quote request - prepared buyer
-            quote_request: {
-                title: "Quote Request Received!",
-                body: "I'll review your project details and send a custom quote within 48 hours.",
-                icon: "icofont-check-circled",
-                redirectDelay: 10,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: { text: "Browse Portfolio", href: "../work.html", enabled: false }
-            },
+      // Update message body
+      document.getElementById('message-body').textContent = content.body;
 
-            // Alternate quote request form type
-            request_a_quote: {
-                title: "Quote Request Received!",
-                body: "I'll review your project details and send a custom quote within 48 hours.",
-                icon: "icofont-check-circled",
-                redirectDelay: 10,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: { text: "Browse Portfolio", href: "../work.html", enabled: false }
-            },
+      // Update CTA URL
+      document.getElementById('primary-cta').href = content.ctaUrl;
 
-            // Discovery intake - complex/high-value projects
-            discovery_intake: {
-                title: "Discovery Intake Complete!",
-                body: "Thank you for the detailed information. I'll reach out within 2-3 business days to discuss your project.",
-                icon: "icofont-check-circled",
-                redirectDelay: 12,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: { text: "Learn About My Process", href: "../service.html", enabled: false }
-            },
+      // Auto-redirect countdown
+      let seconds = content.redirectDelay;
+      const countdownEl = document.getElementById('countdown');
+      const redirectNotice = document.getElementById('redirect-notice');
+      const cancelBtn = document.getElementById('cancel-redirect');
+      let redirectTimer = null;
 
-            // General contact form
-            contact_form: {
-                title: "Thanks for Reaching Out!",
-                body: "I've received your message and will get back to you soon.",
-                icon: "icofont-check-circled",
-                redirectDelay: 8,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: null
-            },
+      const startCountdown = () => {
+        countdownEl.textContent = seconds;
 
-            // Newsletter signup
-            newsletter_signup: {
-                title: "You're Subscribed!",
-                body: "Welcome! You'll receive updates on new projects and insights.",
-                icon: "icofont-check-circled",
-                redirectDelay: 6,
-                cta: { text: "Continue Browsing", href: "../index.html" },
-                altCta: { text: "Read Latest Content", href: "../content.html", enabled: false }
-            },
+        redirectTimer = setInterval(() => {
+          seconds--;
+          countdownEl.textContent = seconds;
 
-            // FAQ question submission
-            faq_question: {
-                title: "Question Submitted!",
-                body: "I'll review your question and may add it to the FAQ if it helps others.",
-                icon: "icofont-check-circled",
-                redirectDelay: 8,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: { text: "View FAQs", href: "../faq.html", enabled: false }
-            },
+          if (seconds <= 0) {
+            clearInterval(redirectTimer);
+            window.location.href = content.ctaUrl;
+          }
+        }, 1000);
+      };
 
-            // Testimonial submission
-            testimonial_submission: {
-                title: "Thank You!",
-                body: "Your testimonial means a lot. It will appear on the site after review.",
-                icon: "icofont-check-circled",
-                redirectDelay: 8,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: null
-            },
+      const cancelRedirect = () => {
+        if (redirectTimer) {
+          clearInterval(redirectTimer);
+          redirectTimer = null;
+        }
+        redirectNotice.style.display = 'none';
+      };
 
-            // Social proof submission
-            social_proof_submission: {
-                title: "Submission Received!",
-                body: "Thanks for sharing. Your submission will be reviewed shortly.",
-                icon: "icofont-check-circled",
-                redirectDelay: 8,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: null
-            },
+      // Start the countdown
+      startCountdown();
 
-            // Support request
-            support_request: {
-                title: "Support Request Received!",
-                body: "I've received your request and will respond as soon as possible.",
-                icon: "icofont-check-circled",
-                redirectDelay: 8,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: null
-            },
+      // Cancel redirect on button click
+      cancelBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        cancelRedirect();
+      });
 
-            // Support form (alternate)
-            support_form: {
-                title: "Support Request Received!",
-                body: "I've received your request and will respond as soon as possible.",
-                icon: "icofont-check-circled",
-                redirectDelay: 8,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: null
-            },
-
-            // Default fallback
-            default: {
-                title: "Received!",
-                body: "Thanks for reaching out. I'll review your information and get back to you within 24-48 hours.",
-                icon: "icofont-check-circled",
-                redirectDelay: 8,
-                cta: { text: "Back to Home", href: "../index.html" },
-                altCta: null
-            }
-        };
-
-        /**
-         * Initialize the thank you page with dynamic content
-         */
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const formType = params.get('type');
-            const userName = params.get('name');
-
-            // Get content config for this form type (or use default)
-            const content = THANK_YOU_CONTENT[formType] || THANK_YOU_CONTENT.default;
-
-            // 1. Update title with optional name personalization
-            let title = content.title;
-            if (userName) {
-                // Insert name before the exclamation mark
-                title = title.replace('!', `, ${decodeURIComponent(userName)}!`);
-            }
-            document.getElementById('message-title').textContent = title;
-
-            // 2. Update message body
-            document.getElementById('message-body').textContent = content.body;
-
-            // 3. Update icon (if different from default)
-            if (content.icon) {
-                const iconEl = document.getElementById('thank-you-icon');
-                iconEl.className = content.icon;
-            }
-
-            // 4. Update primary CTA
-            const primaryCta = document.getElementById('primary-cta');
-            primaryCta.href = content.cta.href;
-            primaryCta.querySelector('span').textContent = content.cta.text;
-
-            // 5. Show secondary CTA if enabled
-            const secondaryCta = document.getElementById('secondary-cta');
-            if (content.altCta && content.altCta.enabled) {
-                secondaryCta.href = content.altCta.href;
-                secondaryCta.textContent = content.altCta.text;
-                secondaryCta.style.display = 'inline-block';
-            }
-
-            // 6. Auto-redirect countdown
-            let seconds = content.redirectDelay;
-            const countdownEl = document.getElementById('countdown');
-            const redirectNotice = document.getElementById('redirect-notice');
-            const cancelBtn = document.getElementById('cancel-redirect');
-            let redirectTimer = null;
-
-            const startCountdown = () => {
-                countdownEl.textContent = seconds;
-
-                redirectTimer = setInterval(() => {
-                    seconds--;
-                    countdownEl.textContent = seconds;
-
-                    if (seconds <= 0) {
-                        clearInterval(redirectTimer);
-                        window.location.href = content.cta.href;
-                    }
-                }, 1000);
-            };
-
-            const cancelRedirect = () => {
-                if (redirectTimer) {
-                    clearInterval(redirectTimer);
-                    redirectTimer = null;
-                }
-                redirectNotice.style.display = 'none';
-            };
-
-            // Start the countdown
-            startCountdown();
-
-            // Cancel redirect on button click
-            cancelBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                cancelRedirect();
-            });
-
-            // Cancel redirect if user clicks any navigation link
-            document.querySelectorAll('a:not(#cancel-redirect)').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (redirectTimer) {
-                        clearInterval(redirectTimer);
-                    }
-                });
-            });
+      // Cancel redirect if user clicks any navigation link
+      document.querySelectorAll('a:not(#cancel-redirect)').forEach(link => {
+        link.addEventListener('click', () => {
+          if (redirectTimer) {
+            clearInterval(redirectTimer);
+          }
         });
-    </script>
+      });
+    });
+  </script>
 
-    <script type="module" src="/src/main.js"></script>
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

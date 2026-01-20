@@ -2,202 +2,252 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Web Development Insights | Christin Morton</title>
-    <meta name="description"
-        content="Web development insights for business owners. Learn about website costs, choosing platforms, hiring developers, and getting more customers from your website.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content | Site Name</title>
+  <meta name="description" content="Browse our content and articles.">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Blog | Christin Morton">
-    <meta property="og:description" content="Web development insights for business owners.">
-    <meta property="og:url" content="https://christinmorton.com/content.html">
-
-    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
-    <!-- Direct SCSS load to prevent FOUC in Vite -->
-    <link rel="stylesheet" href="/src/scss/main.scss" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
-    <style>
-        body {
-            background: #000000;
-            color: #ffffff;
-        }
-
-        .page-header {
-            padding: 150px 0 60px;
-        }
-
-        /* Content/Blog Grid */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
-            padding-bottom: 100px;
-        }
-
-        .content-card {
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            text-decoration: none;
-            /* group: 'card'; // Removed invalid property */
-        }
-
-        .content-image {
-            height: 200px;
-            background: #1a1a1a;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            border: 1px solid #333;
-            transition: border-color 0.3s ease;
-        }
-
-        .content-card:hover .content-image {
-            border-color: var(--primary-color);
-        }
-
-        .content-meta {
-            font-family: var(--heading-font);
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .content-title {
-            color: var(--white-color);
-            font-size: 1.4rem;
-            line-height: 1.3;
-            margin: 0 0 15px 0;
-            transition: color 0.3s ease;
-        }
-
-        .content-card:hover .content-title {
-            color: var(--primary-color);
-        }
-
-        .content-excerpt {
-            color: #aaa;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .read-more {
-            font-family: var(--heading-font);
-            color: var(--white-color);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .read-more i {
-            transition: transform 0.3s ease;
-        }
-
-        .content-card:hover .read-more i {
-            transform: translateX(5px);
-        }
-    </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/scss/main.scss" />
 </head>
 
 <body>
+  <!-- SVG Icon Sprites -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="arrow-right" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </symbol>
+    <symbol id="close" viewBox="0 0 16 16">
+      <path fill="currentColor"
+        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+    </symbol>
+  </svg>
 
-    <header id="header-nav" class="header-nav">
-        <div class="site-container">
-            <div class="header-left">
-                <a class="logo" href="index.html">
-                    <img src="logo_2.png" alt="Christin Morton Logo">
-                </a>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container container">
+      <a href="index.html" class="logo">
+        <span class="logo__text">Logo</span>
+      </a>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="content.html" class="nav__link active">Content</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="login.html" class="btn btn--outline btn--sm desktop-only">Login</a>
+
+      <button id="mobileBtn" class="nav-toggle mobile-only" type="button" aria-label="Toggle navigation">
+        <span class="nav-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-menu">
+    <div class="mobile-nav__header">
+      <a href="index.html" class="logo">Logo</a>
+      <button class="mobile-nav__close" id="mobileClose" aria-label="Close menu">
+        <svg width="20" height="20">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">Home</a></li>
+      <li><a href="about.html" class="mobile-nav__link">About</a></li>
+      <li><a href="content.html" class="mobile-nav__link active">Content</a></li>
+      <li><a href="contact.html" class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__footer">
+      <a href="login.html" class="btn btn--primary btn--block">Login</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Page Header -->
+    <section class="section bg-light">
+      <div class="container text-center">
+        <h1>Content</h1>
+        <p class="lead">Browse our latest articles and resources.</p>
+      </div>
+    </section>
+
+    <!-- Content Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="card-grid card-grid--3">
+          <!-- Content Card 1 -->
+          <article class="card card--interactive">
+            <div class="card__body">
+              <span class="badge badge--primary mb-3">Category</span>
+              <h3 class="card__title">Article Title One</h3>
+              <p class="card__subtitle">January 15, 2025</p>
+              <p class="card__text">
+                A brief excerpt or summary of the article content. This gives readers a preview of what they'll learn.
+              </p>
+              <a href="content-single.html" class="btn btn--link">
+                Read More
+                <svg width="16" height="16">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+              </a>
             </div>
-            <div class="header-right desktop-only">
-                <nav class="main-nav">
-                    <ul class="nav-menu">
-                        <li><a href="work.html" class="nav-link">Work</a></li>
-                        <li><a href="service.html" class="nav-link">Services</a></li>
-                        <li><a href="content.html" class="nav-link active">Content</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
+          </article>
+
+          <!-- Content Card 2 -->
+          <article class="card card--interactive">
+            <div class="card__body">
+              <span class="badge badge--secondary mb-3">Tutorial</span>
+              <h3 class="card__title">Article Title Two</h3>
+              <p class="card__subtitle">January 10, 2025</p>
+              <p class="card__text">
+                A brief excerpt or summary of the article content. This gives readers a preview of what they'll learn.
+              </p>
+              <a href="content-single.html" class="btn btn--link">
+                Read More
+                <svg width="16" height="16">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+              </a>
             </div>
-            <!-- Mobile Toggle -->
-            <button id="mobileBtn" class="mobile-menu-toggle mobile-only" type="button"><span
-                    class="menu-icon"></span></button>
+          </article>
+
+          <!-- Content Card 3 -->
+          <article class="card card--interactive">
+            <div class="card__body">
+              <span class="badge badge--primary mb-3">Guide</span>
+              <h3 class="card__title">Article Title Three</h3>
+              <p class="card__subtitle">January 5, 2025</p>
+              <p class="card__text">
+                A brief excerpt or summary of the article content. This gives readers a preview of what they'll learn.
+              </p>
+              <a href="content-single.html" class="btn btn--link">
+                Read More
+                <svg width="16" height="16">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Content Card 4 -->
+          <article class="card card--interactive">
+            <div class="card__body">
+              <span class="badge badge--secondary mb-3">News</span>
+              <h3 class="card__title">Article Title Four</h3>
+              <p class="card__subtitle">December 28, 2024</p>
+              <p class="card__text">
+                A brief excerpt or summary of the article content. This gives readers a preview of what they'll learn.
+              </p>
+              <a href="content-single.html" class="btn btn--link">
+                Read More
+                <svg width="16" height="16">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Content Card 5 -->
+          <article class="card card--interactive">
+            <div class="card__body">
+              <span class="badge badge--primary mb-3">Category</span>
+              <h3 class="card__title">Article Title Five</h3>
+              <p class="card__subtitle">December 20, 2024</p>
+              <p class="card__text">
+                A brief excerpt or summary of the article content. This gives readers a preview of what they'll learn.
+              </p>
+              <a href="content-single.html" class="btn btn--link">
+                Read More
+                <svg width="16" height="16">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Content Card 6 -->
+          <article class="card card--interactive">
+            <div class="card__body">
+              <span class="badge badge--secondary mb-3">Tutorial</span>
+              <h3 class="card__title">Article Title Six</h3>
+              <p class="card__subtitle">December 15, 2024</p>
+              <p class="card__text">
+                A brief excerpt or summary of the article content. This gives readers a preview of what they'll learn.
+              </p>
+              <a href="content-single.html" class="btn btn--link">
+                Read More
+                <svg width="16" height="16">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+              </a>
+            </div>
+          </article>
         </div>
-    </header>
 
-    <main>
-        <section class="page-header">
-            <div class="site-container">
-                <h1 class="hero-title">Insights.</h1>
-                <p class="hero-description">Practical advice for business owners who want to understand web development.
-                </p>
-            </div>
-        </section>
+        <!-- Pagination -->
+        <nav class="flex justify-center gap-2 mt-8" aria-label="Pagination">
+          <a href="#" class="btn btn--outline btn--sm" aria-disabled="true">Previous</a>
+          <a href="#" class="btn btn--primary btn--sm" aria-current="page">1</a>
+          <a href="#" class="btn btn--outline btn--sm">2</a>
+          <a href="#" class="btn btn--outline btn--sm">3</a>
+          <a href="#" class="btn btn--outline btn--sm">Next</a>
+        </nav>
+      </div>
+    </section>
+  </main>
 
-        <section class="site-container">
-            <div class="content-grid">
-                <!-- Article 1: WordPress Cost -->
-                <a href="blog/wordpress-website-cost.html" class="content-card">
-                    <div class="content-image"></div>
-                    <div class="content-meta">Jan 2026 • Pricing</div>
-                    <h2 class="content-title">How Much Does a Custom WordPress Website Cost in 2026?</h2>
-                    <p class="content-excerpt">Real pricing ranges for small business websites. What drives the cost,
-                        what you're actually paying for, and how to evaluate quotes.</p>
-                    <div class="read-more">Read Article <i class="icofont-arrow-right"></i></div>
-                </a>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__container">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">Logo</a>
+          <p class="footer__description">
+            A brief description of your company or project. Replace this with your own content.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer__title">Navigation</h4>
+          <ul class="footer__list">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="about.html" class="footer__link">About</a></li>
+            <li><a href="content.html" class="footer__link">Content</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Resources</h4>
+          <ul class="footer__list">
+            <li><a href="style-guide.html" class="footer__link">Style Guide</a></li>
+            <li><a href="router.html" class="footer__link">Multi-step Form</a></li>
+            <li><a href="login.html" class="footer__link">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Legal</h4>
+          <ul class="footer__list">
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-                <!-- Article 2: Las Vegas Developer -->
-                <a href="blog/las-vegas-web-developer.html" class="content-card">
-                    <div class="content-image"></div>
-                    <div class="content-meta">Jan 2026 • Hiring</div>
-                    <h2 class="content-title">Las Vegas Web Developer — What to Look for When Hiring Local</h2>
-                    <p class="content-excerpt">Questions to ask any developer, red flags to watch for, and when local
-                        actually matters for your project.</p>
-                    <div class="read-more">Read Article <i class="icofont-arrow-right"></i></div>
-                </a>
-
-                <!-- Article 3: Website Not Converting -->
-                <a href="blog/website-not-converting.html" class="content-card">
-                    <div class="content-image"></div>
-                    <div class="content-meta">Jan 2026 • Strategy</div>
-                    <h2 class="content-title">Why Your Website Isn't Bringing You Customers</h2>
-                    <p class="content-excerpt">Common problems that kill conversions — and a prioritized checklist to
-                        fix them without starting over.</p>
-                    <div class="read-more">Read Article <i class="icofont-arrow-right"></i></div>
-                </a>
-
-                <!-- Article 4: Platform Comparison -->
-                <a href="blog/wordpress-vs-squarespace-vs-wix.html" class="content-card">
-                    <div class="content-image"></div>
-                    <div class="content-meta">Jan 2026 • Platforms</div>
-                    <h2 class="content-title">WordPress vs Squarespace vs Wix — Which Should You Choose?</h2>
-                    <p class="content-excerpt">An honest comparison from a developer's perspective. Ownership, costs,
-                        flexibility, and which platform fits your needs.</p>
-                    <div class="read-more">Read Article <i class="icofont-arrow-right"></i></div>
-                </a>
-
-                <!-- Article 5: Headless WordPress -->
-                <a href="blog/what-is-headless-wordpress.html" class="content-card">
-                    <div class="content-image"></div>
-                    <div class="content-meta">Jan 2026 • Technical</div>
-                    <h2 class="content-title">What Is Headless WordPress? A Plain-English Guide</h2>
-                    <p class="content-excerpt">You've heard the term. Here's what it actually means, whether it matters
-                        for your business, and when it makes sense.</p>
-                    <div class="read-more">Read Article <i class="icofont-arrow-right"></i></div>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <!-- <script type="module" src="/src/js/core.js"></script> -->
-    <script type="module" src="/src/main.js"></script>
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

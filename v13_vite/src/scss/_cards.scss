@@ -1,0 +1,291 @@
+// =============================================================================
+// Cards
+// =============================================================================
+// Card component with header, body, and footer sections.
+
+// -----------------------------------------------------------------------------
+// Base Card
+// -----------------------------------------------------------------------------
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+// -----------------------------------------------------------------------------
+// Card Sections
+// -----------------------------------------------------------------------------
+
+.card__header {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card__body {
+  flex: 1;
+  padding: var(--space-5);
+}
+
+.card__footer {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg-alt);
+}
+
+// Card title
+.card__title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+// Card subtitle
+.card__subtitle {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+// Card text
+.card__text {
+  color: var(--color-text-muted);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Card with Image
+// -----------------------------------------------------------------------------
+
+.card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card__image--top {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+// Image overlay card
+.card--overlay {
+  position: relative;
+
+  .card__image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .card__body {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 200px;
+  }
+
+  .card__title,
+  .card__text {
+    color: white;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Card Variants
+// -----------------------------------------------------------------------------
+
+// Elevated card (with shadow)
+.card--elevated {
+  border: none;
+  box-shadow: var(--shadow-md);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Flat card (no border)
+.card--flat {
+  border: none;
+  background-color: var(--color-bg-alt);
+}
+
+// Outlined card (border only, no background)
+.card--outlined {
+  background-color: transparent;
+  border: 2px solid var(--color-border);
+}
+
+// Interactive card (clickable)
+.card--interactive {
+  cursor: pointer;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Bordered card with accent
+.card--accent {
+  border-top: 4px solid var(--color-primary);
+}
+
+.card--accent-left {
+  border-top: none;
+  border-left: 4px solid var(--color-primary);
+}
+
+// -----------------------------------------------------------------------------
+// Card Sizes
+// -----------------------------------------------------------------------------
+
+.card--sm {
+  .card__header,
+  .card__footer {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .card__body {
+    padding: var(--space-4);
+  }
+
+  .card__title {
+    font-size: var(--text-base);
+  }
+}
+
+.card--lg {
+  .card__header,
+  .card__footer {
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .card__body {
+    padding: var(--space-6);
+  }
+
+  .card__title {
+    font-size: var(--text-xl);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Horizontal Card
+// -----------------------------------------------------------------------------
+
+.card--horizontal {
+  flex-direction: row;
+
+  .card__image {
+    width: 40%;
+    max-width: 200px;
+    aspect-ratio: auto;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+
+    .card__image {
+      width: 100%;
+      max-width: none;
+      aspect-ratio: 16 / 9;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Card Actions
+// -----------------------------------------------------------------------------
+
+.card__actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.card__actions--end {
+  justify-content: flex-end;
+}
+
+.card__actions--between {
+  justify-content: space-between;
+}
+
+// -----------------------------------------------------------------------------
+// Card Grid
+// -----------------------------------------------------------------------------
+
+.card-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card-grid--2 {
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card-grid--3 {
+  @media (min-width: $bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card-grid--4 {
+  @media (min-width: $bp-xl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Status Cards
+// -----------------------------------------------------------------------------
+
+.card--success {
+  border-color: var(--color-success);
+  background-color: var(--color-success-light);
+}
+
+.card--warning {
+  border-color: var(--color-warning);
+  background-color: var(--color-warning-light);
+}
+
+.card--error {
+  border-color: var(--color-error);
+  background-color: var(--color-error-light);
+}
+
+.card--info {
+  border-color: var(--color-info);
+  background-color: var(--color-info-light);
+}

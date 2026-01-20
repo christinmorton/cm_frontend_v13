@@ -1,0 +1,403 @@
+// =============================================================================
+// Forms
+// =============================================================================
+// Form elements: inputs, selects, textareas, labels, and form groups.
+
+// -----------------------------------------------------------------------------
+// Form Group
+// -----------------------------------------------------------------------------
+
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+.form-group-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+// -----------------------------------------------------------------------------
+// Labels
+// -----------------------------------------------------------------------------
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+// Required indicator
+.form-label--required::after {
+  content: " *";
+  color: var(--color-error);
+}
+
+// Optional indicator
+.form-label--optional::after {
+  content: " (optional)";
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-light);
+}
+
+// -----------------------------------------------------------------------------
+// Input Base
+// -----------------------------------------------------------------------------
+
+.form-input,
+.form-select,
+.form-textarea {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &::placeholder {
+    color: var(--color-text-light);
+  }
+
+  &:hover {
+    border-color: var(--color-border-dark);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: var(--color-gray-100);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Input Sizes
+// -----------------------------------------------------------------------------
+
+.form-input--sm,
+.form-select--sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+}
+
+.form-input--lg,
+.form-select--lg {
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-lg);
+  border-radius: var(--radius-xl);
+}
+
+// -----------------------------------------------------------------------------
+// Select
+// -----------------------------------------------------------------------------
+
+.form-select {
+  appearance: none;
+  padding-right: var(--space-10);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  background-size: 1rem;
+  cursor: pointer;
+}
+
+// -----------------------------------------------------------------------------
+// Textarea
+// -----------------------------------------------------------------------------
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-textarea--no-resize {
+  resize: none;
+}
+
+// -----------------------------------------------------------------------------
+// Checkbox & Radio
+// -----------------------------------------------------------------------------
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.form-check-input {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.125rem;
+  appearance: none;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-dark);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  &:checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Checkbox specific
+.form-check-input[type="checkbox"] {
+  border-radius: var(--radius-sm);
+
+  &:checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.75rem;
+  }
+}
+
+// Radio specific
+.form-check-input[type="radio"] {
+  border-radius: 50%;
+
+  &:checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Ccircle cx='4' cy='4' r='4' fill='white'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.5rem;
+  }
+}
+
+.form-check-label {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+// -----------------------------------------------------------------------------
+// Toggle/Switch
+// -----------------------------------------------------------------------------
+
+.form-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.form-switch-input {
+  position: relative;
+  width: 2.5rem;
+  height: 1.5rem;
+  appearance: none;
+  background-color: var(--color-gray-300);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0.125rem;
+    left: 0.125rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast);
+  }
+
+  &:checked {
+    background-color: var(--color-primary);
+
+    &::after {
+      transform: translateX(1rem);
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Validation States
+// -----------------------------------------------------------------------------
+
+// Error state
+.form-input--error,
+.form-select--error,
+.form-textarea--error {
+  border-color: var(--color-error);
+
+  &:focus {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 3px var(--color-error-light);
+  }
+}
+
+// Success state
+.form-input--success,
+.form-select--success,
+.form-textarea--success {
+  border-color: var(--color-success);
+
+  &:focus {
+    border-color: var(--color-success);
+    box-shadow: 0 0 0 3px var(--color-success-light);
+  }
+}
+
+// Help text
+.form-help {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+// Error message
+.form-error {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-error);
+}
+
+// Success message
+.form-success {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-success);
+}
+
+// -----------------------------------------------------------------------------
+// Input Group (input with addons)
+// -----------------------------------------------------------------------------
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+
+  .form-input {
+    flex: 1;
+    border-radius: 0;
+
+    &:first-child {
+      border-top-left-radius: var(--radius-lg);
+      border-bottom-left-radius: var(--radius-lg);
+    }
+
+    &:last-child {
+      border-top-right-radius: var(--radius-lg);
+      border-bottom-right-radius: var(--radius-lg);
+    }
+  }
+}
+
+.input-group-addon {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-border);
+
+  &:first-child {
+    border-right: none;
+    border-top-left-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
+  }
+
+  &:last-child {
+    border-left: none;
+    border-top-right-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+  }
+}
+
+.input-group .btn {
+  border-radius: 0;
+
+  &:first-child {
+    border-top-left-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
+  }
+
+  &:last-child {
+    border-top-right-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Form Layout
+// -----------------------------------------------------------------------------
+
+// Inline form
+.form-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4);
+
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+
+// Form row (grid layout)
+.form-row {
+  display: grid;
+  gap: var(--space-4);
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-row--3 {
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

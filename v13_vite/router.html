@@ -2,560 +2,345 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Next Step | Christin Morton</title>
-    <!-- Icomoon fonts -->
-    <link rel="stylesheet" type="text/css" href="/css/icofont.min.css" />
-    <!--Styles css-->
-    <!-- Direct SCSS load to prevent FOUC in Vite -->
-    <link rel="stylesheet" href="/src/scss/main.scss" />
-    <!--Google Font css-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
-    <style>
-        body {
-            background: #000000;
-            color: #ffffff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Step Form | Site Name</title>
+  <meta name="description" content="Answer a few questions to get started.">
 
-        .router-section {
-            padding: 100px 0;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        .progress-bar-bg {
-            width: 100%;
-            height: 4px;
-            background: #333;
-            border-radius: 2px;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background: var(--primary-color);
-            width: 25%;
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-
-        /* Question Cards */
-        .question-step {
-            display: none;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .question-step.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .question-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .option-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 12px;
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .option-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .option-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .option-icon {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .option-btn:hover .option-icon {
-            opacity: 1;
-        }
-
-        /* Navigation Buttons */
-        .nav-actions {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .back-btn {
-            background: transparent;
-            border: 1px solid #444;
-            color: #888;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .back-btn:hover {
-            color: #fff;
-            border-color: #666;
-        }
-
-        /* Result Card */
-        .result-card {
-            background: #111;
-            border: 1px solid var(--primary-color);
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            display: none;
-        }
-
-        .result-card.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .result-heading {
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-        }
-
-        .result-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .result-desc {
-            color: #ccc;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .alternatives {
-            margin-top: 30px;
-            border-top: 1px solid #333;
-            padding-top: 20px;
-        }
-
-        .alt-link {
-            color: #888;
-            font-size: 0.9rem;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.2s;
-        }
-
-        .alt-link:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-    </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/scss/main.scss" />
 </head>
 
 <body>
-    <header id="header-nav" class="header-nav">
-        <div class="site-container">
-            <div class="header-left">
-                <a class="logo" href="index.html"><img src="logo_2.png" alt="Christin Morton Logo"></a>
-            </div>
-            <div class="header-right desktop-only">
-                <nav class="main-nav">
-                    <ul class="nav-menu">
-                        <li><a href="work.html" class="nav-link">Work</a></li>
-                        <li><a href="service.html" class="nav-link">Services</a></li>
-                        <li><a href="content.html" class="nav-link">Content</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+  <!-- SVG Icon Sprites -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="arrow-right" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </symbol>
+    <symbol id="close" viewBox="0 0 16 16">
+      <path fill="currentColor"
+        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+    </symbol>
+    <symbol id="check" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+        d="M20 6L9 17l-5-5" />
+    </symbol>
+  </svg>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container container">
+      <a href="index.html" class="logo">
+        <span class="logo__text">Logo</span>
+      </a>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="content.html" class="nav__link">Content</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="login.html" class="btn btn--outline btn--sm desktop-only">Login</a>
+
+      <button id="mobileBtn" class="nav-toggle mobile-only" type="button" aria-label="Toggle navigation">
+        <span class="nav-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-menu">
+    <div class="mobile-nav__header">
+      <a href="index.html" class="logo">Logo</a>
+      <button class="mobile-nav__close" id="mobileClose" aria-label="Close menu">
+        <svg width="20" height="20">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">Home</a></li>
+      <li><a href="about.html" class="mobile-nav__link">About</a></li>
+      <li><a href="content.html" class="mobile-nav__link">Content</a></li>
+      <li><a href="contact.html" class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__footer">
+      <a href="login.html" class="btn btn--primary btn--block">Login</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section class="section" style="min-height: 80vh; display: flex; align-items: center;">
+      <div class="container" style="max-width: 800px;">
+
+        <!-- Progress Bar -->
+        <div class="mb-8" id="progressContainer">
+          <div style="height: 4px; background: var(--color-border); border-radius: 2px;">
+            <div id="progressBar" style="height: 100%; background: var(--color-primary); width: 25%; transition: width 0.3s ease; border-radius: 2px;"></div>
+          </div>
         </div>
-    </header>
 
-    <main>
-        <section class="router-section">
-            <div class="site-container">
+        <!-- Step 1: Question 1 -->
+        <div class="wizard-step active" id="step1" data-step="1">
+          <div class="text-center mb-8">
+            <h1>What are you looking for?</h1>
+            <p class="text-muted">Select the option that best describes your needs.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button class="card card--interactive p-6" onclick="nextStep(1, 'option_a')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Option A</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+            <button class="card card--interactive p-6" onclick="nextStep(1, 'option_b')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Option B</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+            <button class="card card--interactive p-6" onclick="nextStep(1, 'option_c')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Option C</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+            <button class="card card--interactive p-6" onclick="nextStep(1, 'option_d')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Option D</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+          </div>
+        </div>
 
-                <!-- Progress Bar -->
-                <div class="progress-container" id="progressContainer">
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill" id="progressBar"></div>
-                    </div>
-                </div>
+        <!-- Step 2: Question 2 -->
+        <div class="wizard-step" id="step2" data-step="2">
+          <div class="text-center mb-8">
+            <h1>How would you describe your timeline?</h1>
+            <p class="text-muted">This helps us prioritize your request.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button class="card card--interactive p-6" onclick="nextStep(2, 'urgent')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Urgent - ASAP</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+            <button class="card card--interactive p-6" onclick="nextStep(2, 'soon')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Soon - Within weeks</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+            <button class="card card--interactive p-6" onclick="nextStep(2, 'flexible')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Flexible - 1-3 months</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+            <button class="card card--interactive p-6" onclick="nextStep(2, 'researching')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Just researching</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+          </div>
+          <div class="text-center mt-6">
+            <button class="btn btn--outline" onclick="prevStep(2)">Back</button>
+          </div>
+        </div>
 
-                <!-- Step 1: Intent -->
-                <div class="question-step active" id="step1" data-step="1">
-                    <h1 class="question-title">What are you looking to achieve?</h1>
-                    <div class="options-grid">
-                        <button class="option-btn" onclick="nextStep(1, 'build_new')">
-                            <span class="option-text">Build something new</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="nextStep(1, 'improve')">
-                            <span class="option-text">Improve an existing site</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="nextStep(1, 'fix')">
-                            <span class="option-text">Fix something broken</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="nextStep(1, 'unsure')">
-                            <span class="option-text">I'm not sure — need guidance</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                    </div>
-                </div>
+        <!-- Step 3: Question 3 -->
+        <div class="wizard-step" id="step3" data-step="3">
+          <div class="text-center mb-8">
+            <h1>What's your preferred next step?</h1>
+            <p class="text-muted">Choose how you'd like to proceed.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button class="card card--interactive p-6" onclick="finishWizard('contact')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Send a message</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+            <button class="card card--interactive p-6" onclick="finishWizard('call')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Schedule a call</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+            <button class="card card--interactive p-6" onclick="finishWizard('form')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Fill out detailed form</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+            <button class="card card--interactive p-6" onclick="finishWizard('browse')">
+              <div class="flex justify-between items-center">
+                <span class="text-lg">Browse more first</span>
+                <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+              </div>
+            </button>
+          </div>
+          <div class="text-center mt-6">
+            <button class="btn btn--outline" onclick="prevStep(3)">Back</button>
+          </div>
+        </div>
 
-                <!-- Step 2: Clarity -->
-                <div class="question-step" id="step2" data-step="2">
-                    <h1 class="question-title">How clear is your scope right now?</h1>
-                    <div class="options-grid">
-                        <button class="option-btn" onclick="nextStep(2, 'very_clear')">
-                            <span class="option-text">Very clear — I know what I want</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="nextStep(2, 'somewhat_clear')">
-                            <span class="option-text">Somewhat clear — I need help refining</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="nextStep(2, 'not_clear')">
-                            <span class="option-text">Not clear — Help me figure it out</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                    </div>
-                    <div class="nav-actions">
-                        <button class="back-btn" onclick="prevStep(2)">Back</button>
-                    </div>
-                </div>
-
-                <!-- Step 3: Timing -->
-                <div class="question-step" id="step3" data-step="3">
-                    <h1 class="question-title">How soon do you want to start?</h1>
-                    <div class="options-grid">
-                        <button class="option-btn" onclick="nextStep(3, 'asap')">
-                            <span class="option-text">ASAP</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="nextStep(3, 'weeks')">
-                            <span class="option-text">Within 2–4 weeks</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="nextStep(3, 'months')">
-                            <span class="option-text">1–3 months</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="nextStep(3, 'researching')">
-                            <span class="option-text">Just researching</span>
-                            <span class="option-icon"><i class="icofont-arrow-right"></i></span>
-                        </button>
-                    </div>
-                    <div class="nav-actions">
-                        <button class="back-btn" onclick="prevStep(3)">Back</button>
-                    </div>
-                </div>
-
-                <!-- Step 4: Commitment -->
-                <div class="question-step" id="step4" data-step="4">
-                    <h1 class="question-title">What are you ready to do today?</h1>
-                    <div class="options-grid">
-                        <button class="option-btn" onclick="finishFunnel('quick_message')">
-                            <span class="option-text">Send a quick message</span>
-                            <span class="option-icon"><i class="icofont-paper-plane"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="finishFunnel('book_call')">
-                            <span class="option-text">Book a call</span>
-                            <span class="option-icon"><i class="icofont-calendar"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="finishFunnel('request_quote')">
-                            <span class="option-text">Request a quote or proposal</span>
-                            <span class="option-icon"><i class="icofont-file-text"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="finishFunnel('discovery')">
-                            <span class="option-text">Do a full discovery intake</span>
-                            <span class="option-icon"><i class="icofont-chart-flow"></i></span>
-                        </button>
-                        <button class="option-btn" onclick="finishFunnel('reserve_spot')">
-                            <span class="option-text">Reserve my spot with a deposit</span>
-                            <span class="option-icon"><i class="icofont-credit-card"></i></span>
-                        </button>
-                    </div>
-                    <div class="nav-actions">
-                        <button class="back-btn" onclick="prevStep(4)">Back</button>
-                    </div>
-                </div>
-
-                <!-- Result Card -->
-                <div class="result-card" id="resultCard">
-                    <div class="result-heading">Recommendation</div>
-                    <h2 class="result-title" id="resultTitle">Book a Consultation</h2>
-                    <p class="result-desc" id="resultDesc">Based on your answers, talking through your project is the
-                        best way to get clarity.</p>
-
-                    <a href="#" class="action-button" id="resultBtn" style="width: 100%; justify-content: center;">
-                        <span id="resultBtnText">Book Free Call</span>
-                        <div class="button-icon"><i class="icofont-arrow-right"></i></div>
-                    </a>
-
-                    <div class="alternatives">
-                        <p style="margin-bottom: 10px; color: #666; font-size: 0.9rem;">Other Options:</p>
-                        <div id="altLinks"></div>
-                    </div>
-                    <br>
-                    <button class="back-btn" onclick="location.reload()">Start Over</button>
-                </div>
-
+        <!-- Result Card -->
+        <div class="wizard-step" id="resultCard">
+          <div class="card card--elevated p-8 text-center">
+            <div class="mb-4">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
             </div>
-        </section>
-    </main>
+            <span class="badge badge--primary mb-3">Recommendation</span>
+            <h2 id="resultTitle" class="mb-4">Send Us a Message</h2>
+            <p id="resultDesc" class="text-muted mb-6">Based on your answers, this is the best way to get started.</p>
 
-    <script type="module" src="/src/js/core.js"></script>
-    <script>
-        // Funnel State
-        let answers = {
-            intent: '',
-            clarity: '',
-            timing: '',
-            readiness: ''
+            <a href="#" id="resultBtn" class="btn btn--primary btn--lg mb-4">
+              <span id="resultBtnText">Get Started</span>
+              <svg width="20" height="20"><use xlink:href="#arrow-right"></use></svg>
+            </a>
+
+            <div class="mt-6 pt-6" style="border-top: 1px solid var(--color-border);">
+              <p class="text-sm text-muted mb-2">Other options:</p>
+              <div id="altLinks" class="flex justify-center gap-4 flex-wrap"></div>
+            </div>
+
+            <div class="mt-6">
+              <button class="btn btn--link" onclick="location.reload()">Start Over</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .wizard-step {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .wizard-step.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script>
+    // Wizard State
+    let answers = { q1: '', q2: '', q3: '' };
+
+    window.nextStep = function(currentStep, value) {
+      if (currentStep === 1) answers.q1 = value;
+      if (currentStep === 2) answers.q2 = value;
+
+      document.getElementById('step' + currentStep).classList.remove('active');
+      const next = currentStep + 1;
+      document.getElementById('step' + next).classList.add('active');
+      updateProgress(next);
+    };
+
+    window.prevStep = function(currentStep) {
+      document.getElementById('step' + currentStep).classList.remove('active');
+      const prev = currentStep - 1;
+      document.getElementById('step' + prev).classList.add('active');
+      updateProgress(prev);
+    };
+
+    window.finishWizard = function(value) {
+      answers.q3 = value;
+      document.getElementById('step3').classList.remove('active');
+      document.getElementById('progressContainer').style.display = 'none';
+      showResult();
+    };
+
+    function updateProgress(step) {
+      const percent = (step / 4) * 100;
+      document.getElementById('progressBar').style.width = percent + '%';
+    }
+
+    function showResult() {
+      let result = { title: '', desc: '', btnText: '', url: '', alts: [] };
+
+      // Simple routing logic - customize as needed
+      if (answers.q3 === 'contact') {
+        result = {
+          title: 'Send Us a Message',
+          desc: 'A quick message is the best way to start the conversation.',
+          btnText: 'Contact Us',
+          url: 'contact.html',
+          alts: [{ text: 'View Content', url: 'content.html' }]
         };
+      } else if (answers.q3 === 'call') {
+        result = {
+          title: 'Schedule a Call',
+          desc: "Let's discuss your needs in more detail.",
+          btnText: 'Book a Call',
+          url: 'contact.html',
+          alts: [{ text: 'Send a message instead', url: 'contact.html' }]
+        };
+      } else if (answers.q3 === 'form') {
+        result = {
+          title: 'Fill Out Our Form',
+          desc: 'Provide detailed information to help us understand your needs.',
+          btnText: 'Start Form',
+          url: 'flows/form.html',
+          alts: [{ text: 'Contact us directly', url: 'contact.html' }]
+        };
+      } else {
+        result = {
+          title: 'Explore Our Content',
+          desc: 'Take your time to learn more about what we offer.',
+          btnText: 'Browse Content',
+          url: 'content.html',
+          alts: [{ text: 'About Us', url: 'about.html' }]
+        };
+      }
 
-        // Make functions globally available for onclick
-        window.nextStep = function (currentStep, value) {
-            // Save answer
-            if (currentStep === 1) answers.intent = value;
-            if (currentStep === 2) answers.clarity = value;
-            if (currentStep === 3) answers.timing = value;
+      // Render result
+      document.getElementById('resultTitle').textContent = result.title;
+      document.getElementById('resultDesc').textContent = result.desc;
+      document.getElementById('resultBtnText').textContent = result.btnText;
+      document.getElementById('resultBtn').href = result.url;
 
-            // Hide Current
-            document.getElementById('step' + currentStep).classList.remove('active');
+      const altContainer = document.getElementById('altLinks');
+      altContainer.innerHTML = '';
+      result.alts.forEach(alt => {
+        const a = document.createElement('a');
+        a.href = alt.url;
+        a.className = 'text-link text-sm';
+        a.textContent = alt.text;
+        altContainer.appendChild(a);
+      });
 
-            // Show Next
-            const next = currentStep + 1;
-            document.getElementById('step' + next).classList.add('active');
-
-            // Update Progress
-            updateProgress(next);
-        }
-
-        window.prevStep = function (currentStep) {
-            document.getElementById('step' + currentStep).classList.remove('active');
-            const prev = currentStep - 1;
-            document.getElementById('step' + prev).classList.add('active');
-            updateProgress(prev);
-        }
-
-        window.finishFunnel = async function (readinessValue) {
-            answers.readiness = readinessValue;
-            calculateResult();
-
-            // Format answers into a readable message
-            const message = `Router Funnel Results:\nIntent: ${answers.intent}\nClarity: ${answers.clarity}\nTiming: ${answers.timing}\nReadiness: ${answers.readiness}`;
-
-            // Track router funnel data as analytics event
-            // This saves the data to the backend via the analytics API
-            // Note: Router doesn't collect email, so we track it as analytics rather than form submission
-            if (window.__analytics) {
-                window.__analytics.track('router_funnel_complete', {
-                    form_id: 'router_flow',
-                    form_data: answers,
-                    router_intent: answers.intent,
-                    router_clarity: answers.clarity,
-                    router_timing: answers.timing,
-                    router_readiness: answers.readiness,
-                    message: message,
-                    source: 'router_funnel'
-                });
-                window.__analytics.flush();
-            }
-        }
-
-        function updateProgress(step) {
-            const percent = (step / 5) * 100; // 5 total states including result
-            document.getElementById('progressBar').style.width = percent + '%';
-        }
-
-        function calculateResult() {
-            // Hide last step
-            document.getElementById('step4').classList.remove('active');
-            document.getElementById('progressContainer').style.display = 'none';
-
-            let result = {
-                title: '',
-                desc: '',
-                btnText: '',
-                url: '',
-                alts: []
-            };
-
-            // LOGIC CONSTANTS
-            const intent = answers.intent;
-            const clarity = answers.clarity;
-            const timing = answers.timing;
-            const readiness = answers.readiness;
-
-            // --- ROUTING LOGIC ---
-            // Primary routing is based on Step 4 choice (readiness).
-            // Context from earlier steps (intent, clarity, timing) adjusts messaging.
-
-            // Path 0: Reserve Spot (High Commitment - Ready to Pay)
-            if (readiness === 'reserve_spot') {
-                result = {
-                    title: "Reserve Your Spot",
-                    desc: "Great! A deposit secures your place in my schedule and allows us to start planning your project.",
-                    btnText: "Pay Deposit",
-                    url: "flows/deposit.html",
-                    alts: [
-                        { text: "Book a call first", url: "flows/consultation.html" },
-                        { text: "Request a quote", url: "flows/quote-request.html" }
-                    ]
-                };
-            }
-            // Path 1: Quick Message (Low Commitment)
-            else if (readiness === 'quick_message') {
-                const isResearching = timing === 'researching';
-                result = {
-                    title: "Send a Quick Message",
-                    desc: isResearching
-                        ? "Since you're just researching, dropping a line is the best way to start."
-                        : "No pressure. Just send a quick question or hello.",
-                    btnText: "Send Message",
-                    url: "flows/quick-message.html",
-                    alts: [
-                        { text: "Book a call instead", url: "flows/consultation.html" }
-                    ]
-                };
-            }
-            // Path 2: Book a Call / Consultation
-            else if (readiness === 'book_call') {
-                const needsGuidance = clarity === 'not_clear' || intent === 'unsure';
-                result = {
-                    title: "Book a Free Consultation",
-                    desc: needsGuidance
-                        ? "Since you're looking for guidance, a quick chat is the best way to clarify your next steps."
-                        : "Let's talk through your project and figure out the best approach together.",
-                    btnText: "Schedule Call",
-                    url: "flows/consultation.html",
-                    alts: [
-                        { text: "Just send a message", url: "flows/quick-message.html" },
-                        { text: "Request a quote", url: "flows/quote-request.html" }
-                    ]
-                };
-            }
-            // Path 3: Quote Request (Prepared Buyer)
-            else if (readiness === 'request_quote') {
-                const isPrepared = clarity === 'very_clear';
-                result = {
-                    title: "Request a Quote",
-                    desc: isPrepared
-                        ? "You know exactly what you need. Let's get you a price estimate quickly."
-                        : "Tell me about your project and I'll send you a custom quote.",
-                    btnText: "Start Quote",
-                    url: "flows/quote-request.html",
-                    alts: [
-                        { text: "Discuss it first", url: "flows/consultation.html" }
-                    ]
-                };
-            }
-            // Path 4: Discovery Intake (Complex/High-Value)
-            else if (readiness === 'discovery') {
-                const isNewBuild = intent === 'build_new';
-                result = {
-                    title: "Start Project Discovery",
-                    desc: isNewBuild
-                        ? "For complex new builds, a deep-dive intake helps us map out the perfect solution."
-                        : "A detailed intake helps me understand your project fully before we begin.",
-                    btnText: "Begin Discovery",
-                    url: "flows/discovery.html",
-                    alts: [
-                        { text: "Just book a call", url: "flows/consultation.html" }
-                    ]
-                };
-            }
-            // Fallback: Consultation (shouldn't normally reach here)
-            else {
-                result = {
-                    title: "Book a Free Consultation",
-                    desc: "Let's talk through your project and figure out the best next step.",
-                    btnText: "Schedule Call",
-                    url: "flows/consultation.html",
-                    alts: [
-                        { text: "Just send a message", url: "flows/quick-message.html" },
-                        { text: "Request a quote", url: "flows/quote-request.html" }
-                    ]
-                };
-            }
-
-            // RENDER RESULT
-            document.getElementById('resultTitle').innerText = result.title;
-            document.getElementById('resultDesc').innerText = result.desc;
-            document.getElementById('resultBtnText').innerText = result.btnText;
-            document.getElementById('resultBtn').href = result.url;
-
-            const altContainer = document.getElementById('altLinks');
-            altContainer.innerHTML = '';
-            result.alts.forEach(alt => {
-                const a = document.createElement('a');
-                a.href = alt.url;
-                a.className = 'alt-link';
-                a.innerText = alt.text;
-                altContainer.appendChild(a);
-            });
-
-            // Show Card
-            document.getElementById('resultCard').classList.add('active');
-        }
-    </script>
-    <script type="module" src="/src/main.js"></script>
+      document.getElementById('resultCard').classList.add('active');
+    }
+  </script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form | Site Name</title>
+  <meta name="description" content="Send us a message.">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+
+<body>
+  <!-- SVG Icon Sprites -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="arrow-right" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </symbol>
+    <symbol id="close" viewBox="0 0 16 16">
+      <path fill="currentColor"
+        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+    </symbol>
+  </svg>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container container">
+      <a href="../index.html" class="logo">
+        <span class="logo__text">Logo</span>
+      </a>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link">Home</a></li>
+          <li><a href="../about.html" class="nav__link">About</a></li>
+          <li><a href="../content.html" class="nav__link">Content</a></li>
+          <li><a href="../contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="../login.html" class="btn btn--outline btn--sm desktop-only">Login</a>
+
+      <button id="mobileBtn" class="nav-toggle mobile-only" type="button" aria-label="Toggle navigation">
+        <span class="nav-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-menu">
+    <div class="mobile-nav__header">
+      <a href="../index.html" class="logo">Logo</a>
+      <button class="mobile-nav__close" id="mobileClose" aria-label="Close menu">
+        <svg width="20" height="20">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav__list">
+      <li><a href="../index.html" class="mobile-nav__link">Home</a></li>
+      <li><a href="../about.html" class="mobile-nav__link">About</a></li>
+      <li><a href="../content.html" class="mobile-nav__link">Content</a></li>
+      <li><a href="../contact.html" class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__footer">
+      <a href="../login.html" class="btn btn--primary btn--block">Login</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Page Header -->
+    <section class="section bg-light">
+      <div class="container text-center">
+        <h1>Quick Message</h1>
+        <p class="lead">No pressure. Just a quick question or hello.</p>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="section">
+      <div class="container" style="max-width: 600px;">
+        <div class="card">
+          <div class="card__body">
+            <form data-wpbe-form="quick_message" data-redirect="/flows/thank-you.html">
+              <div class="form-group">
+                <label for="name" class="form-label form-label--required">Your Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label form-label--required">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label form-label--required">Message</label>
+                <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Hey, I was wondering..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--lg btn--block">
+                Send Message
+                <svg width="20" height="20">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+              </button>
+
+              <div class="form-status" aria-live="polite" style="margin-top: 1rem;"></div>
+            </form>
+          </div>
+        </div>
+
+        <div class="text-center mt-6">
+          <a href="../index.html" class="btn btn--link">Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

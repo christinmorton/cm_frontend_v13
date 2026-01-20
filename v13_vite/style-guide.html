@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Guide | Template</title>
+  <meta name="description" content="Visual style guide for rapid development">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+
+<body>
+  <div class="style-guide">
+    <div class="container">
+
+      <!-- Header -->
+      <header class="style-guide__header">
+        <h1 class="style-guide__title">Style Guide</h1>
+        <p class="style-guide__description">
+          A visual reference for all base styles in this template. Use this page to quickly develop
+          and test new project styles.
+        </p>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="sg-toc">
+        <h2 class="sg-toc__title">Contents</h2>
+        <ul class="sg-toc__list">
+          <li><a href="#colors" class="sg-toc__link">Colors</a></li>
+          <li><a href="#typography" class="sg-toc__link">Typography</a></li>
+          <li><a href="#buttons" class="sg-toc__link">Buttons</a></li>
+          <li><a href="#forms" class="sg-toc__link">Forms</a></li>
+          <li><a href="#cards" class="sg-toc__link">Cards</a></li>
+          <li><a href="#layout" class="sg-toc__link">Layout</a></li>
+          <li><a href="#navigation" class="sg-toc__link">Navigation</a></li>
+          <li><a href="#utilities" class="sg-toc__link">Utilities</a></li>
+        </ul>
+      </nav>
+
+      <!-- =================================================================
+           COLORS
+           ================================================================= -->
+      <section id="colors" class="sg-section">
+        <h2 class="sg-section__title">Colors</h2>
+        <p class="sg-section__description">
+          The color palette is defined using CSS custom properties in <code>_variables.scss</code>.
+          Modify these values to establish your project's color scheme.
+        </p>
+
+        <!-- Primary & Secondary -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Brand Colors</h3>
+          <div class="sg-colors">
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-primary);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Primary</div>
+                <div class="sg-color__value">--color-primary</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-primary-hover);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Primary Hover</div>
+                <div class="sg-color__value">--color-primary-hover</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-primary-light);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Primary Light</div>
+                <div class="sg-color__value">--color-primary-light</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-secondary);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Secondary</div>
+                <div class="sg-color__value">--color-secondary</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-secondary-hover);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Secondary Hover</div>
+                <div class="sg-color__value">--color-secondary-hover</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grays -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Neutral Grays</h3>
+          <div class="sg-colors sg-colors--grays">
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-50);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 50</div>
+                <div class="sg-color__value">--color-gray-50</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-100);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 100</div>
+                <div class="sg-color__value">--color-gray-100</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-200);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 200</div>
+                <div class="sg-color__value">--color-gray-200</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-300);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 300</div>
+                <div class="sg-color__value">--color-gray-300</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-400);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 400</div>
+                <div class="sg-color__value">--color-gray-400</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-500);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 500</div>
+                <div class="sg-color__value">--color-gray-500</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-600);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 600</div>
+                <div class="sg-color__value">--color-gray-600</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-700);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 700</div>
+                <div class="sg-color__value">--color-gray-700</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-800);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 800</div>
+                <div class="sg-color__value">--color-gray-800</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-gray-900);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Gray 900</div>
+                <div class="sg-color__value">--color-gray-900</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Semantic Colors -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Semantic Colors</h3>
+          <div class="sg-colors">
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-success);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Success</div>
+                <div class="sg-color__value">--color-success</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-success-light);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Success Light</div>
+                <div class="sg-color__value">--color-success-light</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-warning);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Warning</div>
+                <div class="sg-color__value">--color-warning</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-warning-light);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Warning Light</div>
+                <div class="sg-color__value">--color-warning-light</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-error);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Error</div>
+                <div class="sg-color__value">--color-error</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-error-light);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Error Light</div>
+                <div class="sg-color__value">--color-error-light</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-info);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Info</div>
+                <div class="sg-color__value">--color-info</div>
+              </div>
+            </div>
+            <div class="sg-color">
+              <div class="sg-color__swatch" style="background-color: var(--color-info-light);"></div>
+              <div class="sg-color__info">
+                <div class="sg-color__name">Info Light</div>
+                <div class="sg-color__value">--color-info-light</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           TYPOGRAPHY
+           ================================================================= -->
+      <section id="typography" class="sg-section">
+        <h2 class="sg-section__title">Typography</h2>
+        <p class="sg-section__description">
+          Typography styles are defined in <code>_typography.scss</code>. Font families, sizes,
+          and weights are configurable via CSS custom properties.
+        </p>
+
+        <!-- Headings -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Headings</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Body Text -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Body Text</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <p>This is a regular paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p class="lead">This is a lead paragraph for introductory text. It has a larger font
+                size and muted color.</p>
+              <p class="text-small">This is small text for captions or fine print.</p>
+              <p class="text-muted">This is muted text for secondary information.</p>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;p&gt;Regular paragraph&lt;/p&gt;
+&lt;p class="lead"&gt;Lead paragraph&lt;/p&gt;
+&lt;p class="text-small"&gt;Small text&lt;/p&gt;
+&lt;p class="text-muted"&gt;Muted text&lt;/p&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Links</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <p><a href="#">Default link style</a></p>
+              <p><a href="#" class="link-plain">Link without underline on hover</a></p>
+              <p><a href="#" class="link-muted">Muted link style</a></p>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;a href="#"&gt;Default link&lt;/a&gt;
+&lt;a href="#" class="link-plain"&gt;Plain link&lt;/a&gt;
+&lt;a href="#" class="link-muted"&gt;Muted link&lt;/a&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lists -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Lists</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview sg-example__preview--grid"
+              style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+              <div>
+                <h4>Unordered List</h4>
+                <ul class="list-bullet">
+                  <li>First item</li>
+                  <li>Second item</li>
+                  <li>Third item</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Ordered List</h4>
+                <ol class="list-number">
+                  <li>First item</li>
+                  <li>Second item</li>
+                  <li>Third item</li>
+                </ol>
+              </div>
+              <div>
+                <h4>Inline List</h4>
+                <ul class="list-inline">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                </ul>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;ul class="list-bullet"&gt;...&lt;/ul&gt;
+&lt;ol class="list-number"&gt;...&lt;/ol&gt;
+&lt;ul class="list-inline"&gt;...&lt;/ul&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blockquote -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Blockquote</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <blockquote>
+                <p>Design is not just what it looks like and feels like. Design is how it works.</p>
+                <cite>Steve Jobs</cite>
+              </blockquote>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;blockquote&gt;
+  &lt;p&gt;Quote text...&lt;/p&gt;
+  &lt;cite&gt;Author&lt;/cite&gt;
+&lt;/blockquote&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Code</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <p>Inline code: <code>const greeting = "Hello";</code></p>
+              <p>Keyboard input: Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy</p>
+              <pre><code>// Code block
+function greet(name) {
+  return `Hello, ${name}!`;
+}</code></pre>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;code&gt;inline code&lt;/code&gt;
+&lt;kbd&gt;Ctrl&lt;/kbd&gt;
+&lt;pre&gt;&lt;code&gt;code block&lt;/code&gt;&lt;/pre&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           BUTTONS
+           ================================================================= -->
+      <section id="buttons" class="sg-section">
+        <h2 class="sg-section__title">Buttons</h2>
+        <p class="sg-section__description">
+          Button styles are defined in <code>_buttons.scss</code>. Use the base <code>.btn</code>
+          class with modifier classes for variants.
+        </p>
+
+        <!-- Button Variants -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Variants</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-button-grid">
+                <button class="btn btn--primary">Primary</button>
+                <button class="btn btn--secondary">Secondary</button>
+                <button class="btn btn--outline">Outline</button>
+                <button class="btn btn--outline-secondary">Outline Secondary</button>
+                <button class="btn btn--ghost">Ghost</button>
+                <button class="btn btn--link">Link</button>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;button class="btn btn--primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn--secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn--outline"&gt;Outline&lt;/button&gt;
+&lt;button class="btn btn--outline-secondary"&gt;Outline Secondary&lt;/button&gt;
+&lt;button class="btn btn--ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="btn btn--link"&gt;Link&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Semantic Buttons -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Semantic Buttons</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-button-grid">
+                <button class="btn btn--success">Success</button>
+                <button class="btn btn--danger">Danger</button>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;button class="btn btn--success"&gt;Success&lt;/button&gt;
+&lt;button class="btn btn--danger"&gt;Danger&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button Sizes -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Sizes</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-button-grid">
+                <button class="btn btn--primary btn--sm">Small</button>
+                <button class="btn btn--primary">Default</button>
+                <button class="btn btn--primary btn--lg">Large</button>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;button class="btn btn--primary btn--sm"&gt;Small&lt;/button&gt;
+&lt;button class="btn btn--primary"&gt;Default&lt;/button&gt;
+&lt;button class="btn btn--primary btn--lg"&gt;Large&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button Shapes -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Shapes</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-button-grid">
+                <button class="btn btn--primary">Default</button>
+                <button class="btn btn--primary btn--pill">Pill Shape</button>
+                <button class="btn btn--primary btn--square">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;button class="btn btn--primary"&gt;Default&lt;/button&gt;
+&lt;button class="btn btn--primary btn--pill"&gt;Pill&lt;/button&gt;
+&lt;button class="btn btn--primary btn--square"&gt;...&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button States -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">States</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-button-grid">
+                <button class="btn btn--primary">Normal</button>
+                <button class="btn btn--primary" disabled>Disabled</button>
+                <button class="btn btn--primary btn--loading">Loading</button>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;button class="btn btn--primary"&gt;Normal&lt;/button&gt;
+&lt;button class="btn btn--primary" disabled&gt;Disabled&lt;/button&gt;
+&lt;button class="btn btn--primary btn--loading"&gt;Loading&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Width Button -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Full Width</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview" style="max-width: 400px;">
+              <button class="btn btn--primary btn--block">Full Width Button</button>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;button class="btn btn--primary btn--block"&gt;Full Width&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           FORMS
+           ================================================================= -->
+      <section id="forms" class="sg-section">
+        <h2 class="sg-section__title">Forms</h2>
+        <p class="sg-section__description">
+          Form styles are defined in <code>_forms.scss</code>. Includes inputs, selects, textareas,
+          checkboxes, radios, and validation states.
+        </p>
+
+        <!-- Text Inputs -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Text Inputs</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview sg-form-example">
+              <div class="form-group">
+                <label class="form-label" for="input-default">Default Input</label>
+                <input type="text" id="input-default" class="form-input" placeholder="Enter text...">
+              </div>
+              <div class="form-group">
+                <label class="form-label form-label--required" for="input-required">Required Field</label>
+                <input type="text" id="input-required" class="form-input" placeholder="Required...">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-disabled">Disabled Input</label>
+                <input type="text" id="input-disabled" class="form-input" placeholder="Disabled..." disabled>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="form-group"&gt;
+  &lt;label class="form-label" for="id"&gt;Label&lt;/label&gt;
+  &lt;input type="text" id="id" class="form-input" placeholder="..."&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Sizes -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Input Sizes</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview sg-form-example">
+              <div class="form-group">
+                <input type="text" class="form-input form-input--sm" placeholder="Small input">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="Default input">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-input form-input--lg" placeholder="Large input">
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;input class="form-input form-input--sm"&gt;
+&lt;input class="form-input"&gt;
+&lt;input class="form-input form-input--lg"&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Select -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Select</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview sg-form-example">
+              <div class="form-group">
+                <label class="form-label" for="select-default">Select an option</label>
+                <select id="select-default" class="form-select">
+                  <option value="">Choose...</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;select class="form-select"&gt;
+  &lt;option value=""&gt;Choose...&lt;/option&gt;
+  &lt;option value="1"&gt;Option 1&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Textarea</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview sg-form-example">
+              <div class="form-group">
+                <label class="form-label" for="textarea-default">Message</label>
+                <textarea id="textarea-default" class="form-textarea" placeholder="Enter your message..."></textarea>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;textarea class="form-textarea" placeholder="..."&gt;&lt;/textarea&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkboxes & Radios -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Checkboxes & Radios</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview sg-example__preview--grid"
+              style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+              <div>
+                <h4 class="mb-3">Checkboxes</h4>
+                <div class="form-check">
+                  <input type="checkbox" id="check1" class="form-check-input">
+                  <label for="check1" class="form-check-label">Option 1</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="check2" class="form-check-input" checked>
+                  <label for="check2" class="form-check-label">Option 2 (checked)</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="check3" class="form-check-input" disabled>
+                  <label for="check3" class="form-check-label">Option 3 (disabled)</label>
+                </div>
+              </div>
+              <div>
+                <h4 class="mb-3">Radios</h4>
+                <div class="form-check">
+                  <input type="radio" id="radio1" name="radio-group" class="form-check-input">
+                  <label for="radio1" class="form-check-label">Option A</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="radio2" name="radio-group" class="form-check-input" checked>
+                  <label for="radio2" class="form-check-label">Option B (checked)</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="radio3" name="radio-group" class="form-check-input" disabled>
+                  <label for="radio3" class="form-check-label">Option C (disabled)</label>
+                </div>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="form-check"&gt;
+  &lt;input type="checkbox" id="id" class="form-check-input"&gt;
+  &lt;label for="id" class="form-check-label"&gt;Label&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toggle Switch -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Toggle Switch</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="form-switch">
+                <input type="checkbox" id="switch1" class="form-switch-input">
+                <label for="switch1" class="form-check-label">Enable notifications</label>
+              </div>
+              <div class="form-switch mt-3">
+                <input type="checkbox" id="switch2" class="form-switch-input" checked>
+                <label for="switch2" class="form-check-label">Dark mode (on)</label>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="form-switch"&gt;
+  &lt;input type="checkbox" id="id" class="form-switch-input"&gt;
+  &lt;label for="id" class="form-check-label"&gt;Label&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Validation States -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Validation States</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview sg-form-example">
+              <div class="form-group">
+                <label class="form-label" for="input-error">Error State</label>
+                <input type="text" id="input-error" class="form-input form-input--error" value="Invalid value">
+                <span class="form-error">This field is required.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-success">Success State</label>
+                <input type="text" id="input-success" class="form-input form-input--success" value="Valid value">
+                <span class="form-success">Looks good!</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-help">With Help Text</label>
+                <input type="text" id="input-help" class="form-input" placeholder="Username">
+                <span class="form-help">Your username must be 3-20 characters.</span>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;input class="form-input form-input--error"&gt;
+&lt;span class="form-error"&gt;Error message&lt;/span&gt;
+
+&lt;input class="form-input form-input--success"&gt;
+&lt;span class="form-success"&gt;Success message&lt;/span&gt;
+
+&lt;input class="form-input"&gt;
+&lt;span class="form-help"&gt;Help text&lt;/span&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Group -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Input Groups</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview sg-form-example">
+              <div class="form-group">
+                <label class="form-label">With addon</label>
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="form-input" placeholder="0.00">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">With button</label>
+                <div class="input-group">
+                  <input type="text" class="form-input" placeholder="Search...">
+                  <button class="btn btn--primary">Search</button>
+                </div>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="input-group"&gt;
+  &lt;span class="input-group-addon"&gt;$&lt;/span&gt;
+  &lt;input type="text" class="form-input"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           CARDS
+           ================================================================= -->
+      <section id="cards" class="sg-section">
+        <h2 class="sg-section__title">Cards</h2>
+        <p class="sg-section__description">
+          Card styles are defined in <code>_cards.scss</code>. Cards are flexible containers
+          with header, body, and footer sections.
+        </p>
+
+        <!-- Basic Card -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Basic Card</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-card-grid">
+                <div class="card">
+                  <div class="card__header">
+                    <h3 class="card__title">Card Title</h3>
+                    <p class="card__subtitle">Card subtitle</p>
+                  </div>
+                  <div class="card__body">
+                    <p class="card__text">This is some text within a card body. It can contain any content.</p>
+                  </div>
+                  <div class="card__footer">
+                    <button class="btn btn--primary btn--sm">Action</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="card"&gt;
+  &lt;div class="card__header"&gt;
+    &lt;h3 class="card__title"&gt;Title&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="card__body"&gt;...&lt;/div&gt;
+  &lt;div class="card__footer"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Variants -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Card Variants</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-card-grid">
+                <div class="card card--elevated">
+                  <div class="card__body">
+                    <h3 class="card__title">Elevated Card</h3>
+                    <p class="card__text">Has a shadow instead of border.</p>
+                  </div>
+                </div>
+                <div class="card card--flat">
+                  <div class="card__body">
+                    <h3 class="card__title">Flat Card</h3>
+                    <p class="card__text">No border, subtle background.</p>
+                  </div>
+                </div>
+                <div class="card card--accent">
+                  <div class="card__body">
+                    <h3 class="card__title">Accent Card</h3>
+                    <p class="card__text">Has a colored top border.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="card card--elevated"&gt;...&lt;/div&gt;
+&lt;div class="card card--flat"&gt;...&lt;/div&gt;
+&lt;div class="card card--accent"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Card -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Interactive Card</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-card-grid">
+                <div class="card card--interactive">
+                  <div class="card__body">
+                    <h3 class="card__title">Clickable Card</h3>
+                    <p class="card__text">Hover to see the interaction effect.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="card card--interactive"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status Cards -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Status Cards</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-card-grid">
+                <div class="card card--success">
+                  <div class="card__body">
+                    <h3 class="card__title">Success</h3>
+                    <p class="card__text">Operation completed successfully.</p>
+                  </div>
+                </div>
+                <div class="card card--warning">
+                  <div class="card__body">
+                    <h3 class="card__title">Warning</h3>
+                    <p class="card__text">Please review before continuing.</p>
+                  </div>
+                </div>
+                <div class="card card--error">
+                  <div class="card__body">
+                    <h3 class="card__title">Error</h3>
+                    <p class="card__text">Something went wrong.</p>
+                  </div>
+                </div>
+                <div class="card card--info">
+                  <div class="card__body">
+                    <h3 class="card__title">Info</h3>
+                    <p class="card__text">Here's some helpful information.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="card card--success"&gt;...&lt;/div&gt;
+&lt;div class="card card--warning"&gt;...&lt;/div&gt;
+&lt;div class="card card--error"&gt;...&lt;/div&gt;
+&lt;div class="card card--info"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           LAYOUT
+           ================================================================= -->
+      <section id="layout" class="sg-section">
+        <h2 class="sg-section__title">Layout</h2>
+        <p class="sg-section__description">
+          Layout utilities are defined in <code>_layout.scss</code>. Includes containers,
+          grids, flexbox helpers, and spacing utilities.
+        </p>
+
+        <!-- Containers -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Containers</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview" style="background: var(--color-gray-100); padding: var(--space-4);">
+              <div class="container bg-white p-4 mb-4" style="border: 1px dashed var(--color-border);">
+                <code>.container</code> - max-width: 1200px
+              </div>
+              <div class="container-narrow bg-white p-4 mb-4" style="border: 1px dashed var(--color-border);">
+                <code>.container-narrow</code> - max-width: 720px
+              </div>
+              <div class="container-wide bg-white p-4" style="border: 1px dashed var(--color-border);">
+                <code>.container-wide</code> - max-width: 1400px
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="container"&gt;...&lt;/div&gt;
+&lt;div class="container-narrow"&gt;...&lt;/div&gt;
+&lt;div class="container-wide"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Grid</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 bg-light rounded-lg text-center">Column 1</div>
+                <div class="p-4 bg-light rounded-lg text-center">Column 2</div>
+                <div class="p-4 bg-light rounded-lg text-center">Column 3</div>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-4"&gt;
+  &lt;div&gt;Column 1&lt;/div&gt;
+  &lt;div&gt;Column 2&lt;/div&gt;
+  &lt;div&gt;Column 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flexbox -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Flexbox</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="flex justify-between items-center gap-4 p-4 bg-light rounded-lg">
+                <span>Left</span>
+                <span>Center</span>
+                <span>Right</span>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;div class="flex justify-between items-center gap-4"&gt;
+  &lt;span&gt;Left&lt;/span&gt;
+  &lt;span&gt;Center&lt;/span&gt;
+  &lt;span&gt;Right&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacing -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Spacing Scale</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="sg-spacing">
+                <div class="sg-spacing-item">
+                  <div class="sg-spacing-item__visual" style="width: 4px;"></div>
+                  <span class="sg-spacing-item__label">--space-1 (4px)</span>
+                </div>
+                <div class="sg-spacing-item">
+                  <div class="sg-spacing-item__visual" style="width: 8px;"></div>
+                  <span class="sg-spacing-item__label">--space-2 (8px)</span>
+                </div>
+                <div class="sg-spacing-item">
+                  <div class="sg-spacing-item__visual" style="width: 12px;"></div>
+                  <span class="sg-spacing-item__label">--space-3 (12px)</span>
+                </div>
+                <div class="sg-spacing-item">
+                  <div class="sg-spacing-item__visual" style="width: 16px;"></div>
+                  <span class="sg-spacing-item__label">--space-4 (16px)</span>
+                </div>
+                <div class="sg-spacing-item">
+                  <div class="sg-spacing-item__visual" style="width: 24px;"></div>
+                  <span class="sg-spacing-item__label">--space-6 (24px)</span>
+                </div>
+                <div class="sg-spacing-item">
+                  <div class="sg-spacing-item__visual" style="width: 32px;"></div>
+                  <span class="sg-spacing-item__label">--space-8 (32px)</span>
+                </div>
+                <div class="sg-spacing-item">
+                  <div class="sg-spacing-item__visual" style="width: 48px;"></div>
+                  <span class="sg-spacing-item__label">--space-12 (48px)</span>
+                </div>
+                <div class="sg-spacing-item">
+                  <div class="sg-spacing-item__visual" style="width: 64px;"></div>
+                  <span class="sg-spacing-item__label">--space-16 (64px)</span>
+                </div>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>/* Margin utilities */
+.mt-4 { margin-top: var(--space-4); }
+.mb-4 { margin-bottom: var(--space-4); }
+.my-4 { margin-top/bottom: var(--space-4); }
+
+/* Padding utilities */
+.p-4 { padding: var(--space-4); }
+.px-4 { padding-left/right: var(--space-4); }
+.py-4 { padding-top/bottom: var(--space-4); }</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           NAVIGATION
+           ================================================================= -->
+      <section id="navigation" class="sg-section">
+        <h2 class="sg-section__title">Navigation</h2>
+        <p class="sg-section__description">
+          Navigation styles are defined in <code>_navigation.scss</code>. Includes header,
+          nav menus, and footer components.
+        </p>
+
+        <!-- Header Example -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Header</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview" style="position: relative;">
+              <header class="header" style="position: relative;">
+                <div class="header__container container">
+                  <a href="#" class="logo">
+                    <span class="logo__text">Logo</span>
+                  </a>
+                  <nav class="nav" style="display: flex;">
+                    <ul class="nav__list">
+                      <li><a href="#" class="nav__link active">Home</a></li>
+                      <li><a href="#" class="nav__link">About</a></li>
+                      <li><a href="#" class="nav__link">Services</a></li>
+                      <li><a href="#" class="nav__link">Contact</a></li>
+                    </ul>
+                  </nav>
+                  <button class="btn btn--primary btn--sm">Get Started</button>
+                </div>
+              </header>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;header class="header"&gt;
+  &lt;div class="header__container container"&gt;
+    &lt;a href="#" class="logo"&gt;Logo&lt;/a&gt;
+    &lt;nav class="nav"&gt;
+      &lt;ul class="nav__list"&gt;
+        &lt;li&gt;&lt;a href="#" class="nav__link active"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        ...
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Breadcrumb -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Breadcrumb</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <nav aria-label="Breadcrumb">
+                <ul class="breadcrumb">
+                  <li class="breadcrumb__item">
+                    <a href="#" class="breadcrumb__link">Home</a>
+                  </li>
+                  <li class="breadcrumb__item">
+                    <a href="#" class="breadcrumb__link">Products</a>
+                  </li>
+                  <li class="breadcrumb__item">
+                    <span class="breadcrumb__current">Category</span>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>&lt;ul class="breadcrumb"&gt;
+  &lt;li class="breadcrumb__item"&gt;
+    &lt;a href="#" class="breadcrumb__link"&gt;Home&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="breadcrumb__item"&gt;
+    &lt;span class="breadcrumb__current"&gt;Current&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           UTILITIES
+           ================================================================= -->
+      <section id="utilities" class="sg-section">
+        <h2 class="sg-section__title">Utilities</h2>
+        <p class="sg-section__description">
+          Utility classes are defined in <code>_utilities.scss</code>. These are helper classes
+          for common styling patterns.
+        </p>
+
+        <!-- Display -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Display</h3>
+          <div class="sg-example">
+            <div class="sg-example__code">
+              <pre><code>.d-none         /* display: none */
+.d-block        /* display: block */
+.d-inline       /* display: inline */
+.d-inline-block /* display: inline-block */
+.d-flex         /* display: flex */
+.d-grid         /* display: grid */
+
+/* Responsive */
+.desktop-only   /* Hidden on mobile, visible on desktop */
+.mobile-only    /* Visible on mobile, hidden on desktop */</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Text Utilities</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <p class="text-left">Left aligned text</p>
+              <p class="text-center">Center aligned text</p>
+              <p class="text-right">Right aligned text</p>
+              <p class="text-uppercase">Uppercase text</p>
+              <p class="font-bold">Bold text</p>
+              <p class="truncate" style="max-width: 200px;">This text will be truncated if too long</p>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>.text-left, .text-center, .text-right
+.text-uppercase, .text-lowercase, .text-capitalize
+.font-normal, .font-medium, .font-semibold, .font-bold
+.truncate, .line-clamp-2, .line-clamp-3</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colors -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Color Utilities</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <p class="text-primary">Primary text color</p>
+              <p class="text-secondary">Secondary text color</p>
+              <p class="text-muted">Muted text color</p>
+              <p class="text-success">Success text color</p>
+              <p class="text-error">Error text color</p>
+              <div class="bg-primary text-center p-3 rounded-lg mb-2" style="color: white;">bg-primary</div>
+              <div class="bg-light text-center p-3 rounded-lg">bg-light</div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>/* Text colors */
+.text-primary, .text-secondary, .text-muted
+.text-success, .text-warning, .text-error, .text-info
+
+/* Background colors */
+.bg-primary, .bg-secondary, .bg-light, .bg-white
+.bg-success, .bg-warning, .bg-error, .bg-info</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Border & Shadow -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Border & Shadow</h3>
+          <div class="sg-example">
+            <div class="sg-example__preview">
+              <div class="flex gap-4 flex-wrap">
+                <div class="p-4 border rounded-none">rounded-none</div>
+                <div class="p-4 border rounded-sm">rounded-sm</div>
+                <div class="p-4 border rounded-lg">rounded-lg</div>
+                <div class="p-4 border rounded-full">rounded-full</div>
+              </div>
+              <div class="flex gap-4 flex-wrap mt-4">
+                <div class="p-4 bg-white shadow-sm">shadow-sm</div>
+                <div class="p-4 bg-white shadow">shadow</div>
+                <div class="p-4 bg-white shadow-md">shadow-md</div>
+                <div class="p-4 bg-white shadow-lg">shadow-lg</div>
+              </div>
+            </div>
+            <div class="sg-example__code">
+              <pre><code>/* Border radius */
+.rounded-none, .rounded-sm, .rounded, .rounded-md
+.rounded-lg, .rounded-xl, .rounded-full
+
+/* Shadows */
+.shadow-none, .shadow-sm, .shadow, .shadow-md
+.shadow-lg, .shadow-xl</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accessibility -->
+        <div class="sg-subsection">
+          <h3 class="sg-subsection__title">Accessibility</h3>
+          <div class="sg-example">
+            <div class="sg-example__code">
+              <pre><code>/* Screen reader only */
+.visually-hidden, .sr-only
+
+/* Show on focus (for skip links) */
+.visually-hidden-focusable, .sr-only-focusable</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="section-sm border-top mt-12">
+        <p class="text-center text-muted text-small">
+          Style Guide generated for rapid development. Customize
+          <code>_variables.scss</code> to establish your project's design system.
+        </p>
+      </footer>
+
+    </div>
+  </div>
+</body>
+
+</html>
